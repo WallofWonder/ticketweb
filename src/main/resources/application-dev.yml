@@ -7,3 +7,19 @@ spring:
     url: jdbc:mysql://localhost:3306/db_movie?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: root
+    dbcp2:
+      # 获取链接时是否验证
+      test-on-borrow: false
+      # 空闲链接回收的时间间隔
+      time-between-eviction-runs-millis: 300000
+      # 空闲链接的有效时间
+      min-evictable-idle-time-millis: 1800000
+      initial-size: 5
+
+
+#Mybatis配置
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  mapper-locations:
+    - classpath:mybatis/mapper/*.xml
