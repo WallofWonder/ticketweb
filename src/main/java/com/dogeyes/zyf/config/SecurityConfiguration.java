@@ -1,4 +1,4 @@
-package com.dogeyes.zyf.ticketweb.config;
+package com.dogeyes.zyf.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

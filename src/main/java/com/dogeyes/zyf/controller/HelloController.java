@@ -1,4 +1,4 @@
-package com.dogeyes.zyf.ticketweb.controller;
+package com.dogeyes.zyf.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
