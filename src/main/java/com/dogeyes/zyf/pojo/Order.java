@@ -19,7 +19,7 @@ public class Order implements Serializable {
 
     private String sn;
 
-    private Integer status;
+    private Integer dbStatus;
 
     private Long accountId;
 
@@ -83,12 +83,12 @@ public class Order implements Serializable {
         this.sn = sn;
     }
 
-    public Integer getStatus() {
-        return status;
+    public Integer getDbStatus() {
+        return dbStatus;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setDbStatus(Integer dbStatus) {
+        this.dbStatus = dbStatus;
     }
 
     public Long getAccountId() {

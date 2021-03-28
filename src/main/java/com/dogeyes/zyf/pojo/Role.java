@@ -10,7 +10,7 @@ public class Role implements Serializable {
 
     private Date updateTime;
 
-    private String name;
+    private String dbName;
 
     private String remark;
 
@@ -42,12 +42,12 @@ public class Role implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public String getName() {
-        return name;
+    public String getDbName() {
+        return dbName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDbName(String dbName) {
+        this.dbName = dbName;
     }
 
     public String getRemark() {

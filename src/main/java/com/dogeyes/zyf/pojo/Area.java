@@ -12,7 +12,7 @@ public class Area implements Serializable {
 
     private Long cityId;
 
-    private String name;
+    private String dbName;
 
     private Long provinceId;
 
@@ -52,12 +52,12 @@ public class Area implements Serializable {
         this.cityId = cityId;
     }
 
-    public String getName() {
-        return name;
+    public String getDbName() {
+        return dbName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDbName(String dbName) {
+        this.dbName = dbName;
     }
 
     public Long getProvinceId() {

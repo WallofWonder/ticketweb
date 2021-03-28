@@ -17,7 +17,7 @@ public class Cinema implements Serializable {
 
     private String info;
 
-    private String name;
+    private String dbName;
 
     private String picture;
 
@@ -30,6 +30,10 @@ public class Cinema implements Serializable {
     private Long areaId;
 
     private Integer rateCount;
+
+    private Long provinceId;
+
+    private Long cityId;
 
     private static final long serialVersionUID = 1L;
 
@@ -81,12 +85,12 @@ public class Cinema implements Serializable {
         this.info = info;
     }
 
-    public String getName() {
-        return name;
+    public String getDbName() {
+        return dbName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDbName(String dbName) {
+        this.dbName = dbName;
     }
 
     public String getPicture() {
@@ -135,5 +139,21 @@ public class Cinema implements Serializable {
 
     public void setRateCount(Integer rateCount) {
         this.rateCount = rateCount;
+    }
+
+    public Long getProvinceId() {
+        return provinceId;
+    }
+
+    public void setProvinceId(Long provinceId) {
+        this.provinceId = provinceId;
+    }
+
+    public Long getCityId() {
+        return cityId;
+    }
+
+    public void setCityId(Long cityId) {
+        this.cityId = cityId;
     }
 }

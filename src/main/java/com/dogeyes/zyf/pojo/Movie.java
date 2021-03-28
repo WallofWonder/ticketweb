@@ -23,7 +23,7 @@ public class Movie implements Serializable {
 
     private Integer language;
 
-    private String name;
+    private String dbName;
 
     private String picture;
 
@@ -117,12 +117,12 @@ public class Movie implements Serializable {
         this.language = language;
     }
 
-    public String getName() {
-        return name;
+    public String getDbName() {
+        return dbName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDbName(String dbName) {
+        this.dbName = dbName;
     }
 
     public String getPicture() {

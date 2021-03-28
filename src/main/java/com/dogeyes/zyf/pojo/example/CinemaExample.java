@@ -496,73 +496,73 @@ public class CinemaExample {
             return (Criteria) this;
         }
 
-        public Criteria andNameIsNull() {
-            addCriterion("\"name\" is null");
+        public Criteria andDbNameIsNull() {
+            addCriterion("db_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andNameIsNotNull() {
-            addCriterion("\"name\" is not null");
+        public Criteria andDbNameIsNotNull() {
+            addCriterion("db_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andNameEqualTo(String value) {
-            addCriterion("\"name\" =", value, "name");
+        public Criteria andDbNameEqualTo(String value) {
+            addCriterion("db_name =", value, "dbName");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotEqualTo(String value) {
-            addCriterion("\"name\" <>", value, "name");
+        public Criteria andDbNameNotEqualTo(String value) {
+            addCriterion("db_name <>", value, "dbName");
             return (Criteria) this;
         }
 
-        public Criteria andNameGreaterThan(String value) {
-            addCriterion("\"name\" >", value, "name");
+        public Criteria andDbNameGreaterThan(String value) {
+            addCriterion("db_name >", value, "dbName");
             return (Criteria) this;
         }
 
-        public Criteria andNameGreaterThanOrEqualTo(String value) {
-            addCriterion("\"name\" >=", value, "name");
+        public Criteria andDbNameGreaterThanOrEqualTo(String value) {
+            addCriterion("db_name >=", value, "dbName");
             return (Criteria) this;
         }
 
-        public Criteria andNameLessThan(String value) {
-            addCriterion("\"name\" <", value, "name");
+        public Criteria andDbNameLessThan(String value) {
+            addCriterion("db_name <", value, "dbName");
             return (Criteria) this;
         }
 
-        public Criteria andNameLessThanOrEqualTo(String value) {
-            addCriterion("\"name\" <=", value, "name");
+        public Criteria andDbNameLessThanOrEqualTo(String value) {
+            addCriterion("db_name <=", value, "dbName");
             return (Criteria) this;
         }
 
-        public Criteria andNameLike(String value) {
-            addCriterion("\"name\" like", value, "name");
+        public Criteria andDbNameLike(String value) {
+            addCriterion("db_name like", value, "dbName");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotLike(String value) {
-            addCriterion("\"name\" not like", value, "name");
+        public Criteria andDbNameNotLike(String value) {
+            addCriterion("db_name not like", value, "dbName");
             return (Criteria) this;
         }
 
-        public Criteria andNameIn(List<String> values) {
-            addCriterion("\"name\" in", values, "name");
+        public Criteria andDbNameIn(List<String> values) {
+            addCriterion("db_name in", values, "dbName");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotIn(List<String> values) {
-            addCriterion("\"name\" not in", values, "name");
+        public Criteria andDbNameNotIn(List<String> values) {
+            addCriterion("db_name not in", values, "dbName");
             return (Criteria) this;
         }
 
-        public Criteria andNameBetween(String value1, String value2) {
-            addCriterion("\"name\" between", value1, value2, "name");
+        public Criteria andDbNameBetween(String value1, String value2) {
+            addCriterion("db_name between", value1, value2, "dbName");
             return (Criteria) this;
         }
 
-        public Criteria andNameNotBetween(String value1, String value2) {
-            addCriterion("\"name\" not between", value1, value2, "name");
+        public Criteria andDbNameNotBetween(String value1, String value2) {
+            addCriterion("db_name not between", value1, value2, "dbName");
             return (Criteria) this;
         }
 
@@ -953,6 +953,126 @@ public class CinemaExample {
 
         public Criteria andRateCountNotBetween(Integer value1, Integer value2) {
             addCriterion("rate_count not between", value1, value2, "rateCount");
+            return (Criteria) this;
+        }
+
+        public Criteria andProvinceIdIsNull() {
+            addCriterion("province_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andProvinceIdIsNotNull() {
+            addCriterion("province_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andProvinceIdEqualTo(Long value) {
+            addCriterion("province_id =", value, "provinceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andProvinceIdNotEqualTo(Long value) {
+            addCriterion("province_id <>", value, "provinceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andProvinceIdGreaterThan(Long value) {
+            addCriterion("province_id >", value, "provinceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andProvinceIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("province_id >=", value, "provinceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andProvinceIdLessThan(Long value) {
+            addCriterion("province_id <", value, "provinceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andProvinceIdLessThanOrEqualTo(Long value) {
+            addCriterion("province_id <=", value, "provinceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andProvinceIdIn(List<Long> values) {
+            addCriterion("province_id in", values, "provinceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andProvinceIdNotIn(List<Long> values) {
+            addCriterion("province_id not in", values, "provinceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andProvinceIdBetween(Long value1, Long value2) {
+            addCriterion("province_id between", value1, value2, "provinceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andProvinceIdNotBetween(Long value1, Long value2) {
+            addCriterion("province_id not between", value1, value2, "provinceId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCityIdIsNull() {
+            addCriterion("city_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCityIdIsNotNull() {
+            addCriterion("city_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCityIdEqualTo(Long value) {
+            addCriterion("city_id =", value, "cityId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCityIdNotEqualTo(Long value) {
+            addCriterion("city_id <>", value, "cityId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCityIdGreaterThan(Long value) {
+            addCriterion("city_id >", value, "cityId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCityIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("city_id >=", value, "cityId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCityIdLessThan(Long value) {
+            addCriterion("city_id <", value, "cityId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCityIdLessThanOrEqualTo(Long value) {
+            addCriterion("city_id <=", value, "cityId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCityIdIn(List<Long> values) {
+            addCriterion("city_id in", values, "cityId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCityIdNotIn(List<Long> values) {
+            addCriterion("city_id not in", values, "cityId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCityIdBetween(Long value1, Long value2) {
+            addCriterion("city_id between", value1, value2, "cityId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCityIdNotBetween(Long value1, Long value2) {
+            addCriterion("city_id not between", value1, value2, "cityId");
             return (Criteria) this;
         }
     }

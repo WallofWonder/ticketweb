@@ -14,7 +14,7 @@ public class CinemaHall implements Serializable {
 
     private Integer maxY;
 
-    private String name;
+    private String dbName;
 
     private Long cinemaId;
 
@@ -60,12 +60,12 @@ public class CinemaHall implements Serializable {
         this.maxY = maxY;
     }
 
-    public String getName() {
-        return name;
+    public String getDbName() {
+        return dbName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDbName(String dbName) {
+        this.dbName = dbName;
     }
 
     public Long getCinemaId() {
