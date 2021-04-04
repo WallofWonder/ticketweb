@@ -1,6 +1,7 @@
 package com.dogeyes.zyf.controller.admin;
 
 import com.dogeyes.zyf.resource.PageParamResource;
+import com.dogeyes.zyf.resource.ResponseResource;
 import com.dogeyes.zyf.service.AreaService;
 import com.dogeyes.zyf.util.BindingResultUtil;
 import com.dogeyes.zyf.util.JsonResult;
@@ -29,6 +30,6 @@ public class AreaController {
         if (bindingResult.hasErrors()) {
             return JsonResult.unprocessableEntity("error in validating", BindingResultUtil.getErrorList(bindingResult));
         }
-        return JsonResult.ok(areaService.listProvince(page));
+        return new ResponseResource(JsonResult.ok(areaService.listProvince(page)),20000);
     }
 }
