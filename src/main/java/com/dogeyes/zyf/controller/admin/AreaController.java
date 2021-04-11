@@ -32,4 +32,12 @@ public class AreaController {
         }
         return new ResponseResource(JsonResult.ok(areaService.listProvince(page)),20000);
     }
+
+    @GetMapping("list")
+    public Object listAll(PageParamResource page, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return JsonResult.unprocessableEntity("error in validating", BindingResultUtil.getErrorList(bindingResult));
+        }
+        return new ResponseResource(JsonResult.ok(areaService.listAll(page)), 20000);
+    }
 }

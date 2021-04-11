@@ -1,8 +1,10 @@
 package com.dogeyes.zyf.service.impl;
 
 import com.dogeyes.zyf.mapper.AreaMapper;
+import com.dogeyes.zyf.mapper.CustomAreaMapper;
 import com.dogeyes.zyf.pojo.Area;
 import com.dogeyes.zyf.pojo.example.AreaExample;
+import com.dogeyes.zyf.resource.AreaListResource;
 import com.dogeyes.zyf.resource.AreaResource;
 import com.dogeyes.zyf.resource.PageParamResource;
 import com.dogeyes.zyf.service.AreaService;
@@ -25,6 +27,9 @@ public class AreaServiceImpl implements AreaService {
     @Resource
     AreaMapper areaMapper;
 
+    @Resource
+    CustomAreaMapper customAreaMapper;
+
     @Override
     public PageInfo<List<Area>> listProvince(PageParamResource page) {
         AreaExample areaExample = new AreaExample();
@@ -44,5 +49,12 @@ public class AreaServiceImpl implements AreaService {
     @Override
     public PageInfo<List<Area>> listAreaByCity(PageParamResource page, Long cityId) {
         return null;
+    }
+
+    @Override
+    public PageInfo<List<AreaListResource>> listAll(PageParamResource page) {
+        PageSortHelper.pageAndSort(page, AreaResource.class);
+        List<AreaListResource> areas = customAreaMapper.listAll();
+        return new PageInfo(areas);
     }
 }
