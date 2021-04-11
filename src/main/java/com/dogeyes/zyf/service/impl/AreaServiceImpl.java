@@ -3,10 +3,7 @@ package com.dogeyes.zyf.service.impl;
 import com.dogeyes.zyf.mapper.AreaMapper;
 import com.dogeyes.zyf.mapper.CustomAreaMapper;
 import com.dogeyes.zyf.pojo.Area;
-import com.dogeyes.zyf.pojo.example.AreaExample;
-import com.dogeyes.zyf.resource.AreaListResource;
-import com.dogeyes.zyf.resource.AreaResource;
-import com.dogeyes.zyf.resource.PageParamResource;
+import com.dogeyes.zyf.resource.*;
 import com.dogeyes.zyf.service.AreaService;
 import com.dogeyes.zyf.util.PageSortHelper;
 import com.github.pagehelper.PageInfo;
@@ -31,14 +28,13 @@ public class AreaServiceImpl implements AreaService {
     CustomAreaMapper customAreaMapper;
 
     @Override
-    public PageInfo<List<Area>> listProvince(PageParamResource page) {
-        AreaExample areaExample = new AreaExample();
-        AreaExample.Criteria criteria = areaExample.createCriteria();
-        criteria.andProvinceIdEqualTo(0L);
+    public List<ProvinceSelectResource> selectProvinces(PageParamResource page) {
+        return customAreaMapper.selectProvinces();
+    }
 
-        PageSortHelper.pageAndSort(page, AreaResource.class);
-        List<Area> areas = areaMapper.selectByExample(areaExample);
-        return new PageInfo(areas);
+    @Override
+    public List<CitySelectProvince>selectCities(PageParamResource page) {
+        return customAreaMapper.selectCities();
     }
 
     @Override
@@ -53,7 +49,7 @@ public class AreaServiceImpl implements AreaService {
 
     @Override
     public PageInfo<List<AreaListResource>> listAll(PageParamResource page) {
-        PageSortHelper.pageAndSort(page, AreaResource.class);
+        PageSortHelper.pageAndSort(page, AreaListResource.class);
         List<AreaListResource> areas = customAreaMapper.listAll();
         return new PageInfo(areas);
     }

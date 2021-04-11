@@ -2,32 +2,41 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dogeyes.zyf.mapper.CustomAreaMapper">
     <resultMap id="BaseResultMap" type="com.dogeyes.zyf.resource.AreaListResource">
-        <id column="id" jdbcType="BIGINT" property="id" />
-        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-        <result column="city_id" jdbcType="BIGINT" property="cityId" />
-        <result column="city_name" jdbcType="VARCHAR" property="cityName" />
-        <result column="db_name" jdbcType="VARCHAR" property="dbName" />
-        <result column="province_id" jdbcType="BIGINT" property="provinceId" />
-        <result column="province_name" jdbcType="VARCHAR" property="provinceName" />
-        <result column="is_show" jdbcType="BIT" property="isShow" />
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="city_id" jdbcType="BIGINT" property="cityId"/>
+        <result column="city_name" jdbcType="VARCHAR" property="cityName"/>
+        <result column="db_name" jdbcType="VARCHAR" property="dbName"/>
+        <result column="province_id" jdbcType="BIGINT" property="provinceId"/>
+        <result column="province_name" jdbcType="VARCHAR" property="provinceName"/>
+        <result column="is_show" jdbcType="BIT" property="isShow"/>
     </resultMap>
     <select id="listAll" resultType="com.dogeyes.zyf.resource.AreaListResource">
-        SELECT
-            a1.id,
-            a1.create_time,
-            a1.update_time,
-            a1.city_id,
-            a2.db_name AS city_name,
-            a1.db_name,
-            a1.province_id,
-            a3.db_name AS province_name
-        FROM
-            area a1,
-            area a2,
-            area a3
-        WHERE
-            a1.city_id = a2.id
+        SELECT a1.id,
+               a1.create_time,
+               a1.update_time,
+               a1.city_id,
+               a2.db_name AS city_name,
+               a1.db_name,
+               a1.province_id,
+               a3.db_name AS province_name
+        FROM area a1,
+             area a2,
+             area a3
+        WHERE a1.city_id = a2.id
           AND a1.province_id = a3.id
+    </select>
+    <select id="selectProvinces" resultType="com.dogeyes.zyf.resource.ProvinceSelectResource">
+        SELECT id,
+               db_name
+        FROM area
+        WHERE province_id = 0
+    </select>
+    <select id="selectCities" resultType="com.dogeyes.zyf.resource.CitySelectProvince">
+        SELECT id,
+               db_name
+        FROM area
+        WHERE city_id = 0
     </select>
 </mapper>

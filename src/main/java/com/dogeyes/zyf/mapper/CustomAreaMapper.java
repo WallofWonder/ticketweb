@@ -1,7 +1,8 @@
 package com.dogeyes.zyf.mapper;
 
 import com.dogeyes.zyf.resource.AreaListResource;
-import org.apache.ibatis.annotations.Param;
+import com.dogeyes.zyf.resource.CitySelectProvince;
+import com.dogeyes.zyf.resource.ProvinceSelectResource;
 
 import java.util.List;
 
@@ -11,4 +12,6 @@ import java.util.List;
  */
 public interface CustomAreaMapper {
     List<AreaListResource> listAll();
+    List<ProvinceSelectResource> selectProvinces();
+    List<CitySelectProvince> selectCities();
 }

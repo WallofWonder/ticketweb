@@ -2,7 +2,9 @@ package com.dogeyes.zyf.service;
 
 import com.dogeyes.zyf.pojo.Area;
 import com.dogeyes.zyf.resource.AreaListResource;
+import com.dogeyes.zyf.resource.CitySelectProvince;
 import com.dogeyes.zyf.resource.PageParamResource;
+import com.dogeyes.zyf.resource.ProvinceSelectResource;
 import com.github.pagehelper.PageInfo;
 
 import java.util.List;
@@ -14,16 +16,23 @@ import java.util.List;
 public interface AreaService {
 
     /**
-     * 获取省份列表
+     * 获取级联选择器-所有省份选项
      *
      * @param page 分页参数
-     * @return 省份列表
+     * @return 所有省份选项
      */
-    PageInfo<List<Area>> listProvince(PageParamResource page);
+    List<ProvinceSelectResource> selectProvinces(PageParamResource page);
 
 
     /**
-     * 获取城市列表
+     * 获取级联选择器-所有城市选项
+     * @param page 分页参数
+     * @return 城市选项
+     */
+    List<CitySelectProvince> selectCities(PageParamResource page);
+
+    /**
+     * 按照省份获取城市列表
      *
      * @param page 分页参数
      * @return 地域列表
@@ -31,7 +40,7 @@ public interface AreaService {
     PageInfo<List<Area>> listCityByProvince(PageParamResource page, Long provinceId);
 
     /**
-     * 获取区划列表
+     * 按照城市获取区划列表
      *
      * @param page 分页参数
      * @return 区划列表
