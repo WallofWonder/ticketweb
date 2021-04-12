@@ -73,7 +73,7 @@
   <sql id="Base_Column_List">
     id, create_time, update_time, "abs", content, picture, title, view_num, news_category_id
   </sql>
-  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.example.NewsExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.NewsExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -89,7 +89,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select
+    select 
     <include refid="Base_Column_List" />
     from news
     where id = #{id,jdbcType=BIGINT}
@@ -98,18 +98,18 @@
     delete from news
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.example.NewsExample">
+  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.NewsExample">
     delete from news
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.News" useGeneratedKeys="true">
-    insert into news (create_time, update_time, "abs",
-      content, picture, title,
+    insert into news (create_time, update_time, "abs", 
+      content, picture, title, 
       view_num, news_category_id)
-    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{abs,jdbcType=VARCHAR},
-      #{content,jdbcType=VARCHAR}, #{picture,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR},
+    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{abs,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR}, #{picture,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
       #{viewNum,jdbcType=INTEGER}, #{newsCategoryId,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.News" useGeneratedKeys="true">
@@ -167,7 +167,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.example.NewsExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.NewsExample" resultType="java.lang.Long">
     select count(*) from news
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

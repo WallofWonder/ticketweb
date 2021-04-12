@@ -73,10 +73,10 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, create_time, update_time, email, head_pic, mobile, "password", sex, "status",
+    id, create_time, update_time, email, head_pic, mobile, "password", sex, "status", 
     username, role_id
   </sql>
-  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.example.UserExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.UserExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -92,7 +92,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select
+    select 
     <include refid="Base_Column_List" />
     from user
     where id = #{id,jdbcType=BIGINT}
@@ -101,20 +101,20 @@
     delete from user
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.example.UserExample">
+  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.UserExample">
     delete from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.User" useGeneratedKeys="true">
-    insert into user (create_time, update_time, email,
-      head_pic, mobile, "password",
-      sex, "status", username,
+    insert into user (create_time, update_time, email, 
+      head_pic, mobile, "password", 
+      sex, "status", username, 
       role_id)
-    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{email,jdbcType=VARCHAR},
-      #{headPic,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
-      #{sex,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR},
+    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{email,jdbcType=VARCHAR}, 
+      #{headPic,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, 
       #{roleId,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.User" useGeneratedKeys="true">
@@ -184,7 +184,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.example.UserExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.UserExample" resultType="java.lang.Long">
     select count(*) from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

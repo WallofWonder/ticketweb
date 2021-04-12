@@ -1,7 +1,7 @@
 package com.dogeyes.zyf.mapper;
 
 import com.dogeyes.zyf.pojo.OrderItem;
-import com.dogeyes.zyf.pojo.example.OrderItemExample;
+import com.dogeyes.zyf.pojo.OrderItemExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

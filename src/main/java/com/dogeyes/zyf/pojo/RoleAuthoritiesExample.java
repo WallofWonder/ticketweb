@@ -1,4 +1,4 @@
-package com.dogeyes.zyf.pojo.example;
+package com.dogeyes.zyf.pojo;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,17 +1,17 @@
-package com.dogeyes.zyf.pojo.example;
+package com.dogeyes.zyf.pojo;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class AreaExample {
+public class CinemaHallExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public AreaExample() {
+    public CinemaHallExample() {
         oredCriteria = new ArrayList<>();
     }
 
@@ -285,63 +285,123 @@ public class AreaExample {
             return (Criteria) this;
         }
 
-        public Criteria andCityIdIsNull() {
-            addCriterion("city_id is null");
+        public Criteria andMaxXIsNull() {
+            addCriterion("max_x is null");
             return (Criteria) this;
         }
 
-        public Criteria andCityIdIsNotNull() {
-            addCriterion("city_id is not null");
+        public Criteria andMaxXIsNotNull() {
+            addCriterion("max_x is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCityIdEqualTo(Long value) {
-            addCriterion("city_id =", value, "cityId");
+        public Criteria andMaxXEqualTo(Integer value) {
+            addCriterion("max_x =", value, "maxX");
             return (Criteria) this;
         }
 
-        public Criteria andCityIdNotEqualTo(Long value) {
-            addCriterion("city_id <>", value, "cityId");
+        public Criteria andMaxXNotEqualTo(Integer value) {
+            addCriterion("max_x <>", value, "maxX");
             return (Criteria) this;
         }
 
-        public Criteria andCityIdGreaterThan(Long value) {
-            addCriterion("city_id >", value, "cityId");
+        public Criteria andMaxXGreaterThan(Integer value) {
+            addCriterion("max_x >", value, "maxX");
             return (Criteria) this;
         }
 
-        public Criteria andCityIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("city_id >=", value, "cityId");
+        public Criteria andMaxXGreaterThanOrEqualTo(Integer value) {
+            addCriterion("max_x >=", value, "maxX");
             return (Criteria) this;
         }
 
-        public Criteria andCityIdLessThan(Long value) {
-            addCriterion("city_id <", value, "cityId");
+        public Criteria andMaxXLessThan(Integer value) {
+            addCriterion("max_x <", value, "maxX");
             return (Criteria) this;
         }
 
-        public Criteria andCityIdLessThanOrEqualTo(Long value) {
-            addCriterion("city_id <=", value, "cityId");
+        public Criteria andMaxXLessThanOrEqualTo(Integer value) {
+            addCriterion("max_x <=", value, "maxX");
             return (Criteria) this;
         }
 
-        public Criteria andCityIdIn(List<Long> values) {
-            addCriterion("city_id in", values, "cityId");
+        public Criteria andMaxXIn(List<Integer> values) {
+            addCriterion("max_x in", values, "maxX");
             return (Criteria) this;
         }
 
-        public Criteria andCityIdNotIn(List<Long> values) {
-            addCriterion("city_id not in", values, "cityId");
+        public Criteria andMaxXNotIn(List<Integer> values) {
+            addCriterion("max_x not in", values, "maxX");
             return (Criteria) this;
         }
 
-        public Criteria andCityIdBetween(Long value1, Long value2) {
-            addCriterion("city_id between", value1, value2, "cityId");
+        public Criteria andMaxXBetween(Integer value1, Integer value2) {
+            addCriterion("max_x between", value1, value2, "maxX");
             return (Criteria) this;
         }
 
-        public Criteria andCityIdNotBetween(Long value1, Long value2) {
-            addCriterion("city_id not between", value1, value2, "cityId");
+        public Criteria andMaxXNotBetween(Integer value1, Integer value2) {
+            addCriterion("max_x not between", value1, value2, "maxX");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxYIsNull() {
+            addCriterion("max_y is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxYIsNotNull() {
+            addCriterion("max_y is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxYEqualTo(Integer value) {
+            addCriterion("max_y =", value, "maxY");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxYNotEqualTo(Integer value) {
+            addCriterion("max_y <>", value, "maxY");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxYGreaterThan(Integer value) {
+            addCriterion("max_y >", value, "maxY");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxYGreaterThanOrEqualTo(Integer value) {
+            addCriterion("max_y >=", value, "maxY");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxYLessThan(Integer value) {
+            addCriterion("max_y <", value, "maxY");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxYLessThanOrEqualTo(Integer value) {
+            addCriterion("max_y <=", value, "maxY");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxYIn(List<Integer> values) {
+            addCriterion("max_y in", values, "maxY");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxYNotIn(List<Integer> values) {
+            addCriterion("max_y not in", values, "maxY");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxYBetween(Integer value1, Integer value2) {
+            addCriterion("max_y between", value1, value2, "maxY");
+            return (Criteria) this;
+        }
+
+        public Criteria andMaxYNotBetween(Integer value1, Integer value2) {
+            addCriterion("max_y not between", value1, value2, "maxY");
             return (Criteria) this;
         }
 
@@ -415,123 +475,63 @@ public class AreaExample {
             return (Criteria) this;
         }
 
-        public Criteria andProvinceIdIsNull() {
-            addCriterion("province_id is null");
+        public Criteria andCinemaIdIsNull() {
+            addCriterion("cinema_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andProvinceIdIsNotNull() {
-            addCriterion("province_id is not null");
+        public Criteria andCinemaIdIsNotNull() {
+            addCriterion("cinema_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andProvinceIdEqualTo(Long value) {
-            addCriterion("province_id =", value, "provinceId");
+        public Criteria andCinemaIdEqualTo(Long value) {
+            addCriterion("cinema_id =", value, "cinemaId");
             return (Criteria) this;
         }
 
-        public Criteria andProvinceIdNotEqualTo(Long value) {
-            addCriterion("province_id <>", value, "provinceId");
+        public Criteria andCinemaIdNotEqualTo(Long value) {
+            addCriterion("cinema_id <>", value, "cinemaId");
             return (Criteria) this;
         }
 
-        public Criteria andProvinceIdGreaterThan(Long value) {
-            addCriterion("province_id >", value, "provinceId");
+        public Criteria andCinemaIdGreaterThan(Long value) {
+            addCriterion("cinema_id >", value, "cinemaId");
             return (Criteria) this;
         }
 
-        public Criteria andProvinceIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("province_id >=", value, "provinceId");
+        public Criteria andCinemaIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("cinema_id >=", value, "cinemaId");
             return (Criteria) this;
         }
 
-        public Criteria andProvinceIdLessThan(Long value) {
-            addCriterion("province_id <", value, "provinceId");
+        public Criteria andCinemaIdLessThan(Long value) {
+            addCriterion("cinema_id <", value, "cinemaId");
             return (Criteria) this;
         }
 
-        public Criteria andProvinceIdLessThanOrEqualTo(Long value) {
-            addCriterion("province_id <=", value, "provinceId");
+        public Criteria andCinemaIdLessThanOrEqualTo(Long value) {
+            addCriterion("cinema_id <=", value, "cinemaId");
             return (Criteria) this;
         }
 
-        public Criteria andProvinceIdIn(List<Long> values) {
-            addCriterion("province_id in", values, "provinceId");
+        public Criteria andCinemaIdIn(List<Long> values) {
+            addCriterion("cinema_id in", values, "cinemaId");
             return (Criteria) this;
         }
 
-        public Criteria andProvinceIdNotIn(List<Long> values) {
-            addCriterion("province_id not in", values, "provinceId");
+        public Criteria andCinemaIdNotIn(List<Long> values) {
+            addCriterion("cinema_id not in", values, "cinemaId");
             return (Criteria) this;
         }
 
-        public Criteria andProvinceIdBetween(Long value1, Long value2) {
-            addCriterion("province_id between", value1, value2, "provinceId");
+        public Criteria andCinemaIdBetween(Long value1, Long value2) {
+            addCriterion("cinema_id between", value1, value2, "cinemaId");
             return (Criteria) this;
         }
 
-        public Criteria andProvinceIdNotBetween(Long value1, Long value2) {
-            addCriterion("province_id not between", value1, value2, "provinceId");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsShowIsNull() {
-            addCriterion("is_show is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsShowIsNotNull() {
-            addCriterion("is_show is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsShowEqualTo(Boolean value) {
-            addCriterion("is_show =", value, "isShow");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsShowNotEqualTo(Boolean value) {
-            addCriterion("is_show <>", value, "isShow");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsShowGreaterThan(Boolean value) {
-            addCriterion("is_show >", value, "isShow");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsShowGreaterThanOrEqualTo(Boolean value) {
-            addCriterion("is_show >=", value, "isShow");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsShowLessThan(Boolean value) {
-            addCriterion("is_show <", value, "isShow");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsShowLessThanOrEqualTo(Boolean value) {
-            addCriterion("is_show <=", value, "isShow");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsShowIn(List<Boolean> values) {
-            addCriterion("is_show in", values, "isShow");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsShowNotIn(List<Boolean> values) {
-            addCriterion("is_show not in", values, "isShow");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsShowBetween(Boolean value1, Boolean value2) {
-            addCriterion("is_show between", value1, value2, "isShow");
-            return (Criteria) this;
-        }
-
-        public Criteria andIsShowNotBetween(Boolean value1, Boolean value2) {
-            addCriterion("is_show not between", value1, value2, "isShow");
+        public Criteria andCinemaIdNotBetween(Long value1, Long value2) {
+            addCriterion("cinema_id not between", value1, value2, "cinemaId");
             return (Criteria) this;
         }
     }

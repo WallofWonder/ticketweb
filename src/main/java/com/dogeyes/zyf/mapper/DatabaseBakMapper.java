@@ -1,7 +1,7 @@
 package com.dogeyes.zyf.mapper;
 
 import com.dogeyes.zyf.pojo.DatabaseBak;
-import com.dogeyes.zyf.pojo.example.DatabaseBakExample;
+import com.dogeyes.zyf.pojo.DatabaseBakExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

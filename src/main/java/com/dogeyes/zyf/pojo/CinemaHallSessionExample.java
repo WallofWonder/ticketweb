@@ -1,4 +1,4 @@
-package com.dogeyes.zyf.pojo.example;
+package com.dogeyes.zyf.pojo;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

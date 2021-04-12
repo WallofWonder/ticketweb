@@ -70,7 +70,7 @@
   <sql id="Base_Column_List">
     id, create_time, update_time, db_name, remark, "status"
   </sql>
-  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.example.RoleExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.RoleExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -86,7 +86,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select
+    select 
     <include refid="Base_Column_List" />
     from role
     where id = #{id,jdbcType=BIGINT}
@@ -95,16 +95,16 @@
     delete from role
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.example.RoleExample">
+  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.RoleExample">
     delete from role
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Role" useGeneratedKeys="true">
-    insert into role (create_time, update_time, db_name,
+    insert into role (create_time, update_time, db_name, 
       remark, "status")
-    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{dbName,jdbcType=VARCHAR},
+    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{dbName,jdbcType=VARCHAR}, 
       #{remark,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Role" useGeneratedKeys="true">
@@ -144,7 +144,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.example.RoleExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.RoleExample" resultType="java.lang.Long">
     select count(*) from role
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

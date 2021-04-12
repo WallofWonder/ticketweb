@@ -6,7 +6,7 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="actor" jdbcType="VARCHAR" property="actor" />
-    <result column="area" jdbcType="INTEGER" property="area" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
     <result column="directed_by" jdbcType="VARCHAR" property="directedBy" />
     <result column="info" jdbcType="VARCHAR" property="info" />
     <result column="language" jdbcType="VARCHAR" property="language" />
@@ -79,10 +79,10 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, create_time, update_time, actor, area, directed_by, info, "language", db_name,
+    id, create_time, update_time, actor, area, directed_by, info, "language", db_name, 
     picture, rate, show_time, "time", total_money, "type", video, is_show
   </sql>
-  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.example.MovieExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.MovieExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -98,7 +98,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select
+    select 
     <include refid="Base_Column_List" />
     from movie
     where id = #{id,jdbcType=BIGINT}
@@ -107,24 +107,24 @@
     delete from movie
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.example.MovieExample">
+  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.MovieExample">
     delete from movie
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Movie" useGeneratedKeys="true">
-    insert into movie (create_time, update_time, actor,
-      area, directed_by, info,
-      "language", db_name, picture,
-      rate, show_time, "time",
-      total_money, "type", video,
+    insert into movie (create_time, update_time, actor, 
+      area, directed_by, info, 
+      "language", db_name, picture, 
+      rate, show_time, "time", 
+      total_money, "type", video, 
       is_show)
-    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{actor,jdbcType=VARCHAR},
-      #{area,jdbcType=INTEGER}, #{directedBy,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR},
-      #{language,jdbcType=VARCHAR}, #{dbName,jdbcType=VARCHAR}, #{picture,jdbcType=VARCHAR},
-      #{rate,jdbcType=DECIMAL}, #{showTime,jdbcType=TIMESTAMP}, #{time,jdbcType=INTEGER},
-      #{totalMoney,jdbcType=DECIMAL}, #{type,jdbcType=VARCHAR}, #{video,jdbcType=VARCHAR},
+    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{actor,jdbcType=VARCHAR}, 
+      #{area,jdbcType=VARCHAR}, #{directedBy,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR}, 
+      #{language,jdbcType=VARCHAR}, #{dbName,jdbcType=VARCHAR}, #{picture,jdbcType=VARCHAR}, 
+      #{rate,jdbcType=DECIMAL}, #{showTime,jdbcType=TIMESTAMP}, #{time,jdbcType=INTEGER}, 
+      #{totalMoney,jdbcType=DECIMAL}, #{type,jdbcType=VARCHAR}, #{video,jdbcType=VARCHAR}, 
       #{isShow,jdbcType=BIT})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Movie" useGeneratedKeys="true">
@@ -190,7 +190,7 @@
         #{actor,jdbcType=VARCHAR},
       </if>
       <if test="area != null">
-        #{area,jdbcType=INTEGER},
+        #{area,jdbcType=VARCHAR},
       </if>
       <if test="directedBy != null">
         #{directedBy,jdbcType=VARCHAR},
@@ -230,7 +230,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.example.MovieExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.MovieExample" resultType="java.lang.Long">
     select count(*) from movie
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -252,7 +252,7 @@
         actor = #{record.actor,jdbcType=VARCHAR},
       </if>
       <if test="record.area != null">
-        area = #{record.area,jdbcType=INTEGER},
+        area = #{record.area,jdbcType=VARCHAR},
       </if>
       <if test="record.directedBy != null">
         directed_by = #{record.directedBy,jdbcType=VARCHAR},
@@ -301,7 +301,7 @@
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       actor = #{record.actor,jdbcType=VARCHAR},
-      area = #{record.area,jdbcType=INTEGER},
+      area = #{record.area,jdbcType=VARCHAR},
       directed_by = #{record.directedBy,jdbcType=VARCHAR},
       info = #{record.info,jdbcType=VARCHAR},
       "language" = #{record.language,jdbcType=VARCHAR},
@@ -331,7 +331,7 @@
         actor = #{actor,jdbcType=VARCHAR},
       </if>
       <if test="area != null">
-        area = #{area,jdbcType=INTEGER},
+        area = #{area,jdbcType=VARCHAR},
       </if>
       <if test="directedBy != null">
         directed_by = #{directedBy,jdbcType=VARCHAR},
@@ -377,7 +377,7 @@
     set create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       actor = #{actor,jdbcType=VARCHAR},
-      area = #{area,jdbcType=INTEGER},
+      area = #{area,jdbcType=VARCHAR},
       directed_by = #{directedBy,jdbcType=VARCHAR},
       info = #{info,jdbcType=VARCHAR},
       "language" = #{language,jdbcType=VARCHAR},

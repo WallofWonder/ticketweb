@@ -70,7 +70,7 @@
   <sql id="Base_Column_List">
     id, create_time, update_time, money, cinema_hall_seat_id, order_id
   </sql>
-  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.example.OrderItemExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.OrderItemExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -86,7 +86,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select
+    select 
     <include refid="Base_Column_List" />
     from order_item
     where id = #{id,jdbcType=BIGINT}
@@ -95,16 +95,16 @@
     delete from order_item
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.example.OrderItemExample">
+  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.OrderItemExample">
     delete from order_item
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.OrderItem" useGeneratedKeys="true">
-    insert into order_item (create_time, update_time, money,
+    insert into order_item (create_time, update_time, money, 
       cinema_hall_seat_id, order_id)
-    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{money,jdbcType=DECIMAL},
+    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{money,jdbcType=DECIMAL}, 
       #{cinemaHallSeatId,jdbcType=BIGINT}, #{orderId,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.OrderItem" useGeneratedKeys="true">
@@ -144,7 +144,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.example.OrderItemExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.OrderItemExample" resultType="java.lang.Long">
     select count(*) from order_item
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

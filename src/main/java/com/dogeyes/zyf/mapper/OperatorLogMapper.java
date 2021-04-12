@@ -1,7 +1,7 @@
 package com.dogeyes.zyf.mapper;
 
 import com.dogeyes.zyf.pojo.OperatorLog;
-import com.dogeyes.zyf.pojo.example.OperatorLogExample;
+import com.dogeyes.zyf.pojo.OperatorLogExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

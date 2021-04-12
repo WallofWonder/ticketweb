@@ -74,7 +74,7 @@
   <sql id="Base_Column_List">
     id, create_time, update_time, db_name, url, icon, sort, parent_id, is_bitton, is_show
   </sql>
-  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.example.MenuExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.MenuExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -90,7 +90,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select
+    select 
     <include refid="Base_Column_List" />
     from menu
     where id = #{id,jdbcType=BIGINT}
@@ -99,18 +99,18 @@
     delete from menu
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.example.MenuExample">
+  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.MenuExample">
     delete from menu
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Menu" useGeneratedKeys="true">
-    insert into menu (create_time, update_time, db_name,
-      url, icon, sort, parent_id,
+    insert into menu (create_time, update_time, db_name, 
+      url, icon, sort, parent_id, 
       is_bitton, is_show)
-    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{dbName,jdbcType=VARCHAR},
-      #{url,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{parentId,jdbcType=BIGINT},
+    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{dbName,jdbcType=VARCHAR}, 
+      #{url,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{parentId,jdbcType=BIGINT}, 
       #{isBitton,jdbcType=BIT}, #{isShow,jdbcType=BIT})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Menu" useGeneratedKeys="true">
@@ -174,7 +174,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.example.MenuExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.MenuExample" resultType="java.lang.Long">
     select count(*) from menu
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

@@ -1,17 +1,18 @@
-package com.dogeyes.zyf.pojo.example;
+package com.dogeyes.zyf.pojo;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class CinemaHallExample {
+public class MovieCommentExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public CinemaHallExample() {
+    public MovieCommentExample() {
         oredCriteria = new ArrayList<>();
     }
 
@@ -285,253 +286,253 @@ public class CinemaHallExample {
             return (Criteria) this;
         }
 
-        public Criteria andMaxXIsNull() {
-            addCriterion("max_x is null");
+        public Criteria andContentIsNull() {
+            addCriterion("content is null");
             return (Criteria) this;
         }
 
-        public Criteria andMaxXIsNotNull() {
-            addCriterion("max_x is not null");
+        public Criteria andContentIsNotNull() {
+            addCriterion("content is not null");
             return (Criteria) this;
         }
 
-        public Criteria andMaxXEqualTo(Integer value) {
-            addCriterion("max_x =", value, "maxX");
+        public Criteria andContentEqualTo(String value) {
+            addCriterion("content =", value, "content");
             return (Criteria) this;
         }
 
-        public Criteria andMaxXNotEqualTo(Integer value) {
-            addCriterion("max_x <>", value, "maxX");
+        public Criteria andContentNotEqualTo(String value) {
+            addCriterion("content <>", value, "content");
             return (Criteria) this;
         }
 
-        public Criteria andMaxXGreaterThan(Integer value) {
-            addCriterion("max_x >", value, "maxX");
+        public Criteria andContentGreaterThan(String value) {
+            addCriterion("content >", value, "content");
             return (Criteria) this;
         }
 
-        public Criteria andMaxXGreaterThanOrEqualTo(Integer value) {
-            addCriterion("max_x >=", value, "maxX");
+        public Criteria andContentGreaterThanOrEqualTo(String value) {
+            addCriterion("content >=", value, "content");
             return (Criteria) this;
         }
 
-        public Criteria andMaxXLessThan(Integer value) {
-            addCriterion("max_x <", value, "maxX");
+        public Criteria andContentLessThan(String value) {
+            addCriterion("content <", value, "content");
             return (Criteria) this;
         }
 
-        public Criteria andMaxXLessThanOrEqualTo(Integer value) {
-            addCriterion("max_x <=", value, "maxX");
+        public Criteria andContentLessThanOrEqualTo(String value) {
+            addCriterion("content <=", value, "content");
             return (Criteria) this;
         }
 
-        public Criteria andMaxXIn(List<Integer> values) {
-            addCriterion("max_x in", values, "maxX");
+        public Criteria andContentLike(String value) {
+            addCriterion("content like", value, "content");
             return (Criteria) this;
         }
 
-        public Criteria andMaxXNotIn(List<Integer> values) {
-            addCriterion("max_x not in", values, "maxX");
+        public Criteria andContentNotLike(String value) {
+            addCriterion("content not like", value, "content");
             return (Criteria) this;
         }
 
-        public Criteria andMaxXBetween(Integer value1, Integer value2) {
-            addCriterion("max_x between", value1, value2, "maxX");
+        public Criteria andContentIn(List<String> values) {
+            addCriterion("content in", values, "content");
             return (Criteria) this;
         }
 
-        public Criteria andMaxXNotBetween(Integer value1, Integer value2) {
-            addCriterion("max_x not between", value1, value2, "maxX");
+        public Criteria andContentNotIn(List<String> values) {
+            addCriterion("content not in", values, "content");
             return (Criteria) this;
         }
 
-        public Criteria andMaxYIsNull() {
-            addCriterion("max_y is null");
+        public Criteria andContentBetween(String value1, String value2) {
+            addCriterion("content between", value1, value2, "content");
             return (Criteria) this;
         }
 
-        public Criteria andMaxYIsNotNull() {
-            addCriterion("max_y is not null");
+        public Criteria andContentNotBetween(String value1, String value2) {
+            addCriterion("content not between", value1, value2, "content");
             return (Criteria) this;
         }
 
-        public Criteria andMaxYEqualTo(Integer value) {
-            addCriterion("max_y =", value, "maxY");
+        public Criteria andRateIsNull() {
+            addCriterion("rate is null");
             return (Criteria) this;
         }
 
-        public Criteria andMaxYNotEqualTo(Integer value) {
-            addCriterion("max_y <>", value, "maxY");
+        public Criteria andRateIsNotNull() {
+            addCriterion("rate is not null");
             return (Criteria) this;
         }
 
-        public Criteria andMaxYGreaterThan(Integer value) {
-            addCriterion("max_y >", value, "maxY");
+        public Criteria andRateEqualTo(BigDecimal value) {
+            addCriterion("rate =", value, "rate");
             return (Criteria) this;
         }
 
-        public Criteria andMaxYGreaterThanOrEqualTo(Integer value) {
-            addCriterion("max_y >=", value, "maxY");
+        public Criteria andRateNotEqualTo(BigDecimal value) {
+            addCriterion("rate <>", value, "rate");
             return (Criteria) this;
         }
 
-        public Criteria andMaxYLessThan(Integer value) {
-            addCriterion("max_y <", value, "maxY");
+        public Criteria andRateGreaterThan(BigDecimal value) {
+            addCriterion("rate >", value, "rate");
             return (Criteria) this;
         }
 
-        public Criteria andMaxYLessThanOrEqualTo(Integer value) {
-            addCriterion("max_y <=", value, "maxY");
+        public Criteria andRateGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("rate >=", value, "rate");
             return (Criteria) this;
         }
 
-        public Criteria andMaxYIn(List<Integer> values) {
-            addCriterion("max_y in", values, "maxY");
+        public Criteria andRateLessThan(BigDecimal value) {
+            addCriterion("rate <", value, "rate");
             return (Criteria) this;
         }
 
-        public Criteria andMaxYNotIn(List<Integer> values) {
-            addCriterion("max_y not in", values, "maxY");
+        public Criteria andRateLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("rate <=", value, "rate");
             return (Criteria) this;
         }
 
-        public Criteria andMaxYBetween(Integer value1, Integer value2) {
-            addCriterion("max_y between", value1, value2, "maxY");
+        public Criteria andRateIn(List<BigDecimal> values) {
+            addCriterion("rate in", values, "rate");
             return (Criteria) this;
         }
 
-        public Criteria andMaxYNotBetween(Integer value1, Integer value2) {
-            addCriterion("max_y not between", value1, value2, "maxY");
+        public Criteria andRateNotIn(List<BigDecimal> values) {
+            addCriterion("rate not in", values, "rate");
             return (Criteria) this;
         }
 
-        public Criteria andDbNameIsNull() {
-            addCriterion("db_name is null");
+        public Criteria andRateBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("rate between", value1, value2, "rate");
             return (Criteria) this;
         }
 
-        public Criteria andDbNameIsNotNull() {
-            addCriterion("db_name is not null");
+        public Criteria andRateNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("rate not between", value1, value2, "rate");
             return (Criteria) this;
         }
 
-        public Criteria andDbNameEqualTo(String value) {
-            addCriterion("db_name =", value, "dbName");
+        public Criteria andAccountIdIsNull() {
+            addCriterion("account_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andDbNameNotEqualTo(String value) {
-            addCriterion("db_name <>", value, "dbName");
+        public Criteria andAccountIdIsNotNull() {
+            addCriterion("account_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andDbNameGreaterThan(String value) {
-            addCriterion("db_name >", value, "dbName");
+        public Criteria andAccountIdEqualTo(Long value) {
+            addCriterion("account_id =", value, "accountId");
             return (Criteria) this;
         }
 
-        public Criteria andDbNameGreaterThanOrEqualTo(String value) {
-            addCriterion("db_name >=", value, "dbName");
+        public Criteria andAccountIdNotEqualTo(Long value) {
+            addCriterion("account_id <>", value, "accountId");
             return (Criteria) this;
         }
 
-        public Criteria andDbNameLessThan(String value) {
-            addCriterion("db_name <", value, "dbName");
+        public Criteria andAccountIdGreaterThan(Long value) {
+            addCriterion("account_id >", value, "accountId");
             return (Criteria) this;
         }
 
-        public Criteria andDbNameLessThanOrEqualTo(String value) {
-            addCriterion("db_name <=", value, "dbName");
+        public Criteria andAccountIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("account_id >=", value, "accountId");
             return (Criteria) this;
         }
 
-        public Criteria andDbNameLike(String value) {
-            addCriterion("db_name like", value, "dbName");
+        public Criteria andAccountIdLessThan(Long value) {
+            addCriterion("account_id <", value, "accountId");
             return (Criteria) this;
         }
 
-        public Criteria andDbNameNotLike(String value) {
-            addCriterion("db_name not like", value, "dbName");
+        public Criteria andAccountIdLessThanOrEqualTo(Long value) {
+            addCriterion("account_id <=", value, "accountId");
             return (Criteria) this;
         }
 
-        public Criteria andDbNameIn(List<String> values) {
-            addCriterion("db_name in", values, "dbName");
+        public Criteria andAccountIdIn(List<Long> values) {
+            addCriterion("account_id in", values, "accountId");
             return (Criteria) this;
         }
 
-        public Criteria andDbNameNotIn(List<String> values) {
-            addCriterion("db_name not in", values, "dbName");
+        public Criteria andAccountIdNotIn(List<Long> values) {
+            addCriterion("account_id not in", values, "accountId");
             return (Criteria) this;
         }
 
-        public Criteria andDbNameBetween(String value1, String value2) {
-            addCriterion("db_name between", value1, value2, "dbName");
+        public Criteria andAccountIdBetween(Long value1, Long value2) {
+            addCriterion("account_id between", value1, value2, "accountId");
             return (Criteria) this;
         }
 
-        public Criteria andDbNameNotBetween(String value1, String value2) {
-            addCriterion("db_name not between", value1, value2, "dbName");
+        public Criteria andAccountIdNotBetween(Long value1, Long value2) {
+            addCriterion("account_id not between", value1, value2, "accountId");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaIdIsNull() {
-            addCriterion("cinema_id is null");
+        public Criteria andMovieIdIsNull() {
+            addCriterion("movie_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaIdIsNotNull() {
-            addCriterion("cinema_id is not null");
+        public Criteria andMovieIdIsNotNull() {
+            addCriterion("movie_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaIdEqualTo(Long value) {
-            addCriterion("cinema_id =", value, "cinemaId");
+        public Criteria andMovieIdEqualTo(Long value) {
+            addCriterion("movie_id =", value, "movieId");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaIdNotEqualTo(Long value) {
-            addCriterion("cinema_id <>", value, "cinemaId");
+        public Criteria andMovieIdNotEqualTo(Long value) {
+            addCriterion("movie_id <>", value, "movieId");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaIdGreaterThan(Long value) {
-            addCriterion("cinema_id >", value, "cinemaId");
+        public Criteria andMovieIdGreaterThan(Long value) {
+            addCriterion("movie_id >", value, "movieId");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("cinema_id >=", value, "cinemaId");
+        public Criteria andMovieIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("movie_id >=", value, "movieId");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaIdLessThan(Long value) {
-            addCriterion("cinema_id <", value, "cinemaId");
+        public Criteria andMovieIdLessThan(Long value) {
+            addCriterion("movie_id <", value, "movieId");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaIdLessThanOrEqualTo(Long value) {
-            addCriterion("cinema_id <=", value, "cinemaId");
+        public Criteria andMovieIdLessThanOrEqualTo(Long value) {
+            addCriterion("movie_id <=", value, "movieId");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaIdIn(List<Long> values) {
-            addCriterion("cinema_id in", values, "cinemaId");
+        public Criteria andMovieIdIn(List<Long> values) {
+            addCriterion("movie_id in", values, "movieId");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaIdNotIn(List<Long> values) {
-            addCriterion("cinema_id not in", values, "cinemaId");
+        public Criteria andMovieIdNotIn(List<Long> values) {
+            addCriterion("movie_id not in", values, "movieId");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaIdBetween(Long value1, Long value2) {
-            addCriterion("cinema_id between", value1, value2, "cinemaId");
+        public Criteria andMovieIdBetween(Long value1, Long value2) {
+            addCriterion("movie_id between", value1, value2, "movieId");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaIdNotBetween(Long value1, Long value2) {
-            addCriterion("cinema_id not between", value1, value2, "cinemaId");
+        public Criteria andMovieIdNotBetween(Long value1, Long value2) {
+            addCriterion("movie_id not between", value1, value2, "movieId");
             return (Criteria) this;
         }
     }

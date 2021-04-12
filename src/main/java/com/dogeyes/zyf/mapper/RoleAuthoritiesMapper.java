@@ -1,7 +1,7 @@
 package com.dogeyes.zyf.mapper;
 
 import com.dogeyes.zyf.pojo.RoleAuthorities;
-import com.dogeyes.zyf.pojo.example.RoleAuthoritiesExample;
+import com.dogeyes.zyf.pojo.RoleAuthoritiesExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

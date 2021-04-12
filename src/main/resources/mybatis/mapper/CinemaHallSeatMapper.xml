@@ -72,7 +72,7 @@
   <sql id="Base_Column_List">
     id, create_time, update_time, "status", "type", x, y, cinema_hall_id
   </sql>
-  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.example.CinemaHallSeatExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.CinemaHallSeatExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -88,7 +88,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select
+    select 
     <include refid="Base_Column_List" />
     from cinema_hall_seat
     where id = #{id,jdbcType=BIGINT}
@@ -97,17 +97,17 @@
     delete from cinema_hall_seat
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.example.CinemaHallSeatExample">
+  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.CinemaHallSeatExample">
     delete from cinema_hall_seat
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.CinemaHallSeat" useGeneratedKeys="true">
-    insert into cinema_hall_seat (create_time, update_time, "status",
+    insert into cinema_hall_seat (create_time, update_time, "status", 
       "type", x, y, cinema_hall_id
       )
-    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER},
+    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
       #{type,jdbcType=INTEGER}, #{x,jdbcType=INTEGER}, #{y,jdbcType=INTEGER}, #{cinemaHallId,jdbcType=BIGINT}
       )
   </insert>
@@ -160,7 +160,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.example.CinemaHallSeatExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.CinemaHallSeatExample" resultType="java.lang.Long">
     select count(*) from cinema_hall_seat
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

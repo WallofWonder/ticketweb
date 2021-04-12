@@ -1,7 +1,7 @@
 package com.dogeyes.zyf.mapper;
 
 import com.dogeyes.zyf.pojo.OrderAuth;
-import com.dogeyes.zyf.pojo.example.OrderAuthExample;
+import com.dogeyes.zyf.pojo.OrderAuthExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

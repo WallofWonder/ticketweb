@@ -1,18 +1,18 @@
-package com.dogeyes.zyf.pojo.example;
+package com.dogeyes.zyf.pojo;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class OrderItemExample {
+public class PayLogExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public OrderItemExample() {
+    public PayLogExample() {
         oredCriteria = new ArrayList<>();
     }
 
@@ -346,123 +346,253 @@ public class OrderItemExample {
             return (Criteria) this;
         }
 
-        public Criteria andCinemaHallSeatIdIsNull() {
-            addCriterion("cinema_hall_seat_id is null");
+        public Criteria andPaymentTypeIsNull() {
+            addCriterion("payment_type is null");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaHallSeatIdIsNotNull() {
-            addCriterion("cinema_hall_seat_id is not null");
+        public Criteria andPaymentTypeIsNotNull() {
+            addCriterion("payment_type is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaHallSeatIdEqualTo(Long value) {
-            addCriterion("cinema_hall_seat_id =", value, "cinemaHallSeatId");
+        public Criteria andPaymentTypeEqualTo(Integer value) {
+            addCriterion("payment_type =", value, "paymentType");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaHallSeatIdNotEqualTo(Long value) {
-            addCriterion("cinema_hall_seat_id <>", value, "cinemaHallSeatId");
+        public Criteria andPaymentTypeNotEqualTo(Integer value) {
+            addCriterion("payment_type <>", value, "paymentType");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaHallSeatIdGreaterThan(Long value) {
-            addCriterion("cinema_hall_seat_id >", value, "cinemaHallSeatId");
+        public Criteria andPaymentTypeGreaterThan(Integer value) {
+            addCriterion("payment_type >", value, "paymentType");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaHallSeatIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("cinema_hall_seat_id >=", value, "cinemaHallSeatId");
+        public Criteria andPaymentTypeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("payment_type >=", value, "paymentType");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaHallSeatIdLessThan(Long value) {
-            addCriterion("cinema_hall_seat_id <", value, "cinemaHallSeatId");
+        public Criteria andPaymentTypeLessThan(Integer value) {
+            addCriterion("payment_type <", value, "paymentType");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaHallSeatIdLessThanOrEqualTo(Long value) {
-            addCriterion("cinema_hall_seat_id <=", value, "cinemaHallSeatId");
+        public Criteria andPaymentTypeLessThanOrEqualTo(Integer value) {
+            addCriterion("payment_type <=", value, "paymentType");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaHallSeatIdIn(List<Long> values) {
-            addCriterion("cinema_hall_seat_id in", values, "cinemaHallSeatId");
+        public Criteria andPaymentTypeIn(List<Integer> values) {
+            addCriterion("payment_type in", values, "paymentType");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaHallSeatIdNotIn(List<Long> values) {
-            addCriterion("cinema_hall_seat_id not in", values, "cinemaHallSeatId");
+        public Criteria andPaymentTypeNotIn(List<Integer> values) {
+            addCriterion("payment_type not in", values, "paymentType");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaHallSeatIdBetween(Long value1, Long value2) {
-            addCriterion("cinema_hall_seat_id between", value1, value2, "cinemaHallSeatId");
+        public Criteria andPaymentTypeBetween(Integer value1, Integer value2) {
+            addCriterion("payment_type between", value1, value2, "paymentType");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaHallSeatIdNotBetween(Long value1, Long value2) {
-            addCriterion("cinema_hall_seat_id not between", value1, value2, "cinemaHallSeatId");
+        public Criteria andPaymentTypeNotBetween(Integer value1, Integer value2) {
+            addCriterion("payment_type not between", value1, value2, "paymentType");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdIsNull() {
-            addCriterion("order_id is null");
+        public Criteria andSnIsNull() {
+            addCriterion("sn is null");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdIsNotNull() {
-            addCriterion("order_id is not null");
+        public Criteria andSnIsNotNull() {
+            addCriterion("sn is not null");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdEqualTo(Long value) {
-            addCriterion("order_id =", value, "orderId");
+        public Criteria andSnEqualTo(String value) {
+            addCriterion("sn =", value, "sn");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdNotEqualTo(Long value) {
-            addCriterion("order_id <>", value, "orderId");
+        public Criteria andSnNotEqualTo(String value) {
+            addCriterion("sn <>", value, "sn");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdGreaterThan(Long value) {
-            addCriterion("order_id >", value, "orderId");
+        public Criteria andSnGreaterThan(String value) {
+            addCriterion("sn >", value, "sn");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("order_id >=", value, "orderId");
+        public Criteria andSnGreaterThanOrEqualTo(String value) {
+            addCriterion("sn >=", value, "sn");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdLessThan(Long value) {
-            addCriterion("order_id <", value, "orderId");
+        public Criteria andSnLessThan(String value) {
+            addCriterion("sn <", value, "sn");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdLessThanOrEqualTo(Long value) {
-            addCriterion("order_id <=", value, "orderId");
+        public Criteria andSnLessThanOrEqualTo(String value) {
+            addCriterion("sn <=", value, "sn");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdIn(List<Long> values) {
-            addCriterion("order_id in", values, "orderId");
+        public Criteria andSnLike(String value) {
+            addCriterion("sn like", value, "sn");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdNotIn(List<Long> values) {
-            addCriterion("order_id not in", values, "orderId");
+        public Criteria andSnNotLike(String value) {
+            addCriterion("sn not like", value, "sn");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdBetween(Long value1, Long value2) {
-            addCriterion("order_id between", value1, value2, "orderId");
+        public Criteria andSnIn(List<String> values) {
+            addCriterion("sn in", values, "sn");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdNotBetween(Long value1, Long value2) {
-            addCriterion("order_id not between", value1, value2, "orderId");
+        public Criteria andSnNotIn(List<String> values) {
+            addCriterion("sn not in", values, "sn");
+            return (Criteria) this;
+        }
+
+        public Criteria andSnBetween(String value1, String value2) {
+            addCriterion("sn between", value1, value2, "sn");
+            return (Criteria) this;
+        }
+
+        public Criteria andSnNotBetween(String value1, String value2) {
+            addCriterion("sn not between", value1, value2, "sn");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIsNull() {
+            addCriterion("\"status\" is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIsNotNull() {
+            addCriterion("\"status\" is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusEqualTo(Integer value) {
+            addCriterion("\"status\" =", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotEqualTo(Integer value) {
+            addCriterion("\"status\" <>", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusGreaterThan(Integer value) {
+            addCriterion("\"status\" >", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusGreaterThanOrEqualTo(Integer value) {
+            addCriterion("\"status\" >=", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusLessThan(Integer value) {
+            addCriterion("\"status\" <", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusLessThanOrEqualTo(Integer value) {
+            addCriterion("\"status\" <=", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIn(List<Integer> values) {
+            addCriterion("\"status\" in", values, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotIn(List<Integer> values) {
+            addCriterion("\"status\" not in", values, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusBetween(Integer value1, Integer value2) {
+            addCriterion("\"status\" between", value1, value2, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotBetween(Integer value1, Integer value2) {
+            addCriterion("\"status\" not between", value1, value2, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountIdIsNull() {
+            addCriterion("account_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountIdIsNotNull() {
+            addCriterion("account_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountIdEqualTo(Long value) {
+            addCriterion("account_id =", value, "accountId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountIdNotEqualTo(Long value) {
+            addCriterion("account_id <>", value, "accountId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountIdGreaterThan(Long value) {
+            addCriterion("account_id >", value, "accountId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("account_id >=", value, "accountId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountIdLessThan(Long value) {
+            addCriterion("account_id <", value, "accountId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountIdLessThanOrEqualTo(Long value) {
+            addCriterion("account_id <=", value, "accountId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountIdIn(List<Long> values) {
+            addCriterion("account_id in", values, "accountId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountIdNotIn(List<Long> values) {
+            addCriterion("account_id not in", values, "accountId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountIdBetween(Long value1, Long value2) {
+            addCriterion("account_id between", value1, value2, "accountId");
+            return (Criteria) this;
+        }
+
+        public Criteria andAccountIdNotBetween(Long value1, Long value2) {
+            addCriterion("account_id not between", value1, value2, "accountId");
             return (Criteria) this;
         }
     }

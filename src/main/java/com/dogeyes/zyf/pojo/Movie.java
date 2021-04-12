@@ -13,7 +13,7 @@ public class Movie implements Serializable {
 
     private String actor;
 
-    private Integer area;
+    private String area;
 
     private String directedBy;
 
@@ -73,11 +73,11 @@ public class Movie implements Serializable {
         this.actor = actor;
     }
 
-    public Integer getArea() {
+    public String getArea() {
         return area;
     }
 
-    public void setArea(Integer area) {
+    public void setArea(String area) {
         this.area = area;
     }
 

@@ -71,7 +71,7 @@
   <sql id="Base_Column_List">
     id, create_time, update_time, content, rate, account_id, cinema_id
   </sql>
-  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.example.CinemaCommentExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.CinemaCommentExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -87,7 +87,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select
+    select 
     <include refid="Base_Column_List" />
     from cinema_comment
     where id = #{id,jdbcType=BIGINT}
@@ -96,17 +96,17 @@
     delete from cinema_comment
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.example.CinemaCommentExample">
+  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.CinemaCommentExample">
     delete from cinema_comment
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.CinemaComment" useGeneratedKeys="true">
-    insert into cinema_comment (create_time, update_time, content,
+    insert into cinema_comment (create_time, update_time, content, 
       rate, account_id, cinema_id
       )
-    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{content,jdbcType=VARCHAR},
+    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{content,jdbcType=VARCHAR}, 
       #{rate,jdbcType=DECIMAL}, #{accountId,jdbcType=BIGINT}, #{cinemaId,jdbcType=BIGINT}
       )
   </insert>
@@ -153,7 +153,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.example.CinemaCommentExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.CinemaCommentExample" resultType="java.lang.Long">
     select count(*) from cinema_comment
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

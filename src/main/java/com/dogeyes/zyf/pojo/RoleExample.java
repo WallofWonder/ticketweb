@@ -1,17 +1,17 @@
-package com.dogeyes.zyf.pojo.example;
+package com.dogeyes.zyf.pojo;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class DatabaseBakExample {
+public class RoleExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public DatabaseBakExample() {
+    public RoleExample() {
         oredCriteria = new ArrayList<>();
     }
 
@@ -285,143 +285,203 @@ public class DatabaseBakExample {
             return (Criteria) this;
         }
 
-        public Criteria andFilenameIsNull() {
-            addCriterion("filename is null");
+        public Criteria andDbNameIsNull() {
+            addCriterion("db_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andFilenameIsNotNull() {
-            addCriterion("filename is not null");
+        public Criteria andDbNameIsNotNull() {
+            addCriterion("db_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andFilenameEqualTo(String value) {
-            addCriterion("filename =", value, "filename");
+        public Criteria andDbNameEqualTo(String value) {
+            addCriterion("db_name =", value, "dbName");
             return (Criteria) this;
         }
 
-        public Criteria andFilenameNotEqualTo(String value) {
-            addCriterion("filename <>", value, "filename");
+        public Criteria andDbNameNotEqualTo(String value) {
+            addCriterion("db_name <>", value, "dbName");
             return (Criteria) this;
         }
 
-        public Criteria andFilenameGreaterThan(String value) {
-            addCriterion("filename >", value, "filename");
+        public Criteria andDbNameGreaterThan(String value) {
+            addCriterion("db_name >", value, "dbName");
             return (Criteria) this;
         }
 
-        public Criteria andFilenameGreaterThanOrEqualTo(String value) {
-            addCriterion("filename >=", value, "filename");
+        public Criteria andDbNameGreaterThanOrEqualTo(String value) {
+            addCriterion("db_name >=", value, "dbName");
             return (Criteria) this;
         }
 
-        public Criteria andFilenameLessThan(String value) {
-            addCriterion("filename <", value, "filename");
+        public Criteria andDbNameLessThan(String value) {
+            addCriterion("db_name <", value, "dbName");
             return (Criteria) this;
         }
 
-        public Criteria andFilenameLessThanOrEqualTo(String value) {
-            addCriterion("filename <=", value, "filename");
+        public Criteria andDbNameLessThanOrEqualTo(String value) {
+            addCriterion("db_name <=", value, "dbName");
             return (Criteria) this;
         }
 
-        public Criteria andFilenameLike(String value) {
-            addCriterion("filename like", value, "filename");
+        public Criteria andDbNameLike(String value) {
+            addCriterion("db_name like", value, "dbName");
             return (Criteria) this;
         }
 
-        public Criteria andFilenameNotLike(String value) {
-            addCriterion("filename not like", value, "filename");
+        public Criteria andDbNameNotLike(String value) {
+            addCriterion("db_name not like", value, "dbName");
             return (Criteria) this;
         }
 
-        public Criteria andFilenameIn(List<String> values) {
-            addCriterion("filename in", values, "filename");
+        public Criteria andDbNameIn(List<String> values) {
+            addCriterion("db_name in", values, "dbName");
             return (Criteria) this;
         }
 
-        public Criteria andFilenameNotIn(List<String> values) {
-            addCriterion("filename not in", values, "filename");
+        public Criteria andDbNameNotIn(List<String> values) {
+            addCriterion("db_name not in", values, "dbName");
             return (Criteria) this;
         }
 
-        public Criteria andFilenameBetween(String value1, String value2) {
-            addCriterion("filename between", value1, value2, "filename");
+        public Criteria andDbNameBetween(String value1, String value2) {
+            addCriterion("db_name between", value1, value2, "dbName");
             return (Criteria) this;
         }
 
-        public Criteria andFilenameNotBetween(String value1, String value2) {
-            addCriterion("filename not between", value1, value2, "filename");
+        public Criteria andDbNameNotBetween(String value1, String value2) {
+            addCriterion("db_name not between", value1, value2, "dbName");
             return (Criteria) this;
         }
 
-        public Criteria andFilepathIsNull() {
-            addCriterion("filepath is null");
+        public Criteria andRemarkIsNull() {
+            addCriterion("remark is null");
             return (Criteria) this;
         }
 
-        public Criteria andFilepathIsNotNull() {
-            addCriterion("filepath is not null");
+        public Criteria andRemarkIsNotNull() {
+            addCriterion("remark is not null");
             return (Criteria) this;
         }
 
-        public Criteria andFilepathEqualTo(String value) {
-            addCriterion("filepath =", value, "filepath");
+        public Criteria andRemarkEqualTo(String value) {
+            addCriterion("remark =", value, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andFilepathNotEqualTo(String value) {
-            addCriterion("filepath <>", value, "filepath");
+        public Criteria andRemarkNotEqualTo(String value) {
+            addCriterion("remark <>", value, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andFilepathGreaterThan(String value) {
-            addCriterion("filepath >", value, "filepath");
+        public Criteria andRemarkGreaterThan(String value) {
+            addCriterion("remark >", value, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andFilepathGreaterThanOrEqualTo(String value) {
-            addCriterion("filepath >=", value, "filepath");
+        public Criteria andRemarkGreaterThanOrEqualTo(String value) {
+            addCriterion("remark >=", value, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andFilepathLessThan(String value) {
-            addCriterion("filepath <", value, "filepath");
+        public Criteria andRemarkLessThan(String value) {
+            addCriterion("remark <", value, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andFilepathLessThanOrEqualTo(String value) {
-            addCriterion("filepath <=", value, "filepath");
+        public Criteria andRemarkLessThanOrEqualTo(String value) {
+            addCriterion("remark <=", value, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andFilepathLike(String value) {
-            addCriterion("filepath like", value, "filepath");
+        public Criteria andRemarkLike(String value) {
+            addCriterion("remark like", value, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andFilepathNotLike(String value) {
-            addCriterion("filepath not like", value, "filepath");
+        public Criteria andRemarkNotLike(String value) {
+            addCriterion("remark not like", value, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andFilepathIn(List<String> values) {
-            addCriterion("filepath in", values, "filepath");
+        public Criteria andRemarkIn(List<String> values) {
+            addCriterion("remark in", values, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andFilepathNotIn(List<String> values) {
-            addCriterion("filepath not in", values, "filepath");
+        public Criteria andRemarkNotIn(List<String> values) {
+            addCriterion("remark not in", values, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andFilepathBetween(String value1, String value2) {
-            addCriterion("filepath between", value1, value2, "filepath");
+        public Criteria andRemarkBetween(String value1, String value2) {
+            addCriterion("remark between", value1, value2, "remark");
             return (Criteria) this;
         }
 
-        public Criteria andFilepathNotBetween(String value1, String value2) {
-            addCriterion("filepath not between", value1, value2, "filepath");
+        public Criteria andRemarkNotBetween(String value1, String value2) {
+            addCriterion("remark not between", value1, value2, "remark");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIsNull() {
+            addCriterion("\"status\" is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIsNotNull() {
+            addCriterion("\"status\" is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusEqualTo(Integer value) {
+            addCriterion("\"status\" =", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotEqualTo(Integer value) {
+            addCriterion("\"status\" <>", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusGreaterThan(Integer value) {
+            addCriterion("\"status\" >", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusGreaterThanOrEqualTo(Integer value) {
+            addCriterion("\"status\" >=", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusLessThan(Integer value) {
+            addCriterion("\"status\" <", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusLessThanOrEqualTo(Integer value) {
+            addCriterion("\"status\" <=", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIn(List<Integer> values) {
+            addCriterion("\"status\" in", values, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotIn(List<Integer> values) {
+            addCriterion("\"status\" not in", values, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusBetween(Integer value1, Integer value2) {
+            addCriterion("\"status\" between", value1, value2, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotBetween(Integer value1, Integer value2) {
+            addCriterion("\"status\" not between", value1, value2, "status");
             return (Criteria) this;
         }
     }

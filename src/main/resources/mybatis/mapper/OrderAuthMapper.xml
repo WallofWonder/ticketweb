@@ -70,7 +70,7 @@
   <sql id="Base_Column_List">
     id, create_time, update_time, mac, order_sn, phone
   </sql>
-  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.example.OrderAuthExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.OrderAuthExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -86,7 +86,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select
+    select 
     <include refid="Base_Column_List" />
     from order_auth
     where id = #{id,jdbcType=BIGINT}
@@ -95,16 +95,16 @@
     delete from order_auth
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.example.OrderAuthExample">
+  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.OrderAuthExample">
     delete from order_auth
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.OrderAuth" useGeneratedKeys="true">
-    insert into order_auth (create_time, update_time, mac,
+    insert into order_auth (create_time, update_time, mac, 
       order_sn, phone)
-    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{mac,jdbcType=VARCHAR},
+    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{mac,jdbcType=VARCHAR}, 
       #{orderSn,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.OrderAuth" useGeneratedKeys="true">
@@ -144,7 +144,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.example.OrderAuthExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.OrderAuthExample" resultType="java.lang.Long">
     select count(*) from order_auth
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

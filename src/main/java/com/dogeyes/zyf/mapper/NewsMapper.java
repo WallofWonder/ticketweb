@@ -1,7 +1,7 @@
 package com.dogeyes.zyf.mapper;
 
 import com.dogeyes.zyf.pojo.News;
-import com.dogeyes.zyf.pojo.example.NewsExample;
+import com.dogeyes.zyf.pojo.NewsExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

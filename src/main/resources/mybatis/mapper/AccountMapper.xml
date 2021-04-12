@@ -72,10 +72,10 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, create_time, update_time, balance, head_pic, mobile, nickname, "password", sex,
+    id, create_time, update_time, balance, head_pic, mobile, nickname, "password", sex, 
     "status"
   </sql>
-  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.example.AccountExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.AccountExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -91,7 +91,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select
+    select 
     <include refid="Base_Column_List" />
     from account
     where id = #{id,jdbcType=BIGINT}
@@ -100,19 +100,19 @@
     delete from account
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.example.AccountExample">
+  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.AccountExample">
     delete from account
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Account" useGeneratedKeys="true">
-    insert into account (create_time, update_time, balance,
-      head_pic, mobile, nickname,
+    insert into account (create_time, update_time, balance, 
+      head_pic, mobile, nickname, 
       "password", sex, "status"
       )
-    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{balance,jdbcType=DECIMAL},
-      #{headPic,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR},
+    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{balance,jdbcType=DECIMAL}, 
+      #{headPic,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, 
       #{password,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}
       )
   </insert>
@@ -177,7 +177,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.example.AccountExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.AccountExample" resultType="java.lang.Long">
     select count(*) from account
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

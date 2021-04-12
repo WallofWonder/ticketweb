@@ -1,7 +1,7 @@
 package com.dogeyes.zyf.mapper;
 
 import com.dogeyes.zyf.pojo.Cinema;
-import com.dogeyes.zyf.pojo.example.CinemaExample;
+import com.dogeyes.zyf.pojo.CinemaExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

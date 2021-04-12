@@ -72,10 +72,10 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, create_time, update_time, new_money, num, old_money, sn, db_status, account_id,
+    id, create_time, update_time, new_money, num, old_money, sn, db_status, account_id, 
     cinema_hall_session_id
   </sql>
-  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.example.OrderExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.OrderExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -91,7 +91,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select
+    select 
     <include refid="Base_Column_List" />
     from order
     where id = #{id,jdbcType=BIGINT}
@@ -100,19 +100,19 @@
     delete from order
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.example.OrderExample">
+  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.OrderExample">
     delete from order
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Order" useGeneratedKeys="true">
-    insert into order (create_time, update_time, new_money,
-      num, old_money, sn,
+    insert into order (create_time, update_time, new_money, 
+      num, old_money, sn, 
       db_status, account_id, cinema_hall_session_id
       )
-    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{newMoney,jdbcType=DECIMAL},
-      #{num,jdbcType=INTEGER}, #{oldMoney,jdbcType=DECIMAL}, #{sn,jdbcType=VARCHAR},
+    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{newMoney,jdbcType=DECIMAL}, 
+      #{num,jdbcType=INTEGER}, #{oldMoney,jdbcType=DECIMAL}, #{sn,jdbcType=VARCHAR}, 
       #{dbStatus,jdbcType=INTEGER}, #{accountId,jdbcType=BIGINT}, #{cinemaHallSessionId,jdbcType=BIGINT}
       )
   </insert>
@@ -177,7 +177,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.example.OrderExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.OrderExample" resultType="java.lang.Long">
     select count(*) from order
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

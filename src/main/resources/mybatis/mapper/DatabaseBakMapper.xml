@@ -69,7 +69,7 @@
   <sql id="Base_Column_List">
     id, create_time, update_time, filename, filepath
   </sql>
-  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.example.DatabaseBakExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.DatabaseBakExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -85,7 +85,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select
+    select 
     <include refid="Base_Column_List" />
     from database_bak
     where id = #{id,jdbcType=BIGINT}
@@ -94,16 +94,16 @@
     delete from database_bak
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.example.DatabaseBakExample">
+  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.DatabaseBakExample">
     delete from database_bak
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.DatabaseBak" useGeneratedKeys="true">
-    insert into database_bak (create_time, update_time, filename,
+    insert into database_bak (create_time, update_time, filename, 
       filepath)
-    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{filename,jdbcType=VARCHAR},
+    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{filename,jdbcType=VARCHAR}, 
       #{filepath,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.DatabaseBak" useGeneratedKeys="true">
@@ -137,7 +137,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.example.DatabaseBakExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.DatabaseBakExample" resultType="java.lang.Long">
     select count(*) from database_bak
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

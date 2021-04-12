@@ -77,10 +77,10 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, create_time, update_time, address, cinema_service, info, db_name, picture, rate,
+    id, create_time, update_time, address, cinema_service, info, db_name, picture, rate, 
     tel, transport, area_id, rate_count, province_id, city_id
   </sql>
-  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.example.CinemaExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.CinemaExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -96,7 +96,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select
+    select 
     <include refid="Base_Column_List" />
     from cinema
     where id = #{id,jdbcType=BIGINT}
@@ -105,22 +105,22 @@
     delete from cinema
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.example.CinemaExample">
+  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.CinemaExample">
     delete from cinema
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Cinema" useGeneratedKeys="true">
-    insert into cinema (create_time, update_time, address,
-      cinema_service, info, db_name,
-      picture, rate, tel,
-      transport, area_id, rate_count,
+    insert into cinema (create_time, update_time, address, 
+      cinema_service, info, db_name, 
+      picture, rate, tel, 
+      transport, area_id, rate_count, 
       province_id, city_id)
-    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{address,jdbcType=VARCHAR},
-      #{cinemaService,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR}, #{dbName,jdbcType=VARCHAR},
-      #{picture,jdbcType=VARCHAR}, #{rate,jdbcType=DECIMAL}, #{tel,jdbcType=VARCHAR},
-      #{transport,jdbcType=VARCHAR}, #{areaId,jdbcType=BIGINT}, #{rateCount,jdbcType=INTEGER},
+    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{address,jdbcType=VARCHAR}, 
+      #{cinemaService,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR}, #{dbName,jdbcType=VARCHAR}, 
+      #{picture,jdbcType=VARCHAR}, #{rate,jdbcType=DECIMAL}, #{tel,jdbcType=VARCHAR}, 
+      #{transport,jdbcType=VARCHAR}, #{areaId,jdbcType=BIGINT}, #{rateCount,jdbcType=INTEGER}, 
       #{provinceId,jdbcType=BIGINT}, #{cityId,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Cinema" useGeneratedKeys="true">
@@ -214,7 +214,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.example.CinemaExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.CinemaExample" resultType="java.lang.Long">
     select count(*) from cinema
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

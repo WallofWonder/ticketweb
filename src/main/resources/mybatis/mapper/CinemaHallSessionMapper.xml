@@ -75,10 +75,10 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, create_time, update_time, show_date, show_time, cinema_id, cinema_hall_id, movie_id,
+    id, create_time, update_time, show_date, show_time, cinema_id, cinema_hall_id, movie_id, 
     cinema_session_type, end_time, new_price, old_price, start_time
   </sql>
-  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.example.CinemaHallSessionExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.CinemaHallSessionExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -94,7 +94,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select
+    select 
     <include refid="Base_Column_List" />
     from cinema_hall_session
     where id = #{id,jdbcType=BIGINT}
@@ -103,21 +103,21 @@
     delete from cinema_hall_session
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.example.CinemaHallSessionExample">
+  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.CinemaHallSessionExample">
     delete from cinema_hall_session
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.CinemaHallSession" useGeneratedKeys="true">
-    insert into cinema_hall_session (create_time, update_time, show_date,
-      show_time, cinema_id, cinema_hall_id,
-      movie_id, cinema_session_type, end_time,
+    insert into cinema_hall_session (create_time, update_time, show_date, 
+      show_time, cinema_id, cinema_hall_id, 
+      movie_id, cinema_session_type, end_time, 
       new_price, old_price, start_time
       )
-    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{showDate,jdbcType=VARCHAR},
-      #{showTime,jdbcType=VARCHAR}, #{cinemaId,jdbcType=BIGINT}, #{cinemaHallId,jdbcType=BIGINT},
-      #{movieId,jdbcType=BIGINT}, #{cinemaSessionType,jdbcType=INTEGER}, #{endTime,jdbcType=VARCHAR},
+    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{showDate,jdbcType=VARCHAR}, 
+      #{showTime,jdbcType=VARCHAR}, #{cinemaId,jdbcType=BIGINT}, #{cinemaHallId,jdbcType=BIGINT}, 
+      #{movieId,jdbcType=BIGINT}, #{cinemaSessionType,jdbcType=INTEGER}, #{endTime,jdbcType=VARCHAR}, 
       #{newPrice,jdbcType=DECIMAL}, #{oldPrice,jdbcType=DECIMAL}, #{startTime,jdbcType=VARCHAR}
       )
   </insert>
@@ -200,7 +200,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.example.CinemaHallSessionExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.CinemaHallSessionExample" resultType="java.lang.Long">
     select count(*) from cinema_hall_session
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
