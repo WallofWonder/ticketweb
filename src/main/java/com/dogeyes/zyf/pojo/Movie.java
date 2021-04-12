@@ -39,8 +39,6 @@ public class Movie implements Serializable {
 
     private Boolean isShow;
 
-    private Float rateCount;
-
     private static final long serialVersionUID = 1L;
 
     public Long getId() {
@@ -177,13 +175,5 @@ public class Movie implements Serializable {
 
     public void setIsShow(Boolean isShow) {
         this.isShow = isShow;
-    }
-
-    public Float getRateCount() {
-        return rateCount;
-    }
-
-    public void setRateCount(Float rateCount) {
-        this.rateCount = rateCount;
     }
 }

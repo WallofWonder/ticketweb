@@ -19,7 +19,6 @@
     <result column="type" jdbcType="VARCHAR" property="type" />
     <result column="video" jdbcType="VARCHAR" property="video" />
     <result column="is_show" jdbcType="BIT" property="isShow" />
-    <result column="rate_count" jdbcType="REAL" property="rateCount" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -81,7 +80,7 @@
   </sql>
   <sql id="Base_Column_List">
     id, create_time, update_time, actor, area, directed_by, info, "language", db_name,
-    picture, rate, show_time, "time", total_money, "type", video, is_show, rate_count
+    picture, rate, show_time, "time", total_money, "type", video, is_show
   </sql>
   <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.example.MovieExample" resultMap="BaseResultMap">
     select
@@ -120,13 +119,13 @@
       "language", db_name, picture,
       rate, show_time, "time",
       total_money, "type", video,
-      is_show, rate_count)
+      is_show)
     values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{actor,jdbcType=VARCHAR},
       #{area,jdbcType=INTEGER}, #{directedBy,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR},
       #{language,jdbcType=VARCHAR}, #{dbName,jdbcType=VARCHAR}, #{picture,jdbcType=VARCHAR},
       #{rate,jdbcType=DECIMAL}, #{showTime,jdbcType=TIMESTAMP}, #{time,jdbcType=INTEGER},
       #{totalMoney,jdbcType=DECIMAL}, #{type,jdbcType=VARCHAR}, #{video,jdbcType=VARCHAR},
-      #{isShow,jdbcType=BIT}, #{rateCount,jdbcType=REAL})
+      #{isShow,jdbcType=BIT})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Movie" useGeneratedKeys="true">
     insert into movie
@@ -179,9 +178,6 @@
       <if test="isShow != null">
         is_show,
       </if>
-      <if test="rateCount != null">
-        rate_count,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="createTime != null">
@@ -231,9 +227,6 @@
       </if>
       <if test="isShow != null">
         #{isShow,jdbcType=BIT},
-      </if>
-      <if test="rateCount != null">
-        #{rateCount,jdbcType=REAL},
       </if>
     </trim>
   </insert>
@@ -297,9 +290,6 @@
       <if test="record.isShow != null">
         is_show = #{record.isShow,jdbcType=BIT},
       </if>
-      <if test="record.rateCount != null">
-        rate_count = #{record.rateCount,jdbcType=REAL},
-      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -323,8 +313,7 @@
       total_money = #{record.totalMoney,jdbcType=DECIMAL},
       "type" = #{record.type,jdbcType=VARCHAR},
       video = #{record.video,jdbcType=VARCHAR},
-      is_show = #{record.isShow,jdbcType=BIT},
-      rate_count = #{record.rateCount,jdbcType=REAL}
+      is_show = #{record.isShow,jdbcType=BIT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -380,9 +369,6 @@
       <if test="isShow != null">
         is_show = #{isShow,jdbcType=BIT},
       </if>
-      <if test="rateCount != null">
-        rate_count = #{rateCount,jdbcType=REAL},
-      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -403,8 +389,7 @@
       total_money = #{totalMoney,jdbcType=DECIMAL},
       "type" = #{type,jdbcType=VARCHAR},
       video = #{video,jdbcType=VARCHAR},
-      is_show = #{isShow,jdbcType=BIT},
-      rate_count = #{rateCount,jdbcType=REAL}
+      is_show = #{isShow,jdbcType=BIT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

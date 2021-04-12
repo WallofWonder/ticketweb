@@ -1205,66 +1205,6 @@ public class MovieExample {
             addCriterion("is_show not between", value1, value2, "isShow");
             return (Criteria) this;
         }
-
-        public Criteria andRateCountIsNull() {
-            addCriterion("rate_count is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRateCountIsNotNull() {
-            addCriterion("rate_count is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRateCountEqualTo(Float value) {
-            addCriterion("rate_count =", value, "rateCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andRateCountNotEqualTo(Float value) {
-            addCriterion("rate_count <>", value, "rateCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andRateCountGreaterThan(Float value) {
-            addCriterion("rate_count >", value, "rateCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andRateCountGreaterThanOrEqualTo(Float value) {
-            addCriterion("rate_count >=", value, "rateCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andRateCountLessThan(Float value) {
-            addCriterion("rate_count <", value, "rateCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andRateCountLessThanOrEqualTo(Float value) {
-            addCriterion("rate_count <=", value, "rateCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andRateCountIn(List<Float> values) {
-            addCriterion("rate_count in", values, "rateCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andRateCountNotIn(List<Float> values) {
-            addCriterion("rate_count not in", values, "rateCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andRateCountBetween(Float value1, Float value2) {
-            addCriterion("rate_count between", value1, value2, "rateCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andRateCountNotBetween(Float value1, Float value2) {
-            addCriterion("rate_count not between", value1, value2, "rateCount");
-            return (Criteria) this;
-        }
     }
 
     public static class Criteria extends GeneratedCriteria {
