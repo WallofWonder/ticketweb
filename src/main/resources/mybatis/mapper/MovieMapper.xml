@@ -12,7 +12,7 @@
     <result column="language" jdbcType="VARCHAR" property="language" />
     <result column="db_name" jdbcType="VARCHAR" property="dbName" />
     <result column="picture" jdbcType="VARCHAR" property="picture" />
-    <result column="rate" jdbcType="DECIMAL" property="rate" />
+    <result column="rate" jdbcType="REAL" property="rate" />
     <result column="show_time" jdbcType="TIMESTAMP" property="showTime" />
     <result column="time" jdbcType="INTEGER" property="time" />
     <result column="total_money" jdbcType="DECIMAL" property="totalMoney" />
@@ -123,7 +123,7 @@
     values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{actor,jdbcType=VARCHAR}, 
       #{area,jdbcType=VARCHAR}, #{directedBy,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR}, 
       #{language,jdbcType=VARCHAR}, #{dbName,jdbcType=VARCHAR}, #{picture,jdbcType=VARCHAR}, 
-      #{rate,jdbcType=DECIMAL}, #{showTime,jdbcType=TIMESTAMP}, #{time,jdbcType=INTEGER}, 
+      #{rate,jdbcType=REAL}, #{showTime,jdbcType=TIMESTAMP}, #{time,jdbcType=INTEGER}, 
       #{totalMoney,jdbcType=DECIMAL}, #{type,jdbcType=VARCHAR}, #{video,jdbcType=VARCHAR}, 
       #{isShow,jdbcType=BIT})
   </insert>
@@ -208,7 +208,7 @@
         #{picture,jdbcType=VARCHAR},
       </if>
       <if test="rate != null">
-        #{rate,jdbcType=DECIMAL},
+        #{rate,jdbcType=REAL},
       </if>
       <if test="showTime != null">
         #{showTime,jdbcType=TIMESTAMP},
@@ -270,7 +270,7 @@
         picture = #{record.picture,jdbcType=VARCHAR},
       </if>
       <if test="record.rate != null">
-        rate = #{record.rate,jdbcType=DECIMAL},
+        rate = #{record.rate,jdbcType=REAL},
       </if>
       <if test="record.showTime != null">
         show_time = #{record.showTime,jdbcType=TIMESTAMP},
@@ -307,7 +307,7 @@
       "language" = #{record.language,jdbcType=VARCHAR},
       db_name = #{record.dbName,jdbcType=VARCHAR},
       picture = #{record.picture,jdbcType=VARCHAR},
-      rate = #{record.rate,jdbcType=DECIMAL},
+      rate = #{record.rate,jdbcType=REAL},
       show_time = #{record.showTime,jdbcType=TIMESTAMP},
       "time" = #{record.time,jdbcType=INTEGER},
       total_money = #{record.totalMoney,jdbcType=DECIMAL},
@@ -349,7 +349,7 @@
         picture = #{picture,jdbcType=VARCHAR},
       </if>
       <if test="rate != null">
-        rate = #{rate,jdbcType=DECIMAL},
+        rate = #{rate,jdbcType=REAL},
       </if>
       <if test="showTime != null">
         show_time = #{showTime,jdbcType=TIMESTAMP},
@@ -383,7 +383,7 @@
       "language" = #{language,jdbcType=VARCHAR},
       db_name = #{dbName,jdbcType=VARCHAR},
       picture = #{picture,jdbcType=VARCHAR},
-      rate = #{rate,jdbcType=DECIMAL},
+      rate = #{rate,jdbcType=REAL},
       show_time = #{showTime,jdbcType=TIMESTAMP},
       "time" = #{time,jdbcType=INTEGER},
       total_money = #{totalMoney,jdbcType=DECIMAL},

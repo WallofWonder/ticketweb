@@ -25,7 +25,7 @@ public class Movie implements Serializable {
 
     private String picture;
 
-    private BigDecimal rate;
+    private Float rate;
 
     private Date showTime;
 
@@ -121,11 +121,11 @@ public class Movie implements Serializable {
         this.picture = picture;
     }
 
-    public BigDecimal getRate() {
+    public Float getRate() {
         return rate;
     }
 
-    public void setRate(BigDecimal rate) {
+    public void setRate(Float rate) {
         this.rate = rate;
     }
 
