@@ -5,12 +5,11 @@
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="abs" jdbcType="VARCHAR" property="abs" />
     <result column="actor" jdbcType="VARCHAR" property="actor" />
     <result column="area" jdbcType="INTEGER" property="area" />
     <result column="directed_by" jdbcType="VARCHAR" property="directedBy" />
     <result column="info" jdbcType="VARCHAR" property="info" />
-    <result column="language" jdbcType="INTEGER" property="language" />
+    <result column="language" jdbcType="VARCHAR" property="language" />
     <result column="db_name" jdbcType="VARCHAR" property="dbName" />
     <result column="picture" jdbcType="VARCHAR" property="picture" />
     <result column="rate" jdbcType="DECIMAL" property="rate" />
@@ -20,7 +19,7 @@
     <result column="type" jdbcType="VARCHAR" property="type" />
     <result column="video" jdbcType="VARCHAR" property="video" />
     <result column="is_show" jdbcType="BIT" property="isShow" />
-    <result column="rate_count" jdbcType="INTEGER" property="rateCount" />
+    <result column="rate_count" jdbcType="REAL" property="rateCount" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -81,8 +80,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, create_time, update_time, "abs", actor, area, directed_by, info, "language",
-    db_name, picture, rate, show_time, "time", total_money, "type", video, is_show, rate_count
+    id, create_time, update_time, actor, area, directed_by, info, "language", db_name,
+    picture, rate, show_time, "time", total_money, "type", video, is_show, rate_count
   </sql>
   <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.example.MovieExample" resultMap="BaseResultMap">
     select
@@ -116,20 +115,18 @@
     </if>
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Movie" useGeneratedKeys="true">
-    insert into movie (create_time, update_time, "abs",
-      actor, area, directed_by,
-      info, "language", db_name,
-      picture, rate, show_time,
-      "time", total_money, "type",
-      video, is_show, rate_count
-      )
-    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{abs,jdbcType=VARCHAR},
-      #{actor,jdbcType=VARCHAR}, #{area,jdbcType=INTEGER}, #{directedBy,jdbcType=VARCHAR},
-      #{info,jdbcType=VARCHAR}, #{language,jdbcType=INTEGER}, #{dbName,jdbcType=VARCHAR},
-      #{picture,jdbcType=VARCHAR}, #{rate,jdbcType=DECIMAL}, #{showTime,jdbcType=TIMESTAMP},
-      #{time,jdbcType=INTEGER}, #{totalMoney,jdbcType=DECIMAL}, #{type,jdbcType=VARCHAR},
-      #{video,jdbcType=VARCHAR}, #{isShow,jdbcType=BIT}, #{rateCount,jdbcType=INTEGER}
-      )
+    insert into movie (create_time, update_time, actor,
+      area, directed_by, info,
+      "language", db_name, picture,
+      rate, show_time, "time",
+      total_money, "type", video,
+      is_show, rate_count)
+    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{actor,jdbcType=VARCHAR},
+      #{area,jdbcType=INTEGER}, #{directedBy,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR},
+      #{language,jdbcType=VARCHAR}, #{dbName,jdbcType=VARCHAR}, #{picture,jdbcType=VARCHAR},
+      #{rate,jdbcType=DECIMAL}, #{showTime,jdbcType=TIMESTAMP}, #{time,jdbcType=INTEGER},
+      #{totalMoney,jdbcType=DECIMAL}, #{type,jdbcType=VARCHAR}, #{video,jdbcType=VARCHAR},
+      #{isShow,jdbcType=BIT}, #{rateCount,jdbcType=REAL})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Movie" useGeneratedKeys="true">
     insert into movie
@@ -139,9 +136,6 @@
       </if>
       <if test="updateTime != null">
         update_time,
-      </if>
-      <if test="abs != null">
-        "abs",
       </if>
       <if test="actor != null">
         actor,
@@ -196,9 +190,6 @@
       <if test="updateTime != null">
         #{updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="abs != null">
-        #{abs,jdbcType=VARCHAR},
-      </if>
       <if test="actor != null">
         #{actor,jdbcType=VARCHAR},
       </if>
@@ -212,7 +203,7 @@
         #{info,jdbcType=VARCHAR},
       </if>
       <if test="language != null">
-        #{language,jdbcType=INTEGER},
+        #{language,jdbcType=VARCHAR},
       </if>
       <if test="dbName != null">
         #{dbName,jdbcType=VARCHAR},
@@ -242,7 +233,7 @@
         #{isShow,jdbcType=BIT},
       </if>
       <if test="rateCount != null">
-        #{rateCount,jdbcType=INTEGER},
+        #{rateCount,jdbcType=REAL},
       </if>
     </trim>
   </insert>
@@ -264,9 +255,6 @@
       <if test="record.updateTime != null">
         update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.abs != null">
-        "abs" = #{record.abs,jdbcType=VARCHAR},
-      </if>
       <if test="record.actor != null">
         actor = #{record.actor,jdbcType=VARCHAR},
       </if>
@@ -280,7 +268,7 @@
         info = #{record.info,jdbcType=VARCHAR},
       </if>
       <if test="record.language != null">
-        "language" = #{record.language,jdbcType=INTEGER},
+        "language" = #{record.language,jdbcType=VARCHAR},
       </if>
       <if test="record.dbName != null">
         db_name = #{record.dbName,jdbcType=VARCHAR},
@@ -310,7 +298,7 @@
         is_show = #{record.isShow,jdbcType=BIT},
       </if>
       <if test="record.rateCount != null">
-        rate_count = #{record.rateCount,jdbcType=INTEGER},
+        rate_count = #{record.rateCount,jdbcType=REAL},
       </if>
     </set>
     <if test="_parameter != null">
@@ -322,12 +310,11 @@
     set id = #{record.id,jdbcType=BIGINT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      "abs" = #{record.abs,jdbcType=VARCHAR},
       actor = #{record.actor,jdbcType=VARCHAR},
       area = #{record.area,jdbcType=INTEGER},
       directed_by = #{record.directedBy,jdbcType=VARCHAR},
       info = #{record.info,jdbcType=VARCHAR},
-      "language" = #{record.language,jdbcType=INTEGER},
+      "language" = #{record.language,jdbcType=VARCHAR},
       db_name = #{record.dbName,jdbcType=VARCHAR},
       picture = #{record.picture,jdbcType=VARCHAR},
       rate = #{record.rate,jdbcType=DECIMAL},
@@ -337,7 +324,7 @@
       "type" = #{record.type,jdbcType=VARCHAR},
       video = #{record.video,jdbcType=VARCHAR},
       is_show = #{record.isShow,jdbcType=BIT},
-      rate_count = #{record.rateCount,jdbcType=INTEGER}
+      rate_count = #{record.rateCount,jdbcType=REAL}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -350,9 +337,6 @@
       </if>
       <if test="updateTime != null">
         update_time = #{updateTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="abs != null">
-        "abs" = #{abs,jdbcType=VARCHAR},
       </if>
       <if test="actor != null">
         actor = #{actor,jdbcType=VARCHAR},
@@ -367,7 +351,7 @@
         info = #{info,jdbcType=VARCHAR},
       </if>
       <if test="language != null">
-        "language" = #{language,jdbcType=INTEGER},
+        "language" = #{language,jdbcType=VARCHAR},
       </if>
       <if test="dbName != null">
         db_name = #{dbName,jdbcType=VARCHAR},
@@ -397,7 +381,7 @@
         is_show = #{isShow,jdbcType=BIT},
       </if>
       <if test="rateCount != null">
-        rate_count = #{rateCount,jdbcType=INTEGER},
+        rate_count = #{rateCount,jdbcType=REAL},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -406,12 +390,11 @@
     update movie
     set create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
-      "abs" = #{abs,jdbcType=VARCHAR},
       actor = #{actor,jdbcType=VARCHAR},
       area = #{area,jdbcType=INTEGER},
       directed_by = #{directedBy,jdbcType=VARCHAR},
       info = #{info,jdbcType=VARCHAR},
-      "language" = #{language,jdbcType=INTEGER},
+      "language" = #{language,jdbcType=VARCHAR},
       db_name = #{dbName,jdbcType=VARCHAR},
       picture = #{picture,jdbcType=VARCHAR},
       rate = #{rate,jdbcType=DECIMAL},
@@ -421,7 +404,7 @@
       "type" = #{type,jdbcType=VARCHAR},
       video = #{video,jdbcType=VARCHAR},
       is_show = #{isShow,jdbcType=BIT},
-      rate_count = #{rateCount,jdbcType=INTEGER}
+      rate_count = #{rateCount,jdbcType=REAL}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

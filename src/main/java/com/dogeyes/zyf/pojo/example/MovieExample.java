@@ -286,76 +286,6 @@ public class MovieExample {
             return (Criteria) this;
         }
 
-        public Criteria andAbsIsNull() {
-            addCriterion("\"abs\" is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAbsIsNotNull() {
-            addCriterion("\"abs\" is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andAbsEqualTo(String value) {
-            addCriterion("\"abs\" =", value, "abs");
-            return (Criteria) this;
-        }
-
-        public Criteria andAbsNotEqualTo(String value) {
-            addCriterion("\"abs\" <>", value, "abs");
-            return (Criteria) this;
-        }
-
-        public Criteria andAbsGreaterThan(String value) {
-            addCriterion("\"abs\" >", value, "abs");
-            return (Criteria) this;
-        }
-
-        public Criteria andAbsGreaterThanOrEqualTo(String value) {
-            addCriterion("\"abs\" >=", value, "abs");
-            return (Criteria) this;
-        }
-
-        public Criteria andAbsLessThan(String value) {
-            addCriterion("\"abs\" <", value, "abs");
-            return (Criteria) this;
-        }
-
-        public Criteria andAbsLessThanOrEqualTo(String value) {
-            addCriterion("\"abs\" <=", value, "abs");
-            return (Criteria) this;
-        }
-
-        public Criteria andAbsLike(String value) {
-            addCriterion("\"abs\" like", value, "abs");
-            return (Criteria) this;
-        }
-
-        public Criteria andAbsNotLike(String value) {
-            addCriterion("\"abs\" not like", value, "abs");
-            return (Criteria) this;
-        }
-
-        public Criteria andAbsIn(List<String> values) {
-            addCriterion("\"abs\" in", values, "abs");
-            return (Criteria) this;
-        }
-
-        public Criteria andAbsNotIn(List<String> values) {
-            addCriterion("\"abs\" not in", values, "abs");
-            return (Criteria) this;
-        }
-
-        public Criteria andAbsBetween(String value1, String value2) {
-            addCriterion("\"abs\" between", value1, value2, "abs");
-            return (Criteria) this;
-        }
-
-        public Criteria andAbsNotBetween(String value1, String value2) {
-            addCriterion("\"abs\" not between", value1, value2, "abs");
-            return (Criteria) this;
-        }
-
         public Criteria andActorIsNull() {
             addCriterion("actor is null");
             return (Criteria) this;
@@ -636,52 +566,62 @@ public class MovieExample {
             return (Criteria) this;
         }
 
-        public Criteria andLanguageEqualTo(Integer value) {
+        public Criteria andLanguageEqualTo(String value) {
             addCriterion("\"language\" =", value, "language");
             return (Criteria) this;
         }
 
-        public Criteria andLanguageNotEqualTo(Integer value) {
+        public Criteria andLanguageNotEqualTo(String value) {
             addCriterion("\"language\" <>", value, "language");
             return (Criteria) this;
         }
 
-        public Criteria andLanguageGreaterThan(Integer value) {
+        public Criteria andLanguageGreaterThan(String value) {
             addCriterion("\"language\" >", value, "language");
             return (Criteria) this;
         }
 
-        public Criteria andLanguageGreaterThanOrEqualTo(Integer value) {
+        public Criteria andLanguageGreaterThanOrEqualTo(String value) {
             addCriterion("\"language\" >=", value, "language");
             return (Criteria) this;
         }
 
-        public Criteria andLanguageLessThan(Integer value) {
+        public Criteria andLanguageLessThan(String value) {
             addCriterion("\"language\" <", value, "language");
             return (Criteria) this;
         }
 
-        public Criteria andLanguageLessThanOrEqualTo(Integer value) {
+        public Criteria andLanguageLessThanOrEqualTo(String value) {
             addCriterion("\"language\" <=", value, "language");
             return (Criteria) this;
         }
 
-        public Criteria andLanguageIn(List<Integer> values) {
+        public Criteria andLanguageLike(String value) {
+            addCriterion("\"language\" like", value, "language");
+            return (Criteria) this;
+        }
+
+        public Criteria andLanguageNotLike(String value) {
+            addCriterion("\"language\" not like", value, "language");
+            return (Criteria) this;
+        }
+
+        public Criteria andLanguageIn(List<String> values) {
             addCriterion("\"language\" in", values, "language");
             return (Criteria) this;
         }
 
-        public Criteria andLanguageNotIn(List<Integer> values) {
+        public Criteria andLanguageNotIn(List<String> values) {
             addCriterion("\"language\" not in", values, "language");
             return (Criteria) this;
         }
 
-        public Criteria andLanguageBetween(Integer value1, Integer value2) {
+        public Criteria andLanguageBetween(String value1, String value2) {
             addCriterion("\"language\" between", value1, value2, "language");
             return (Criteria) this;
         }
 
-        public Criteria andLanguageNotBetween(Integer value1, Integer value2) {
+        public Criteria andLanguageNotBetween(String value1, String value2) {
             addCriterion("\"language\" not between", value1, value2, "language");
             return (Criteria) this;
         }
@@ -1276,52 +1216,52 @@ public class MovieExample {
             return (Criteria) this;
         }
 
-        public Criteria andRateCountEqualTo(Integer value) {
+        public Criteria andRateCountEqualTo(Float value) {
             addCriterion("rate_count =", value, "rateCount");
             return (Criteria) this;
         }
 
-        public Criteria andRateCountNotEqualTo(Integer value) {
+        public Criteria andRateCountNotEqualTo(Float value) {
             addCriterion("rate_count <>", value, "rateCount");
             return (Criteria) this;
         }
 
-        public Criteria andRateCountGreaterThan(Integer value) {
+        public Criteria andRateCountGreaterThan(Float value) {
             addCriterion("rate_count >", value, "rateCount");
             return (Criteria) this;
         }
 
-        public Criteria andRateCountGreaterThanOrEqualTo(Integer value) {
+        public Criteria andRateCountGreaterThanOrEqualTo(Float value) {
             addCriterion("rate_count >=", value, "rateCount");
             return (Criteria) this;
         }
 
-        public Criteria andRateCountLessThan(Integer value) {
+        public Criteria andRateCountLessThan(Float value) {
             addCriterion("rate_count <", value, "rateCount");
             return (Criteria) this;
         }
 
-        public Criteria andRateCountLessThanOrEqualTo(Integer value) {
+        public Criteria andRateCountLessThanOrEqualTo(Float value) {
             addCriterion("rate_count <=", value, "rateCount");
             return (Criteria) this;
         }
 
-        public Criteria andRateCountIn(List<Integer> values) {
+        public Criteria andRateCountIn(List<Float> values) {
             addCriterion("rate_count in", values, "rateCount");
             return (Criteria) this;
         }
 
-        public Criteria andRateCountNotIn(List<Integer> values) {
+        public Criteria andRateCountNotIn(List<Float> values) {
             addCriterion("rate_count not in", values, "rateCount");
             return (Criteria) this;
         }
 
-        public Criteria andRateCountBetween(Integer value1, Integer value2) {
+        public Criteria andRateCountBetween(Float value1, Float value2) {
             addCriterion("rate_count between", value1, value2, "rateCount");
             return (Criteria) this;
         }
 
-        public Criteria andRateCountNotBetween(Integer value1, Integer value2) {
+        public Criteria andRateCountNotBetween(Float value1, Float value2) {
             addCriterion("rate_count not between", value1, value2, "rateCount");
             return (Criteria) this;
         }

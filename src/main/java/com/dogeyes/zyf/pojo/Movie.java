@@ -11,8 +11,6 @@ public class Movie implements Serializable {
 
     private Date updateTime;
 
-    private String abs;
-
     private String actor;
 
     private Integer area;
@@ -21,7 +19,7 @@ public class Movie implements Serializable {
 
     private String info;
 
-    private Integer language;
+    private String language;
 
     private String dbName;
 
@@ -41,7 +39,7 @@ public class Movie implements Serializable {
 
     private Boolean isShow;
 
-    private Integer rateCount;
+    private Float rateCount;
 
     private static final long serialVersionUID = 1L;
 
@@ -67,14 +65,6 @@ public class Movie implements Serializable {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    public String getAbs() {
-        return abs;
-    }
-
-    public void setAbs(String abs) {
-        this.abs = abs;
     }
 
     public String getActor() {
@@ -109,11 +99,11 @@ public class Movie implements Serializable {
         this.info = info;
     }
 
-    public Integer getLanguage() {
+    public String getLanguage() {
         return language;
     }
 
-    public void setLanguage(Integer language) {
+    public void setLanguage(String language) {
         this.language = language;
     }
 
@@ -189,11 +179,11 @@ public class Movie implements Serializable {
         this.isShow = isShow;
     }
 
-    public Integer getRateCount() {
+    public Float getRateCount() {
         return rateCount;
     }
 
-    public void setRateCount(Integer rateCount) {
+    public void setRateCount(Float rateCount) {
         this.rateCount = rateCount;
     }
 }
