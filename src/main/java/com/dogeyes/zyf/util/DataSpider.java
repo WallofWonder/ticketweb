@@ -94,11 +94,11 @@ public class DataSpider {
 
 
 
-    public static void main(String[] args) throws IOException {
-        List<MovieInfoResource> movieInfos = getMovieInfos();
-
-        for (MovieInfoResource resource : movieInfos) {
-            System.out.println(resource);
-        }
-    }
+//    public static void main(String[] args) throws IOException {
+//        List<MovieInfoResource> movieInfos = getMovieInfos();
+//
+//        for (MovieInfoResource resource : movieInfos) {
+//            System.out.println(resource);
+//        }
+//    }
 }

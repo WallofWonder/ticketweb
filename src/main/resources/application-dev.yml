@@ -23,3 +23,9 @@ mybatis:
     map-underscore-to-camel-case: true
   mapper-locations:
     - classpath:mybatis/mapper/*.xml
+
+web:
+  # 文件上传路径
+  upload-path: D:/ticketweb_data/
+  movie-post-path: moviepost/
+  advatar-path: advatar/
