@@ -28,12 +28,12 @@ public class AreaServiceImpl implements AreaService {
     CustomAreaMapper customAreaMapper;
 
     @Override
-    public List<ProvinceSelectResource> selectProvinces(PageParamResource page) {
+    public List<ProvinceSelectResource> selectProvinces() {
         return customAreaMapper.selectProvinces();
     }
 
     @Override
-    public List<CitySelectProvince>selectCities(PageParamResource page) {
+    public List<CitySelectProvince>selectCities() {
         return customAreaMapper.selectCities();
     }
 

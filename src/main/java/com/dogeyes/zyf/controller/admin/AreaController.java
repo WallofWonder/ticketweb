@@ -1,14 +1,11 @@
 package com.dogeyes.zyf.controller.admin;
 
 import com.dogeyes.zyf.resource.PageParamResource;
-import com.dogeyes.zyf.resource.ResponseResource;
 import com.dogeyes.zyf.service.AreaService;
-import com.dogeyes.zyf.util.BindingResultUtil;
-import com.dogeyes.zyf.util.JsonResult;
-import org.springframework.validation.BindingResult;
+import com.dogeyes.zyf.util.AjaxResponse;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -27,27 +24,18 @@ public class AreaController {
     AreaService areaService;
 
     @GetMapping("/province/select")
-    public Object selectProvinces(PageParamResource page, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return JsonResult.unprocessableEntity("error in validating", BindingResultUtil.getErrorList(bindingResult));
-        }
-        return new ResponseResource(JsonResult.ok(areaService.selectProvinces(page)),20000);
+    public @ResponseBody
+    Object selectProvinces() {
+        return AjaxResponse.success(areaService.selectProvinces());
     }
 
     @GetMapping("/city/select")
-    public Object selectCities(PageParamResource page, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return JsonResult.unprocessableEntity("error in validating", BindingResultUtil.getErrorList(bindingResult));
-        }
-        return new ResponseResource(JsonResult.ok(areaService.selectCities(page)),20000);
+    public @ResponseBody Object selectCities() {
+        return AjaxResponse.success(areaService.selectCities());
     }
 
     @GetMapping("list")
-    public Object listAll(PageParamResource page, BindingResult bindingResult) {
-        System.out.println(page);
-        if (bindingResult.hasErrors()) {
-            return JsonResult.unprocessableEntity("error in validating", BindingResultUtil.getErrorList(bindingResult));
-        }
-        return new ResponseResource(JsonResult.ok(areaService.listAll(page)), 20000);
+    public @ResponseBody Object listAll(PageParamResource page) {
+        return AjaxResponse.success(areaService.listAll(page));
     }
 }

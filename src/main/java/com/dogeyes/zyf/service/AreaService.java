@@ -18,18 +18,16 @@ public interface AreaService {
     /**
      * 获取级联选择器-所有省份选项
      *
-     * @param page 分页参数
      * @return 所有省份选项
      */
-    List<ProvinceSelectResource> selectProvinces(PageParamResource page);
+    List<ProvinceSelectResource> selectProvinces();
 
 
     /**
      * 获取级联选择器-所有城市选项
-     * @param page 分页参数
      * @return 城市选项
      */
-    List<CitySelectProvince> selectCities(PageParamResource page);
+    List<CitySelectProvince> selectCities();
 
     /**
      * 按照省份获取城市列表
