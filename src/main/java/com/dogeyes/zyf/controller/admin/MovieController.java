@@ -1,10 +1,10 @@
 package com.dogeyes.zyf.controller.admin;
 
 import com.dogeyes.zyf.resource.MovieInfoResource;
+import com.dogeyes.zyf.resource.PageParamResource;
 import com.dogeyes.zyf.service.MovieService;
 import com.dogeyes.zyf.util.AjaxResponse;
 import com.dogeyes.zyf.util.DataSpider;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -29,4 +29,11 @@ public class MovieController {
         movieService.fetchInfo(movieInfos);
         return AjaxResponse.success();
     }
+
+    @GetMapping("/list")
+    public @ResponseBody
+    Object listMovies(int isShow,PageParamResource page) {
+        return AjaxResponse.success(movieService.listMovies(isShow, page));
+    }
+
 }

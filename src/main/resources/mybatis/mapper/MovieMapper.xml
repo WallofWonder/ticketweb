@@ -79,8 +79,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, create_time, update_time, actor, area, directed_by, info, "language", db_name, 
-    picture, rate, show_time, "time", total_money, "type", video, is_show
+    id, create_time, update_time, actor, area, directed_by, info, `language`, db_name,
+    picture, rate, show_time, `time`, total_money, `type`, video, is_show
   </sql>
   <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.MovieExample" resultMap="BaseResultMap">
     select
@@ -98,7 +98,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from movie
     where id = #{id,jdbcType=BIGINT}
@@ -114,17 +114,17 @@
     </if>
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Movie" useGeneratedKeys="true">
-    insert into movie (create_time, update_time, actor, 
-      area, directed_by, info, 
-      "language", db_name, picture, 
-      rate, show_time, "time", 
-      total_money, "type", video, 
+    insert into movie (create_time, update_time, actor,
+      area, directed_by, info,
+      `language`, db_name, picture,
+      rate, show_time, `time`,
+      total_money, `type`, video,
       is_show)
-    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{actor,jdbcType=VARCHAR}, 
-      #{area,jdbcType=VARCHAR}, #{directedBy,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR}, 
-      #{language,jdbcType=VARCHAR}, #{dbName,jdbcType=VARCHAR}, #{picture,jdbcType=VARCHAR}, 
-      #{rate,jdbcType=REAL}, #{showTime,jdbcType=TIMESTAMP}, #{time,jdbcType=INTEGER}, 
-      #{totalMoney,jdbcType=DECIMAL}, #{type,jdbcType=VARCHAR}, #{video,jdbcType=VARCHAR}, 
+    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{actor,jdbcType=VARCHAR},
+      #{area,jdbcType=VARCHAR}, #{directedBy,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR},
+      #{language,jdbcType=VARCHAR}, #{dbName,jdbcType=VARCHAR}, #{picture,jdbcType=VARCHAR},
+      #{rate,jdbcType=REAL}, #{showTime,jdbcType=TIMESTAMP}, #{time,jdbcType=INTEGER},
+      #{totalMoney,jdbcType=DECIMAL}, #{type,jdbcType=VARCHAR}, #{video,jdbcType=VARCHAR},
       #{isShow,jdbcType=BIT})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Movie" useGeneratedKeys="true">
@@ -149,7 +149,7 @@
         info,
       </if>
       <if test="language != null">
-        "language",
+        `language`,
       </if>
       <if test="dbName != null">
         db_name,
@@ -164,13 +164,13 @@
         show_time,
       </if>
       <if test="time != null">
-        "time",
+        `time`,
       </if>
       <if test="totalMoney != null">
         total_money,
       </if>
       <if test="type != null">
-        "type",
+        `type`,
       </if>
       <if test="video != null">
         video,
@@ -261,7 +261,7 @@
         info = #{record.info,jdbcType=VARCHAR},
       </if>
       <if test="record.language != null">
-        "language" = #{record.language,jdbcType=VARCHAR},
+        `language` = #{record.language,jdbcType=VARCHAR},
       </if>
       <if test="record.dbName != null">
         db_name = #{record.dbName,jdbcType=VARCHAR},
@@ -276,13 +276,13 @@
         show_time = #{record.showTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.time != null">
-        "time" = #{record.time,jdbcType=INTEGER},
+        `time` = #{record.time,jdbcType=INTEGER},
       </if>
       <if test="record.totalMoney != null">
         total_money = #{record.totalMoney,jdbcType=DECIMAL},
       </if>
       <if test="record.type != null">
-        "type" = #{record.type,jdbcType=VARCHAR},
+        `type` = #{record.type,jdbcType=VARCHAR},
       </if>
       <if test="record.video != null">
         video = #{record.video,jdbcType=VARCHAR},
@@ -304,14 +304,14 @@
       area = #{record.area,jdbcType=VARCHAR},
       directed_by = #{record.directedBy,jdbcType=VARCHAR},
       info = #{record.info,jdbcType=VARCHAR},
-      "language" = #{record.language,jdbcType=VARCHAR},
+      `language` = #{record.language,jdbcType=VARCHAR},
       db_name = #{record.dbName,jdbcType=VARCHAR},
       picture = #{record.picture,jdbcType=VARCHAR},
       rate = #{record.rate,jdbcType=REAL},
       show_time = #{record.showTime,jdbcType=TIMESTAMP},
-      "time" = #{record.time,jdbcType=INTEGER},
+      `time` = #{record.time,jdbcType=INTEGER},
       total_money = #{record.totalMoney,jdbcType=DECIMAL},
-      "type" = #{record.type,jdbcType=VARCHAR},
+      `type` = #{record.type,jdbcType=VARCHAR},
       video = #{record.video,jdbcType=VARCHAR},
       is_show = #{record.isShow,jdbcType=BIT}
     <if test="_parameter != null">
@@ -340,7 +340,7 @@
         info = #{info,jdbcType=VARCHAR},
       </if>
       <if test="language != null">
-        "language" = #{language,jdbcType=VARCHAR},
+        `language` = #{language,jdbcType=VARCHAR},
       </if>
       <if test="dbName != null">
         db_name = #{dbName,jdbcType=VARCHAR},
@@ -355,13 +355,13 @@
         show_time = #{showTime,jdbcType=TIMESTAMP},
       </if>
       <if test="time != null">
-        "time" = #{time,jdbcType=INTEGER},
+        `time` = #{time,jdbcType=INTEGER},
       </if>
       <if test="totalMoney != null">
         total_money = #{totalMoney,jdbcType=DECIMAL},
       </if>
       <if test="type != null">
-        "type" = #{type,jdbcType=VARCHAR},
+        `type` = #{type,jdbcType=VARCHAR},
       </if>
       <if test="video != null">
         video = #{video,jdbcType=VARCHAR},
@@ -380,14 +380,14 @@
       area = #{area,jdbcType=VARCHAR},
       directed_by = #{directedBy,jdbcType=VARCHAR},
       info = #{info,jdbcType=VARCHAR},
-      "language" = #{language,jdbcType=VARCHAR},
+      `language` = #{language,jdbcType=VARCHAR},
       db_name = #{dbName,jdbcType=VARCHAR},
       picture = #{picture,jdbcType=VARCHAR},
       rate = #{rate,jdbcType=REAL},
       show_time = #{showTime,jdbcType=TIMESTAMP},
-      "time" = #{time,jdbcType=INTEGER},
+      `time` = #{time,jdbcType=INTEGER},
       total_money = #{totalMoney,jdbcType=DECIMAL},
-      "type" = #{type,jdbcType=VARCHAR},
+      `type` = #{type,jdbcType=VARCHAR},
       video = #{video,jdbcType=VARCHAR},
       is_show = #{isShow,jdbcType=BIT}
     where id = #{id,jdbcType=BIGINT}

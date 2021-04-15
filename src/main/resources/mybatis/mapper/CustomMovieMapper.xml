@@ -20,6 +20,10 @@
         <result column="video" jdbcType="VARCHAR" property="video" />
         <result column="is_show" jdbcType="BIT" property="isShow" />
     </resultMap>
+    <sql id="Base_Column_List">
+        id, create_time, update_time, actor, area, directed_by, info, `language`, db_name,
+    picture, rate, show_time, `time`, total_money, `type`, video, is_show
+    </sql>
     <insert id="batchData">
         <!-- todo 批量添加电影的方法 -->
     </insert>
