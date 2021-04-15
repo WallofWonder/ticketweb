@@ -11,6 +11,8 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 
 /**
+ * 文件处理器
+ *
  * @author ZYF
  * @create 2021-4-13 9:53
  */
@@ -89,13 +91,6 @@ public class FileHandler {
         }
         return name;
     }
-
-//    public static void main(String[] args) throws MalformedURLException {
-//        FileHandler fileHandler = new FileHandler();
-//        // https://img.alicdn.com/bao/uploaded/i2/TB1eXc5bFY7gK0jSZKzXXaikpXa_.jpg_160x240.jpg
-//        String url = "https://img.alicdn.com/bao/uploaded/i2/TB1eXcaikpXa_.jpg_160x240.jpg";
-//        System.out.println(fileHandler.DownloadFile(url, FileHandler.MOVIE_POST));
-//    }
 }
 
 

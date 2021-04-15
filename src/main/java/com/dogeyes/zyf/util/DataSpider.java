@@ -50,7 +50,7 @@ public class DataSpider {
      * @return 电影信息列表
      * @throws IOException 访问失败
      */
-    private static List<MovieInfoResource> getMovieInfos() throws IOException {
+    public static List<MovieInfoResource> getMovieInfos() throws IOException {
         List<MovieInfoResource> movieInfos = new ArrayList<>();
 
         Document doc = Jsoup.connect("https://dianying.taobao.com/showList.htm?n_s=new")
