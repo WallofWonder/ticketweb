@@ -3,10 +3,7 @@ package com.dogeyes.zyf.controller.admin;
 import com.dogeyes.zyf.resource.PageParamResource;
 import com.dogeyes.zyf.service.AreaService;
 import com.dogeyes.zyf.util.AjaxResponse;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -23,19 +20,19 @@ public class AreaController {
     @Resource(name = "areaServiceImpl")
     AreaService areaService;
 
-    @GetMapping("/province/select")
+    @RequestMapping(value = "/province/select",method = RequestMethod.GET)
     public @ResponseBody
     Object selectProvinces() {
         return AjaxResponse.success(areaService.selectProvinces());
     }
 
-    @GetMapping("/city/select")
+    @RequestMapping(value = "/city/select", method = RequestMethod.GET)
     public @ResponseBody Object selectCities() {
         return AjaxResponse.success(areaService.selectCities());
     }
 
-    @GetMapping("list")
+    @RequestMapping(value = "/list",method = RequestMethod.GET)
     public @ResponseBody Object listAll(PageParamResource page) {
-        return AjaxResponse.success(areaService.listAll(page));
+        return areaService.listAll(page);
     }
 }

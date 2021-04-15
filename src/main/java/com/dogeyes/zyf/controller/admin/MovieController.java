@@ -30,10 +30,10 @@ public class MovieController {
         return AjaxResponse.success();
     }
 
-    @GetMapping("/list")
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
     public @ResponseBody
     Object listMovies(int isShow,PageParamResource page) {
-        return AjaxResponse.success(movieService.listMovies(isShow, page));
+        return movieService.listMovies(isShow, page);
     }
 
 }
