@@ -5,8 +5,8 @@ import com.dogeyes.zyf.mapper.CustomMovieMapper;
 import com.dogeyes.zyf.mapper.MovieMapper;
 import com.dogeyes.zyf.pojo.Movie;
 import com.dogeyes.zyf.pojo.MovieExample;
-import com.dogeyes.zyf.resource.AreaListResource;
 import com.dogeyes.zyf.resource.MovieInfoResource;
+import com.dogeyes.zyf.resource.MovieUpdateResource;
 import com.dogeyes.zyf.resource.PageParamResource;
 import com.dogeyes.zyf.service.MovieService;
 import com.dogeyes.zyf.util.PageSortHelper;
@@ -72,6 +72,18 @@ public class MovieServiceImpl implements MovieService {
         PageSortHelper.pageAndSort(page, Movie.class);
         List<Movie> movies = movieMapper.selectByExample(example);
         return new PageInfo(movies);
+    }
+
+    @Override
+    public Movie getMovie(long id) {
+        return movieMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public int updateMovie(MovieUpdateResource resource) {
+        Movie newMovie = PropertyMapperUtil.map(resource, Movie.class);
+        movieMapper.updateByPrimaryKeySelective(newMovie);
+        return 0;
     }
 
 

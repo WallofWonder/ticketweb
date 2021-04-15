@@ -2,6 +2,7 @@ package com.dogeyes.zyf.service;
 
 import com.dogeyes.zyf.pojo.Movie;
 import com.dogeyes.zyf.resource.MovieInfoResource;
+import com.dogeyes.zyf.resource.MovieUpdateResource;
 import com.dogeyes.zyf.resource.PageParamResource;
 import com.github.pagehelper.PageInfo;
 
@@ -32,8 +33,24 @@ public interface MovieService {
      * 后台获取电影列表
      *
      * @param isShow
-     * @param page 分页参数
+     * @param page   分页参数
      * @return 电影列表
      */
     PageInfo<List<Movie>> listMovies(int isShow, PageParamResource page);
+
+    /**
+     * 获取电影信息
+     *
+     * @param id 电影id
+     * @return 电影信息
+     */
+    Movie getMovie(long id);
+
+    /**
+     * 更新电影信息
+     *
+     * @param resource 电影信息
+     * @return <tt>1</tt> 更新成功；<tt>-1</tt> 更新失败
+     */
+    int updateMovie(MovieUpdateResource resource);
 }

@@ -1,4 +1,4 @@
-package com.dogeyes.zyf.controller.admin;
+package com.dogeyes.zyf.controller;
 
 import com.dogeyes.zyf.resource.PageParamResource;
 import com.dogeyes.zyf.service.AreaService;
@@ -6,6 +6,7 @@ import com.dogeyes.zyf.util.AjaxResponse;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 /**
  * 地域管理控制器
@@ -23,16 +24,16 @@ public class AreaController {
     @RequestMapping(value = "/province/select",method = RequestMethod.GET)
     public @ResponseBody
     Object selectProvinces() {
-        return AjaxResponse.success(areaService.selectProvinces());
+        return areaService.selectProvinces();
     }
 
     @RequestMapping(value = "/city/select", method = RequestMethod.GET)
     public @ResponseBody Object selectCities() {
-        return AjaxResponse.success(areaService.selectCities());
+        return areaService.selectCities();
     }
 
     @RequestMapping(value = "/list",method = RequestMethod.GET)
-    public @ResponseBody Object listAll(PageParamResource page) {
+    public @ResponseBody Object listAll(@Valid PageParamResource page) {
         return areaService.listAll(page);
     }
 }

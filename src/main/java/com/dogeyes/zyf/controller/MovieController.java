@@ -1,9 +1,12 @@
-package com.dogeyes.zyf.controller.admin;
+package com.dogeyes.zyf.controller;
 
 import com.dogeyes.zyf.resource.MovieInfoResource;
+import com.dogeyes.zyf.resource.MovieUpdateResource;
 import com.dogeyes.zyf.resource.PageParamResource;
 import com.dogeyes.zyf.service.MovieService;
 import com.dogeyes.zyf.util.AjaxResponse;
+import com.dogeyes.zyf.util.CustomException;
+import com.dogeyes.zyf.util.CustomExceptionType;
 import com.dogeyes.zyf.util.DataSpider;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,4 +40,19 @@ public class MovieController {
         return movieService.listMovies(isShow, page);
     }
 
+
+    @RequestMapping(value = "detail", method = RequestMethod.GET)
+    public @ResponseBody
+    Object getMovie(long id) {
+        return movieService.getMovie(id);
+    }
+
+
+    @RequestMapping(value = "update", method = RequestMethod.POST)
+    public @ResponseBody
+    Object updateMovie(@RequestBody @Valid MovieUpdateResource resource) {
+        int result = movieService.updateMovie(resource);
+        if (result == -1) throw new CustomException(CustomExceptionType.SYSTEM_ERROR);
+        else return AjaxResponse.success();
+    }
 }
