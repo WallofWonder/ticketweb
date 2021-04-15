@@ -8,6 +8,7 @@ import com.dogeyes.zyf.util.DataSpider;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class MovieController {
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public @ResponseBody
-    Object listMovies(int isShow,PageParamResource page) {
+    Object listMovies(int isShow, @Valid PageParamResource page) {
         return movieService.listMovies(isShow, page);
     }
 

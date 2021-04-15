@@ -3,6 +3,9 @@ package com.dogeyes.zyf.component;
 import com.dogeyes.zyf.util.AjaxResponse;
 import com.dogeyes.zyf.util.CustomException;
 import com.dogeyes.zyf.util.CustomExceptionType;
+import org.springframework.validation.BindException;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,6 +25,23 @@ public class WebExceptionHandler {
             //TODO 将500异常信息持久化处理
         }
         return AjaxResponse.error(e);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ResponseBody
+    public AjaxResponse handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
+        FieldError fieldError = ex.getBindingResult().getFieldError();
+        return AjaxResponse.error(new CustomException(CustomExceptionType.USER_INPUT_ERROR,
+                fieldError.getDefaultMessage()));
+    }
+
+
+    @ExceptionHandler(BindException.class)
+    @ResponseBody
+    public AjaxResponse handleBindException(BindException ex) {
+        FieldError fieldError = ex.getBindingResult().getFieldError();
+        return AjaxResponse.error(new CustomException(CustomExceptionType.USER_INPUT_ERROR,
+                fieldError.getDefaultMessage()));
     }
 
     //处理程序员在程序中未能捕获（遗漏的）异常

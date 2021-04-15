@@ -2,6 +2,9 @@ package com.dogeyes.zyf.resource;
 
 import lombok.Data;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
 /**
@@ -13,10 +16,13 @@ import java.io.Serializable;
 @Data
 public class PageParamResource implements Serializable {
 
+    @Min(value = 10, message = "每页最少显示10条信息！")
     private int pageSize = 10;
 
+    @Max(value = 1, message = "页码从1开始！")
     private int pageNum = 1;
 
+    @Pattern(regexp = "\\s*\\w+\\s*(\\s[Aa][Ss][Cc]|\\s[Dd][Ee][Ss][Cc])?\\s*", message = "排序规则解析错误！")
     private String orderBy;
 
 }
