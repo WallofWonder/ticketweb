@@ -82,7 +82,7 @@ public class DataSpider {
             movieInfo.setType(colon(movieCardList.get(2).text()));
             movieInfo.setArea(colon(movieCardList.get(3).text()));
             movieInfo.setLanguage(colon(movieCardList.get(4).text()));
-            movieInfo.setTime(getInt(movieCardList.get(5).text()));
+            if (movieCardList.size() > 5) movieInfo.setTime(getInt(movieCardList.get(5).text()));
 
 
             movieInfos.add(movieInfo);

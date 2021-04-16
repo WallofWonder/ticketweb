@@ -51,6 +51,6 @@ public class WebExceptionHandler {
         //TODO 将异常信息持久化处理
 
         return AjaxResponse.error(new CustomException(
-                CustomExceptionType.OTHER_ERROR));
+                CustomExceptionType.OTHER_ERROR, e.getMessage()));
     }
 }
