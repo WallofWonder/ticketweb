@@ -19,7 +19,7 @@ public class PageParamResource implements Serializable {
     @Min(value = 10, message = "每页最少显示10条信息！")
     private int pageSize = 10;
 
-    @Max(value = 1, message = "页码从1开始！")
+    @Min(value = 1, message = "页码从1开始！")
     private int pageNum = 1;
 
     @Pattern(regexp = "\\s*\\w+\\s*(\\s[Aa][Ss][Cc]|\\s[Dd][Ee][Ss][Cc])?\\s*", message = "排序规则解析错误！")
