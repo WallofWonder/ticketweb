@@ -61,4 +61,12 @@ public interface AreaService {
      */
     int updateArea(Area area);
 
+    /**
+     * 按名获取地域
+     *
+     * @param name 地名
+     * @return 地域实体
+     */
+    List<Area> selectByName(String name);
+
 }

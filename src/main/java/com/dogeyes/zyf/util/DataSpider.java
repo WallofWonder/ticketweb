@@ -1,16 +1,18 @@
 package com.dogeyes.zyf.util;
 
+import com.dogeyes.zyf.pojo.Cinema;
 import com.dogeyes.zyf.resource.movie.MovieInfoResource;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
 
 import static com.dogeyes.zyf.util.StringUtil.colon;
 import static com.dogeyes.zyf.util.StringUtil.getInt;
@@ -92,13 +94,37 @@ public class DataSpider {
         return movieInfos;
     }
 
+    /**
+     * 爬取影院信息
+     *
+     * @return 影院信息列表
+     * @throws IOException 爬取失败
+     */
+    public static List<Cinema> getCinemaInfos() throws IOException {
+        List<Cinema> cinemas = new ArrayList<>();
+        File directory = new File("src/main/resources");
+        File file = new File(directory.getCanonicalPath() + "/static/cinemas.html");
+        if (file.isFile() && file.exists()) {
+            Document doc = Jsoup.parse(file, "UTF-8");
+            Elements cinemaItems = doc.getElementsByClass("sortbar-detail J_cinemaList").first().children();
+            for (Element item : cinemaItems) {
+                String dbName = item.getElementsByClass("middle-hd").select("a[href]").first().text();
+                String address = item.getElementsByClass("limit-address").first().text();
+                String tel = item.getElementsByClass("middle-p-list").get(1).text();
+                BigDecimal rate = BigDecimal.valueOf(Float.parseFloat(item.getElementsByClass("right-score").select("strong").first().text()));
+                tel = tel.substring(tel.indexOf("：") + 1);
+                Cinema cinema = new Cinema();
+                cinema.setDbName(dbName);
+                cinema.setAddress(address);
+                cinema.setTel(tel);
+                cinema.setRate(rate);
+                cinema.setAreaId(350104L);
+                cinema.setCityId(350100L);
+                cinema.setProvinceId(350000L);
+                cinemas.add(cinema);
+            }
+        }
 
-
-//    public static void main(String[] args) throws IOException {
-//        List<MovieInfoResource> movieInfos = getMovieInfos();
-//
-//        for (MovieInfoResource resource : movieInfos) {
-//            System.out.println(resource);
-//        }
-//    }
+        return cinemas;
+    }
 }

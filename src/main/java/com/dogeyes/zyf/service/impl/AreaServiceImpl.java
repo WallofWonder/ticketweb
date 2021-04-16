@@ -3,6 +3,7 @@ package com.dogeyes.zyf.service.impl;
 import com.dogeyes.zyf.mapper.AreaMapper;
 import com.dogeyes.zyf.mapper.CustomAreaMapper;
 import com.dogeyes.zyf.pojo.Area;
+import com.dogeyes.zyf.pojo.AreaExample;
 import com.dogeyes.zyf.resource.area.AreaListResource;
 import com.dogeyes.zyf.resource.common.CitySelectProvince;
 import com.dogeyes.zyf.resource.common.ProvinceSelectResource;
@@ -62,5 +63,13 @@ public class AreaServiceImpl implements AreaService {
     public int updateArea(Area area) {
         area.setUpdateTime(new Date());
         return areaMapper.updateByPrimaryKeySelective(area);
+    }
+
+    @Override
+    public List<Area> selectByName(String name) {
+        AreaExample example = new AreaExample();
+        AreaExample.Criteria criteria = example.createCriteria();
+        criteria.andDbNameLike(name + "%");
+        return areaMapper.selectByExample(example);
     }
 }
