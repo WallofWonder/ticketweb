@@ -6,7 +6,7 @@ import com.dogeyes.zyf.pojo.Area;
 import com.dogeyes.zyf.resource.area.AreaListResource;
 import com.dogeyes.zyf.resource.common.CitySelectProvince;
 import com.dogeyes.zyf.resource.common.ProvinceSelectResource;
-import com.dogeyes.zyf.resource.movie.PageParamResource;
+import com.dogeyes.zyf.resource.common.PageParamResource;
 import com.dogeyes.zyf.service.AreaService;
 import com.dogeyes.zyf.util.PageSortHelper;
 import com.github.pagehelper.PageInfo;

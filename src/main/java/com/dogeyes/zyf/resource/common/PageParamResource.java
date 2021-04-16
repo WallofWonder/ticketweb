@@ -1,4 +1,4 @@
-package com.dogeyes.zyf.resource.movie;
+package com.dogeyes.zyf.resource.common;
 
 import lombok.Data;
 

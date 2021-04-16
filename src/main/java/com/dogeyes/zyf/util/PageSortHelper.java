@@ -1,6 +1,6 @@
 package com.dogeyes.zyf.util;
 
-import com.dogeyes.zyf.resource.movie.PageParamResource;
+import com.dogeyes.zyf.resource.common.PageParamResource;
 import com.github.pagehelper.PageHelper;
 
 /**

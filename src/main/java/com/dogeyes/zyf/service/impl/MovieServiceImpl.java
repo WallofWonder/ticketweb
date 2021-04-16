@@ -7,7 +7,7 @@ import com.dogeyes.zyf.pojo.Movie;
 import com.dogeyes.zyf.pojo.MovieExample;
 import com.dogeyes.zyf.resource.movie.MovieInfoResource;
 import com.dogeyes.zyf.resource.movie.MovieUpdateResource;
-import com.dogeyes.zyf.resource.movie.PageParamResource;
+import com.dogeyes.zyf.resource.common.PageParamResource;
 import com.dogeyes.zyf.service.MovieService;
 import com.dogeyes.zyf.util.PageSortHelper;
 import com.dogeyes.zyf.util.PropertyMapperUtil;

@@ -3,7 +3,7 @@ package com.dogeyes.zyf.service;
 import com.dogeyes.zyf.pojo.Area;
 import com.dogeyes.zyf.resource.area.AreaListResource;
 import com.dogeyes.zyf.resource.common.CitySelectProvince;
-import com.dogeyes.zyf.resource.movie.PageParamResource;
+import com.dogeyes.zyf.resource.common.PageParamResource;
 import com.dogeyes.zyf.resource.common.ProvinceSelectResource;
 import com.github.pagehelper.PageInfo;
 
