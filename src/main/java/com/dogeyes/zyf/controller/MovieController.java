@@ -1,8 +1,8 @@
 package com.dogeyes.zyf.controller;
 
-import com.dogeyes.zyf.resource.MovieInfoResource;
-import com.dogeyes.zyf.resource.MovieUpdateResource;
-import com.dogeyes.zyf.resource.PageParamResource;
+import com.dogeyes.zyf.resource.movie.MovieInfoResource;
+import com.dogeyes.zyf.resource.movie.MovieUpdateResource;
+import com.dogeyes.zyf.resource.movie.PageParamResource;
 import com.dogeyes.zyf.service.MovieService;
 import com.dogeyes.zyf.util.AjaxResponse;
 import com.dogeyes.zyf.util.CustomException;

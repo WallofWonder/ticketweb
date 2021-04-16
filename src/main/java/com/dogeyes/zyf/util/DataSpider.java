@@ -1,6 +1,6 @@
 package com.dogeyes.zyf.util;
 
-import com.dogeyes.zyf.resource.MovieInfoResource;
+import com.dogeyes.zyf.resource.movie.MovieInfoResource;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

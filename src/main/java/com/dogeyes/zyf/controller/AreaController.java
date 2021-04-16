@@ -1,8 +1,7 @@
 package com.dogeyes.zyf.controller;
 
 import com.dogeyes.zyf.pojo.Area;
-import com.dogeyes.zyf.pojo.Movie;
-import com.dogeyes.zyf.resource.PageParamResource;
+import com.dogeyes.zyf.resource.movie.PageParamResource;
 import com.dogeyes.zyf.service.AreaService;
 import com.dogeyes.zyf.util.AjaxResponse;
 import com.dogeyes.zyf.util.CustomException;

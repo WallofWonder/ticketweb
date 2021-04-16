@@ -1,8 +1,8 @@
 package com.dogeyes.zyf.mapper;
 
-import com.dogeyes.zyf.resource.AreaListResource;
-import com.dogeyes.zyf.resource.CitySelectProvince;
-import com.dogeyes.zyf.resource.ProvinceSelectResource;
+import com.dogeyes.zyf.resource.area.AreaListResource;
+import com.dogeyes.zyf.resource.common.CitySelectProvince;
+import com.dogeyes.zyf.resource.common.ProvinceSelectResource;
 
 import java.util.List;
 

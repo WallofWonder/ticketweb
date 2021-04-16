@@ -1,9 +1,9 @@
 package com.dogeyes.zyf.service;
 
 import com.dogeyes.zyf.pojo.Movie;
-import com.dogeyes.zyf.resource.MovieInfoResource;
-import com.dogeyes.zyf.resource.MovieUpdateResource;
-import com.dogeyes.zyf.resource.PageParamResource;
+import com.dogeyes.zyf.resource.movie.MovieInfoResource;
+import com.dogeyes.zyf.resource.movie.MovieUpdateResource;
+import com.dogeyes.zyf.resource.movie.PageParamResource;
 import com.github.pagehelper.PageInfo;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.dogeyes.zyf.resource;
+package com.dogeyes.zyf.resource.area;
 
 import lombok.Data;
 

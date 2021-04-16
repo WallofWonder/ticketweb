@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dogeyes.zyf.mapper.CustomAreaMapper">
-    <resultMap id="BaseResultMap" type="com.dogeyes.zyf.resource.AreaListResource">
+    <resultMap id="BaseResultMap" type="com.dogeyes.zyf.resource.area.AreaListResource">
         <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
@@ -12,7 +12,7 @@
         <result column="province_name" jdbcType="VARCHAR" property="provinceName"/>
         <result column="is_show" jdbcType="BIT" property="isShow"/>
     </resultMap>
-    <select id="listAll" resultType="com.dogeyes.zyf.resource.AreaListResource">
+    <select id="listAll" resultType="com.dogeyes.zyf.resource.area.AreaListResource">
         SELECT a1.id,
                a1.create_time,
                a1.update_time,
@@ -27,13 +27,13 @@
         WHERE a1.city_id = a2.id
           AND a1.province_id = a3.id
     </select>
-    <select id="selectProvinces" resultType="com.dogeyes.zyf.resource.ProvinceSelectResource">
+    <select id="selectProvinces" resultType="com.dogeyes.zyf.resource.common.ProvinceSelectResource">
         SELECT id,
                db_name
         FROM area
         WHERE province_id = 0
     </select>
-    <select id="selectCities" resultType="com.dogeyes.zyf.resource.CitySelectProvince">
+    <select id="selectCities" resultType="com.dogeyes.zyf.resource.common.CitySelectProvince">
         SELECT id,
                db_name
         FROM area
