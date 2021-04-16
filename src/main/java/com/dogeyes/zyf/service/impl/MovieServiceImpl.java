@@ -84,8 +84,7 @@ public class MovieServiceImpl implements MovieService {
     public int updateMovie(MovieUpdateResource resource) {
         Movie newMovie = PropertyMapperUtil.map(resource, Movie.class);
         newMovie.setUpdateTime(new Date());
-        movieMapper.updateByPrimaryKeySelective(newMovie);
-        return 0;
+        return movieMapper.updateByPrimaryKeySelective(newMovie);
     }
 
 

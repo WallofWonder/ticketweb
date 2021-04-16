@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -52,5 +53,11 @@ public class AreaServiceImpl implements AreaService {
         PageSortHelper.pageAndSort(page, AreaListResource.class);
         List<AreaListResource> areas = customAreaMapper.listAll();
         return new PageInfo(areas);
+    }
+
+    @Override
+    public int updateArea(Area area) {
+        area.setUpdateTime(new Date());
+        return areaMapper.updateByPrimaryKeySelective(area);
     }
 }

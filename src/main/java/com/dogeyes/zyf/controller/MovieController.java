@@ -52,7 +52,7 @@ public class MovieController {
     public @ResponseBody
     Object updateMovie(@RequestBody @Valid MovieUpdateResource resource) {
         int result = movieService.updateMovie(resource);
-        if (result == -1) throw new CustomException(CustomExceptionType.SYSTEM_ERROR);
+        if (result != 1) throw new CustomException(CustomExceptionType.SYSTEM_ERROR, "更新失败！");
         else return AjaxResponse.success();
     }
 }

@@ -1,8 +1,12 @@
 package com.dogeyes.zyf.controller;
 
+import com.dogeyes.zyf.pojo.Area;
+import com.dogeyes.zyf.pojo.Movie;
 import com.dogeyes.zyf.resource.PageParamResource;
 import com.dogeyes.zyf.service.AreaService;
 import com.dogeyes.zyf.util.AjaxResponse;
+import com.dogeyes.zyf.util.CustomException;
+import com.dogeyes.zyf.util.CustomExceptionType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -35,5 +39,12 @@ public class AreaController {
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public @ResponseBody Object listAll(@Valid PageParamResource page) {
         return areaService.listAll(page);
+    }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public @ResponseBody Object update(@RequestBody Area area) {
+        int result = areaService.updateArea(area);
+        if (result != 1) throw new CustomException(CustomExceptionType.SYSTEM_ERROR, "更新失败！");
+        return AjaxResponse.success();
     }
 }

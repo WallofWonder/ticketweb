@@ -53,4 +53,12 @@ public interface AreaService {
      */
     PageInfo<List<AreaListResource>> listAll(PageParamResource page);
 
+    /**
+     * 更新地域
+     *
+     * @param area 地域
+     * @return <tt>1</tt> 更新成功；<tt>-1</tt> 更新失败
+     */
+    int updateArea(Area area);
+
 }
