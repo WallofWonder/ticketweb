@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -82,6 +83,7 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public int updateMovie(MovieUpdateResource resource) {
         Movie newMovie = PropertyMapperUtil.map(resource, Movie.class);
+        newMovie.setUpdateTime(new Date());
         movieMapper.updateByPrimaryKeySelective(newMovie);
         return 0;
     }
