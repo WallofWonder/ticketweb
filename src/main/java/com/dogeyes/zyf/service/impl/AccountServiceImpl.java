@@ -3,11 +3,16 @@ package com.dogeyes.zyf.service.impl;
 import com.dogeyes.zyf.mapper.AccountMapper;
 import com.dogeyes.zyf.pojo.Account;
 import com.dogeyes.zyf.pojo.AccountExample;
+import com.dogeyes.zyf.resource.account.AccountSignupResource;
 import com.dogeyes.zyf.service.AccountService;
+import com.dogeyes.zyf.util.PropertyMapperUtil;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,6 +26,15 @@ public class AccountServiceImpl implements AccountService {
     @Resource
     AccountMapper accountMapper;
 
+    @Value("${web.upload-path}")
+    private String uploadPath;
+
+    @Value("${web.advatar-path}")
+    private String advatarPath;
+
+    @Value("${web.default-advatar}")
+    private String defaultAdvatar;
+
     @Override
     public List<Account> login(String mobile, String pwd) {
         AccountExample example = new AccountExample();
@@ -28,5 +42,29 @@ public class AccountServiceImpl implements AccountService {
         criteria.andMobileEqualTo(mobile).andPwdEqualTo(pwd);
 
         return accountMapper.selectByExample(example);
+    }
+
+    @Override
+    public Object signup(AccountSignupResource resource) {
+        AccountExample example = new AccountExample();
+        AccountExample.Criteria criteria = example.createCriteria();
+        criteria.andMobileEqualTo(resource.getMobile());
+        if (!accountMapper.selectByExample(example).isEmpty()) {
+            return 1;
+        }
+        Account account = PropertyMapperUtil.map(resource, Account.class);
+        if (account != null) {
+            account.setCreateTime(new Date());
+            account.setUpdateTime(new Date());
+            account.setStats(0);
+            account.setBalance(BigDecimal.ZERO);
+            account.setHeadPic(uploadPath + advatarPath + defaultAdvatar);
+            accountMapper.insertSelective(account);
+            AccountExample example1 = new AccountExample();
+            AccountExample.Criteria criteria1 = example1.createCriteria();
+            criteria1.andMobileEqualTo(account.getMobile());
+            return accountMapper.selectByExample(example1).get(0);
+        }
+        return 0;
     }
 }

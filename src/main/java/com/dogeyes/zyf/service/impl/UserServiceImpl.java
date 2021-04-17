@@ -3,11 +3,15 @@ package com.dogeyes.zyf.service.impl;
 import com.dogeyes.zyf.mapper.UserMapper;
 import com.dogeyes.zyf.pojo.User;
 import com.dogeyes.zyf.pojo.UserExample;
+import com.dogeyes.zyf.resource.user.UserSignupResource;
 import com.dogeyes.zyf.service.UserService;
+import com.dogeyes.zyf.util.PropertyMapperUtil;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,11 +25,43 @@ public class UserServiceImpl implements UserService {
     @Resource
     UserMapper userMapper;
 
+    @Value("${web.upload-path}")
+    private String uploadPath;
+
+    @Value("${web.advatar-path}")
+    private String advatarPath;
+
+    @Value("${web.default-advatar}")
+    private String defaultAdvatar;
+
     @Override
     public List<User> login(String email, String pwd) {
         UserExample example = new UserExample();
         UserExample.Criteria criteria = example.createCriteria();
         criteria.andEmailEqualTo(email).andPwdEqualTo(pwd);
         return userMapper.selectByExample(example);
+    }
+
+    @Override
+    public Object signup(UserSignupResource resource) {
+        UserExample example = new UserExample();
+        UserExample.Criteria criteria = example.createCriteria();
+        criteria.andEmailEqualTo(resource.getEmail());
+        if (!userMapper.selectByExample(example).isEmpty()) {
+            return 1;
+        }
+        User user = PropertyMapperUtil.map(resource, User.class);
+        if (user != null) {
+            user.setCreateTime(new Date());
+            user.setUpdateTime(new Date());
+            user.setStats(0);
+            user.setHeadPic(uploadPath + advatarPath + defaultAdvatar);
+            userMapper.insertSelective(user);
+            UserExample example1 = new UserExample();
+            UserExample.Criteria criteria1 = example1.createCriteria();
+            criteria1.andEmailEqualTo(user.getEmail());
+            return userMapper.selectByExample(example1).get(0);
+        }
+        return 0;
     }
 }

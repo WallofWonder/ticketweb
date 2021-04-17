@@ -1,6 +1,7 @@
 package com.dogeyes.zyf.service;
 
 import com.dogeyes.zyf.pojo.Account;
+import com.dogeyes.zyf.resource.account.AccountSignupResource;
 
 import java.util.List;
 
@@ -18,4 +19,12 @@ public interface AccountService {
      * @return 账户信息
      */
     List<Account> login(String mobile, String pwd);
+
+    /**
+     * 注册
+     *
+     * @param resource 注册信息
+     * @return <tt>Integer</tt> - 错误 <br> <tt>User<tt/> - 注册成功后的用户信息
+     */
+    Object signup(AccountSignupResource resource);
 }

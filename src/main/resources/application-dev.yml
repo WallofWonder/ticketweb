@@ -29,6 +29,8 @@ web:
   upload-path: D:/ticketweb_data/
   movie-post-path: moviepost/
   advatar-path: advatar/
+  default-post: default.png
+  default-advatar: default.jpg
 
 logging:
   level:
