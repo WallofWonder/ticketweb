@@ -4,11 +4,10 @@ import com.dogeyes.zyf.pojo.Cinema;
 import com.dogeyes.zyf.resource.movie.MovieInfoResource;
 import com.dogeyes.zyf.service.CinemaService;
 import com.dogeyes.zyf.util.AjaxResponse;
+import com.dogeyes.zyf.util.CustomException;
+import com.dogeyes.zyf.util.CustomExceptionType;
 import com.dogeyes.zyf.util.DataSpider;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.io.IOException;
@@ -31,5 +30,13 @@ public class CinemaController {
         List<Cinema> cinemaInfos = DataSpider.getCinemaInfos();
         cinemaService.fetchInfo(cinemaInfos);
         return AjaxResponse.success();
+    }
+
+    @RequestMapping(value = "/details", method = RequestMethod.GET)
+    public @ResponseBody
+    Object getDetails(int id) {
+        Cinema cinema = cinemaService.selectCinemaById(id);
+        if (cinema == null) throw new CustomException(CustomExceptionType.NOT_FOUND);
+        return AjaxResponse.success(cinema);
     }
 }

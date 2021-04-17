@@ -39,4 +39,9 @@ public class CinemaServiceImpl implements CinemaService {
             cinemaMapper.insertSelective(cinema);
         }
     }
+
+    @Override
+    public Cinema selectCinemaById(int id) {
+        return cinemaMapper.selectByPrimaryKey((long) id);
+    }
 }

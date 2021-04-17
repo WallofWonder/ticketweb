@@ -15,4 +15,12 @@ public interface CinemaService {
      * @param cinemas 影院信息列表
      */
     void fetchInfo(List<Cinema> cinemas);
+
+    /**
+     * 获取指定影院详情
+     *
+     * @param id 影院id
+     * @return 影院详情
+     */
+    Cinema selectCinemaById(int id);
 }
