@@ -14,7 +14,7 @@ public class Role implements Serializable {
 
     private String remark;
 
-    private Integer status;
+    private Integer stats;
 
     private static final long serialVersionUID = 1L;
 
@@ -58,11 +58,11 @@ public class Role implements Serializable {
         this.remark = remark;
     }
 
-    public Integer getStatus() {
-        return status;
+    public Integer getStats() {
+        return stats;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setStats(Integer stats) {
+        this.stats = stats;
     }
 }

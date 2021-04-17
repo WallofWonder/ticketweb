@@ -9,20 +9,20 @@
         <result column="area" jdbcType="VARCHAR" property="area" />
         <result column="directed_by" jdbcType="VARCHAR" property="directedBy" />
         <result column="info" jdbcType="VARCHAR" property="info" />
-        <result column="language" jdbcType="VARCHAR" property="language" />
+        <result column="lange" jdbcType="VARCHAR" property="lange" />
         <result column="db_name" jdbcType="VARCHAR" property="dbName" />
         <result column="picture" jdbcType="VARCHAR" property="picture" />
         <result column="rate" jdbcType="REAL" property="rate" />
         <result column="show_time" jdbcType="TIMESTAMP" property="showTime" />
-        <result column="time" jdbcType="INTEGER" property="time" />
+        <result column="endureTime" jdbcType="INTEGER" property="endureTime" />
         <result column="total_money" jdbcType="DECIMAL" property="totalMoney" />
-        <result column="type" jdbcType="VARCHAR" property="type" />
+        <result column="tpe" jdbcType="VARCHAR" property="tpe" />
         <result column="video" jdbcType="VARCHAR" property="video" />
         <result column="is_show" jdbcType="BIT" property="isShow" />
     </resultMap>
     <sql id="Base_Column_List">
-        id, create_time, update_time, actor, area, directed_by, info, `language`, db_name,
-    picture, rate, show_time, `time`, total_money, `type`, video, is_show
+        id, create_time, update_time, actor, area, directed_by, info, lange, db_name,
+    picture, rate, show_time, `time`, total_money, tpe, video, is_show
     </sql>
     <insert id="batchData">
         <!-- todo 批量添加电影的方法 -->
@@ -30,9 +30,9 @@
     <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Movie" useGeneratedKeys="true">
         insert into movie(create_time, update_time, actor,
                           area, directed_by, info,
-                          `language`, db_name, picture,
-                          rate, show_time, `time`,
-                          total_money, `type`, video,
+                          lange, db_name, picture,
+                          rate, show_time, endure_time,
+                          total_money, tpe, video,
                           is_show)
         values (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, #{actor,jdbcType=VARCHAR},
                 #{area,jdbcType=VARCHAR}, #{directedBy,jdbcType=VARCHAR}, #{info,jdbcType=VARCHAR},

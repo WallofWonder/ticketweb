@@ -8,9 +8,9 @@
     <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="head_pic" jdbcType="VARCHAR" property="headPic" />
     <result column="mobile" jdbcType="VARCHAR" property="mobile" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="pwd" jdbcType="VARCHAR" property="pwd" />
     <result column="sex" jdbcType="INTEGER" property="sex" />
-    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="stats" jdbcType="INTEGER" property="stats" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="role_id" jdbcType="BIGINT" property="roleId" />
   </resultMap>
@@ -73,8 +73,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, create_time, update_time, email, head_pic, mobile, "password", sex, "status", 
-    username, role_id
+    id, create_time, update_time, email, head_pic, mobile, pwd, sex, stats, username, 
+    role_id
   </sql>
   <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.UserExample" resultMap="BaseResultMap">
     select
@@ -109,12 +109,12 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.User" useGeneratedKeys="true">
     insert into user (create_time, update_time, email, 
-      head_pic, mobile, "password", 
-      sex, "status", username, 
+      head_pic, mobile, pwd, 
+      sex, stats, username, 
       role_id)
     values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{email,jdbcType=VARCHAR}, 
-      #{headPic,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{sex,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, 
+      #{headPic,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{pwd,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=INTEGER}, #{stats,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, 
       #{roleId,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.User" useGeneratedKeys="true">
@@ -135,14 +135,14 @@
       <if test="mobile != null">
         mobile,
       </if>
-      <if test="password != null">
-        "password",
+      <if test="pwd != null">
+        pwd,
       </if>
       <if test="sex != null">
         sex,
       </if>
-      <if test="status != null">
-        "status",
+      <if test="stats != null">
+        stats,
       </if>
       <if test="username != null">
         username,
@@ -167,14 +167,14 @@
       <if test="mobile != null">
         #{mobile,jdbcType=VARCHAR},
       </if>
-      <if test="password != null">
-        #{password,jdbcType=VARCHAR},
+      <if test="pwd != null">
+        #{pwd,jdbcType=VARCHAR},
       </if>
       <if test="sex != null">
         #{sex,jdbcType=INTEGER},
       </if>
-      <if test="status != null">
-        #{status,jdbcType=INTEGER},
+      <if test="stats != null">
+        #{stats,jdbcType=INTEGER},
       </if>
       <if test="username != null">
         #{username,jdbcType=VARCHAR},
@@ -211,14 +211,14 @@
       <if test="record.mobile != null">
         mobile = #{record.mobile,jdbcType=VARCHAR},
       </if>
-      <if test="record.password != null">
-        "password" = #{record.password,jdbcType=VARCHAR},
+      <if test="record.pwd != null">
+        pwd = #{record.pwd,jdbcType=VARCHAR},
       </if>
       <if test="record.sex != null">
         sex = #{record.sex,jdbcType=INTEGER},
       </if>
-      <if test="record.status != null">
-        "status" = #{record.status,jdbcType=INTEGER},
+      <if test="record.stats != null">
+        stats = #{record.stats,jdbcType=INTEGER},
       </if>
       <if test="record.username != null">
         username = #{record.username,jdbcType=VARCHAR},
@@ -239,9 +239,9 @@
       email = #{record.email,jdbcType=VARCHAR},
       head_pic = #{record.headPic,jdbcType=VARCHAR},
       mobile = #{record.mobile,jdbcType=VARCHAR},
-      "password" = #{record.password,jdbcType=VARCHAR},
+      pwd = #{record.pwd,jdbcType=VARCHAR},
       sex = #{record.sex,jdbcType=INTEGER},
-      "status" = #{record.status,jdbcType=INTEGER},
+      stats = #{record.stats,jdbcType=INTEGER},
       username = #{record.username,jdbcType=VARCHAR},
       role_id = #{record.roleId,jdbcType=BIGINT}
     <if test="_parameter != null">
@@ -266,14 +266,14 @@
       <if test="mobile != null">
         mobile = #{mobile,jdbcType=VARCHAR},
       </if>
-      <if test="password != null">
-        "password" = #{password,jdbcType=VARCHAR},
+      <if test="pwd != null">
+        pwd = #{pwd,jdbcType=VARCHAR},
       </if>
       <if test="sex != null">
         sex = #{sex,jdbcType=INTEGER},
       </if>
-      <if test="status != null">
-        "status" = #{status,jdbcType=INTEGER},
+      <if test="stats != null">
+        stats = #{stats,jdbcType=INTEGER},
       </if>
       <if test="username != null">
         username = #{username,jdbcType=VARCHAR},
@@ -291,9 +291,9 @@
       email = #{email,jdbcType=VARCHAR},
       head_pic = #{headPic,jdbcType=VARCHAR},
       mobile = #{mobile,jdbcType=VARCHAR},
-      "password" = #{password,jdbcType=VARCHAR},
+      pwd = #{pwd,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=INTEGER},
-      "status" = #{status,jdbcType=INTEGER},
+      stats = #{stats,jdbcType=INTEGER},
       username = #{username,jdbcType=VARCHAR},
       role_id = #{roleId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}

@@ -29,3 +29,7 @@ web:
   upload-path: D:/ticketweb_data/
   movie-post-path: moviepost/
   advatar-path: advatar/
+
+logging:
+  level:
+    com.dogeyes.zyf.mapper: debug

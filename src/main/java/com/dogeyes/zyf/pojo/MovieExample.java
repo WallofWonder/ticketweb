@@ -566,73 +566,73 @@ public class MovieExample {
             return (Criteria) this;
         }
 
-        public Criteria andLanguageIsNull() {
-            addCriterion("\"language\" is null");
+        public Criteria andLangeIsNull() {
+            addCriterion("lange is null");
             return (Criteria) this;
         }
 
-        public Criteria andLanguageIsNotNull() {
-            addCriterion("\"language\" is not null");
+        public Criteria andLangeIsNotNull() {
+            addCriterion("lange is not null");
             return (Criteria) this;
         }
 
-        public Criteria andLanguageEqualTo(String value) {
-            addCriterion("\"language\" =", value, "language");
+        public Criteria andLangeEqualTo(String value) {
+            addCriterion("lange =", value, "lange");
             return (Criteria) this;
         }
 
-        public Criteria andLanguageNotEqualTo(String value) {
-            addCriterion("\"language\" <>", value, "language");
+        public Criteria andLangeNotEqualTo(String value) {
+            addCriterion("lange <>", value, "lange");
             return (Criteria) this;
         }
 
-        public Criteria andLanguageGreaterThan(String value) {
-            addCriterion("\"language\" >", value, "language");
+        public Criteria andLangeGreaterThan(String value) {
+            addCriterion("lange >", value, "lange");
             return (Criteria) this;
         }
 
-        public Criteria andLanguageGreaterThanOrEqualTo(String value) {
-            addCriterion("\"language\" >=", value, "language");
+        public Criteria andLangeGreaterThanOrEqualTo(String value) {
+            addCriterion("lange >=", value, "lange");
             return (Criteria) this;
         }
 
-        public Criteria andLanguageLessThan(String value) {
-            addCriterion("\"language\" <", value, "language");
+        public Criteria andLangeLessThan(String value) {
+            addCriterion("lange <", value, "lange");
             return (Criteria) this;
         }
 
-        public Criteria andLanguageLessThanOrEqualTo(String value) {
-            addCriterion("\"language\" <=", value, "language");
+        public Criteria andLangeLessThanOrEqualTo(String value) {
+            addCriterion("lange <=", value, "lange");
             return (Criteria) this;
         }
 
-        public Criteria andLanguageLike(String value) {
-            addCriterion("\"language\" like", value, "language");
+        public Criteria andLangeLike(String value) {
+            addCriterion("lange like", value, "lange");
             return (Criteria) this;
         }
 
-        public Criteria andLanguageNotLike(String value) {
-            addCriterion("\"language\" not like", value, "language");
+        public Criteria andLangeNotLike(String value) {
+            addCriterion("lange not like", value, "lange");
             return (Criteria) this;
         }
 
-        public Criteria andLanguageIn(List<String> values) {
-            addCriterion("\"language\" in", values, "language");
+        public Criteria andLangeIn(List<String> values) {
+            addCriterion("lange in", values, "lange");
             return (Criteria) this;
         }
 
-        public Criteria andLanguageNotIn(List<String> values) {
-            addCriterion("\"language\" not in", values, "language");
+        public Criteria andLangeNotIn(List<String> values) {
+            addCriterion("lange not in", values, "lange");
             return (Criteria) this;
         }
 
-        public Criteria andLanguageBetween(String value1, String value2) {
-            addCriterion("\"language\" between", value1, value2, "language");
+        public Criteria andLangeBetween(String value1, String value2) {
+            addCriterion("lange between", value1, value2, "lange");
             return (Criteria) this;
         }
 
-        public Criteria andLanguageNotBetween(String value1, String value2) {
-            addCriterion("\"language\" not between", value1, value2, "language");
+        public Criteria andLangeNotBetween(String value1, String value2) {
+            addCriterion("lange not between", value1, value2, "lange");
             return (Criteria) this;
         }
 
@@ -896,63 +896,63 @@ public class MovieExample {
             return (Criteria) this;
         }
 
-        public Criteria andTimeIsNull() {
-            addCriterion("\"time\" is null");
+        public Criteria andEndureTimeIsNull() {
+            addCriterion("endure_time is null");
             return (Criteria) this;
         }
 
-        public Criteria andTimeIsNotNull() {
-            addCriterion("\"time\" is not null");
+        public Criteria andEndureTimeIsNotNull() {
+            addCriterion("endure_time is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTimeEqualTo(Integer value) {
-            addCriterion("\"time\" =", value, "time");
+        public Criteria andEndureTimeEqualTo(Integer value) {
+            addCriterion("endure_time =", value, "endureTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeNotEqualTo(Integer value) {
-            addCriterion("\"time\" <>", value, "time");
+        public Criteria andEndureTimeNotEqualTo(Integer value) {
+            addCriterion("endure_time <>", value, "endureTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeGreaterThan(Integer value) {
-            addCriterion("\"time\" >", value, "time");
+        public Criteria andEndureTimeGreaterThan(Integer value) {
+            addCriterion("endure_time >", value, "endureTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("\"time\" >=", value, "time");
+        public Criteria andEndureTimeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("endure_time >=", value, "endureTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeLessThan(Integer value) {
-            addCriterion("\"time\" <", value, "time");
+        public Criteria andEndureTimeLessThan(Integer value) {
+            addCriterion("endure_time <", value, "endureTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeLessThanOrEqualTo(Integer value) {
-            addCriterion("\"time\" <=", value, "time");
+        public Criteria andEndureTimeLessThanOrEqualTo(Integer value) {
+            addCriterion("endure_time <=", value, "endureTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeIn(List<Integer> values) {
-            addCriterion("\"time\" in", values, "time");
+        public Criteria andEndureTimeIn(List<Integer> values) {
+            addCriterion("endure_time in", values, "endureTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeNotIn(List<Integer> values) {
-            addCriterion("\"time\" not in", values, "time");
+        public Criteria andEndureTimeNotIn(List<Integer> values) {
+            addCriterion("endure_time not in", values, "endureTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeBetween(Integer value1, Integer value2) {
-            addCriterion("\"time\" between", value1, value2, "time");
+        public Criteria andEndureTimeBetween(Integer value1, Integer value2) {
+            addCriterion("endure_time between", value1, value2, "endureTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeNotBetween(Integer value1, Integer value2) {
-            addCriterion("\"time\" not between", value1, value2, "time");
+        public Criteria andEndureTimeNotBetween(Integer value1, Integer value2) {
+            addCriterion("endure_time not between", value1, value2, "endureTime");
             return (Criteria) this;
         }
 
@@ -1016,73 +1016,73 @@ public class MovieExample {
             return (Criteria) this;
         }
 
-        public Criteria andTypeIsNull() {
-            addCriterion("\"type\" is null");
+        public Criteria andTpeIsNull() {
+            addCriterion("tpe is null");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIsNotNull() {
-            addCriterion("\"type\" is not null");
+        public Criteria andTpeIsNotNull() {
+            addCriterion("tpe is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTypeEqualTo(String value) {
-            addCriterion("\"type\" =", value, "type");
+        public Criteria andTpeEqualTo(String value) {
+            addCriterion("tpe =", value, "tpe");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotEqualTo(String value) {
-            addCriterion("\"type\" <>", value, "type");
+        public Criteria andTpeNotEqualTo(String value) {
+            addCriterion("tpe <>", value, "tpe");
             return (Criteria) this;
         }
 
-        public Criteria andTypeGreaterThan(String value) {
-            addCriterion("\"type\" >", value, "type");
+        public Criteria andTpeGreaterThan(String value) {
+            addCriterion("tpe >", value, "tpe");
             return (Criteria) this;
         }
 
-        public Criteria andTypeGreaterThanOrEqualTo(String value) {
-            addCriterion("\"type\" >=", value, "type");
+        public Criteria andTpeGreaterThanOrEqualTo(String value) {
+            addCriterion("tpe >=", value, "tpe");
             return (Criteria) this;
         }
 
-        public Criteria andTypeLessThan(String value) {
-            addCriterion("\"type\" <", value, "type");
+        public Criteria andTpeLessThan(String value) {
+            addCriterion("tpe <", value, "tpe");
             return (Criteria) this;
         }
 
-        public Criteria andTypeLessThanOrEqualTo(String value) {
-            addCriterion("\"type\" <=", value, "type");
+        public Criteria andTpeLessThanOrEqualTo(String value) {
+            addCriterion("tpe <=", value, "tpe");
             return (Criteria) this;
         }
 
-        public Criteria andTypeLike(String value) {
-            addCriterion("\"type\" like", value, "type");
+        public Criteria andTpeLike(String value) {
+            addCriterion("tpe like", value, "tpe");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotLike(String value) {
-            addCriterion("\"type\" not like", value, "type");
+        public Criteria andTpeNotLike(String value) {
+            addCriterion("tpe not like", value, "tpe");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIn(List<String> values) {
-            addCriterion("\"type\" in", values, "type");
+        public Criteria andTpeIn(List<String> values) {
+            addCriterion("tpe in", values, "tpe");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotIn(List<String> values) {
-            addCriterion("\"type\" not in", values, "type");
+        public Criteria andTpeNotIn(List<String> values) {
+            addCriterion("tpe not in", values, "tpe");
             return (Criteria) this;
         }
 
-        public Criteria andTypeBetween(String value1, String value2) {
-            addCriterion("\"type\" between", value1, value2, "type");
+        public Criteria andTpeBetween(String value1, String value2) {
+            addCriterion("tpe between", value1, value2, "tpe");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotBetween(String value1, String value2) {
-            addCriterion("\"type\" not between", value1, value2, "type");
+        public Criteria andTpeNotBetween(String value1, String value2) {
+            addCriterion("tpe not between", value1, value2, "tpe");
             return (Criteria) this;
         }
 

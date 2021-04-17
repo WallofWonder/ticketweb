@@ -285,73 +285,73 @@ public class NewsExample {
             return (Criteria) this;
         }
 
-        public Criteria andAbsIsNull() {
-            addCriterion("\"abs\" is null");
+        public Criteria andAbstractIsNull() {
+            addCriterion("abstract is null");
             return (Criteria) this;
         }
 
-        public Criteria andAbsIsNotNull() {
-            addCriterion("\"abs\" is not null");
+        public Criteria andAbstractIsNotNull() {
+            addCriterion("abstract is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAbsEqualTo(String value) {
-            addCriterion("\"abs\" =", value, "abs");
+        public Criteria andAbstractEqualTo(String value) {
+            addCriterion("abstract =", value, "abstract");
             return (Criteria) this;
         }
 
-        public Criteria andAbsNotEqualTo(String value) {
-            addCriterion("\"abs\" <>", value, "abs");
+        public Criteria andAbstractNotEqualTo(String value) {
+            addCriterion("abstract <>", value, "abstract");
             return (Criteria) this;
         }
 
-        public Criteria andAbsGreaterThan(String value) {
-            addCriterion("\"abs\" >", value, "abs");
+        public Criteria andAbstractGreaterThan(String value) {
+            addCriterion("abstract >", value, "abstract");
             return (Criteria) this;
         }
 
-        public Criteria andAbsGreaterThanOrEqualTo(String value) {
-            addCriterion("\"abs\" >=", value, "abs");
+        public Criteria andAbstractGreaterThanOrEqualTo(String value) {
+            addCriterion("abstract >=", value, "abstract");
             return (Criteria) this;
         }
 
-        public Criteria andAbsLessThan(String value) {
-            addCriterion("\"abs\" <", value, "abs");
+        public Criteria andAbstractLessThan(String value) {
+            addCriterion("abstract <", value, "abstract");
             return (Criteria) this;
         }
 
-        public Criteria andAbsLessThanOrEqualTo(String value) {
-            addCriterion("\"abs\" <=", value, "abs");
+        public Criteria andAbstractLessThanOrEqualTo(String value) {
+            addCriterion("abstract <=", value, "abstract");
             return (Criteria) this;
         }
 
-        public Criteria andAbsLike(String value) {
-            addCriterion("\"abs\" like", value, "abs");
+        public Criteria andAbstractLike(String value) {
+            addCriterion("abstract like", value, "abstract");
             return (Criteria) this;
         }
 
-        public Criteria andAbsNotLike(String value) {
-            addCriterion("\"abs\" not like", value, "abs");
+        public Criteria andAbstractNotLike(String value) {
+            addCriterion("abstract not like", value, "abstract");
             return (Criteria) this;
         }
 
-        public Criteria andAbsIn(List<String> values) {
-            addCriterion("\"abs\" in", values, "abs");
+        public Criteria andAbstractIn(List<String> values) {
+            addCriterion("abstract in", values, "abstract");
             return (Criteria) this;
         }
 
-        public Criteria andAbsNotIn(List<String> values) {
-            addCriterion("\"abs\" not in", values, "abs");
+        public Criteria andAbstractNotIn(List<String> values) {
+            addCriterion("abstract not in", values, "abstract");
             return (Criteria) this;
         }
 
-        public Criteria andAbsBetween(String value1, String value2) {
-            addCriterion("\"abs\" between", value1, value2, "abs");
+        public Criteria andAbstractBetween(String value1, String value2) {
+            addCriterion("abstract between", value1, value2, "abstract");
             return (Criteria) this;
         }
 
-        public Criteria andAbsNotBetween(String value1, String value2) {
-            addCriterion("\"abs\" not between", value1, value2, "abs");
+        public Criteria andAbstractNotBetween(String value1, String value2) {
+            addCriterion("abstract not between", value1, value2, "abstract");
             return (Criteria) this;
         }
 

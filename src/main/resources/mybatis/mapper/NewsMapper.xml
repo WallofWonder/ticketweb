@@ -5,7 +5,7 @@
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="abs" jdbcType="VARCHAR" property="abs" />
+    <result column="abstract" jdbcType="VARCHAR" property="abstract" />
     <result column="content" jdbcType="VARCHAR" property="content" />
     <result column="picture" jdbcType="VARCHAR" property="picture" />
     <result column="title" jdbcType="VARCHAR" property="title" />
@@ -71,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, create_time, update_time, "abs", content, picture, title, view_num, news_category_id
+    id, create_time, update_time, abstract, content, picture, title, view_num, news_category_id
   </sql>
   <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.NewsExample" resultMap="BaseResultMap">
     select
@@ -105,10 +105,10 @@
     </if>
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.News" useGeneratedKeys="true">
-    insert into news (create_time, update_time, "abs", 
+    insert into news (create_time, update_time, abstract, 
       content, picture, title, 
       view_num, news_category_id)
-    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{abs,jdbcType=VARCHAR}, 
+    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{abstract,jdbcType=VARCHAR}, 
       #{content,jdbcType=VARCHAR}, #{picture,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
       #{viewNum,jdbcType=INTEGER}, #{newsCategoryId,jdbcType=BIGINT})
   </insert>
@@ -121,8 +121,8 @@
       <if test="updateTime != null">
         update_time,
       </if>
-      <if test="abs != null">
-        "abs",
+      <if test="abstract != null">
+        abstract,
       </if>
       <if test="content != null">
         content,
@@ -147,8 +147,8 @@
       <if test="updateTime != null">
         #{updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="abs != null">
-        #{abs,jdbcType=VARCHAR},
+      <if test="abstract != null">
+        #{abstract,jdbcType=VARCHAR},
       </if>
       <if test="content != null">
         #{content,jdbcType=VARCHAR},
@@ -185,8 +185,8 @@
       <if test="record.updateTime != null">
         update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.abs != null">
-        "abs" = #{record.abs,jdbcType=VARCHAR},
+      <if test="record.abstract != null">
+        abstract = #{record.abstract,jdbcType=VARCHAR},
       </if>
       <if test="record.content != null">
         content = #{record.content,jdbcType=VARCHAR},
@@ -213,7 +213,7 @@
     set id = #{record.id,jdbcType=BIGINT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      "abs" = #{record.abs,jdbcType=VARCHAR},
+      abstract = #{record.abstract,jdbcType=VARCHAR},
       content = #{record.content,jdbcType=VARCHAR},
       picture = #{record.picture,jdbcType=VARCHAR},
       title = #{record.title,jdbcType=VARCHAR},
@@ -232,8 +232,8 @@
       <if test="updateTime != null">
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="abs != null">
-        "abs" = #{abs,jdbcType=VARCHAR},
+      <if test="abstract != null">
+        abstract = #{abstract,jdbcType=VARCHAR},
       </if>
       <if test="content != null">
         content = #{content,jdbcType=VARCHAR},
@@ -257,7 +257,7 @@
     update news
     set create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
-      "abs" = #{abs,jdbcType=VARCHAR},
+      abstract = #{abstract,jdbcType=VARCHAR},
       content = #{content,jdbcType=VARCHAR},
       picture = #{picture,jdbcType=VARCHAR},
       title = #{title,jdbcType=VARCHAR},

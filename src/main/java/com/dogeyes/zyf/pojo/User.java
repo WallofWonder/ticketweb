@@ -16,11 +16,11 @@ public class User implements Serializable {
 
     private String mobile;
 
-    private String password;
+    private String pwd;
 
     private Integer sex;
 
-    private Integer status;
+    private Integer stats;
 
     private String username;
 
@@ -76,12 +76,12 @@ public class User implements Serializable {
         this.mobile = mobile;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPwd() {
+        return pwd;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
     }
 
     public Integer getSex() {
@@ -92,12 +92,12 @@ public class User implements Serializable {
         this.sex = sex;
     }
 
-    public Integer getStatus() {
-        return status;
+    public Integer getStats() {
+        return stats;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setStats(Integer stats) {
+        this.stats = stats;
     }
 
     public String getUsername() {

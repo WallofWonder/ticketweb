@@ -10,7 +10,7 @@ public class News implements Serializable {
 
     private Date updateTime;
 
-    private String abs;
+    private String abstract;
 
     private String content;
 
@@ -48,12 +48,12 @@ public class News implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public String getAbs() {
-        return abs;
+    public String getAbstract() {
+        return abstract;
     }
 
-    public void setAbs(String abs) {
-        this.abs = abs;
+    public void setAbstract(String abstract) {
+        this.abstract = abstract;
     }
 
     public String getContent() {

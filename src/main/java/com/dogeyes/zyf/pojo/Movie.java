@@ -19,7 +19,7 @@ public class Movie implements Serializable {
 
     private String info;
 
-    private String language;
+    private String lange;
 
     private String dbName;
 
@@ -29,11 +29,11 @@ public class Movie implements Serializable {
 
     private Date showTime;
 
-    private Integer time;
+    private Integer endureTime;
 
     private BigDecimal totalMoney;
 
-    private String type;
+    private String tpe;
 
     private String video;
 
@@ -97,12 +97,12 @@ public class Movie implements Serializable {
         this.info = info;
     }
 
-    public String getLanguage() {
-        return language;
+    public String getLange() {
+        return lange;
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
+    public void setLange(String lange) {
+        this.lange = lange;
     }
 
     public String getDbName() {
@@ -137,12 +137,12 @@ public class Movie implements Serializable {
         this.showTime = showTime;
     }
 
-    public Integer getTime() {
-        return time;
+    public Integer getEndureTime() {
+        return endureTime;
     }
 
-    public void setTime(Integer time) {
-        this.time = time;
+    public void setEndureTime(Integer endureTime) {
+        this.endureTime = endureTime;
     }
 
     public BigDecimal getTotalMoney() {
@@ -153,12 +153,12 @@ public class Movie implements Serializable {
         this.totalMoney = totalMoney;
     }
 
-    public String getType() {
-        return type;
+    public String getTpe() {
+        return tpe;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setTpe(String tpe) {
+        this.tpe = tpe;
     }
 
     public String getVideo() {

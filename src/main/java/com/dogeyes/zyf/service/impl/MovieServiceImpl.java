@@ -33,9 +33,6 @@ public class MovieServiceImpl implements MovieService {
     MovieMapper movieMapper;
 
     @Resource
-    CustomMovieMapper customMovieMapper;
-
-    @Resource
     FileHandler fileHandler;
 
     @Override
@@ -57,7 +54,9 @@ public class MovieServiceImpl implements MovieService {
     public List<Movie> batchMovies(List<Movie> movies) {
         int insertNum = 0;
         for (Movie movie : movies) {
-            insertNum += customMovieMapper.insert(movie);
+            movie.setUpdateTime(new Date());
+            movie.setCreateTime(new Date());
+            insertNum += movieMapper.insert(movie);
         }
         System.out.println("成功存入" + insertNum + "条数据");
         return movies;

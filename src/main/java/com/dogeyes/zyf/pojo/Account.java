@@ -19,11 +19,11 @@ public class Account implements Serializable {
 
     private String nickname;
 
-    private String password;
+    private String pwd;
 
     private Integer sex;
 
-    private Integer status;
+    private Integer stats;
 
     private static final long serialVersionUID = 1L;
 
@@ -83,12 +83,12 @@ public class Account implements Serializable {
         this.nickname = nickname;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPwd() {
+        return pwd;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
     }
 
     public Integer getSex() {
@@ -99,11 +99,11 @@ public class Account implements Serializable {
         this.sex = sex;
     }
 
-    public Integer getStatus() {
-        return status;
+    public Integer getStats() {
+        return stats;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setStats(Integer stats) {
+        this.stats = stats;
     }
 }
