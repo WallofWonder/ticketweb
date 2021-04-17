@@ -2,6 +2,7 @@ package com.dogeyes.zyf.controller;
 
 import com.dogeyes.zyf.pojo.User;
 import com.dogeyes.zyf.resource.user.UserSignupResource;
+import com.dogeyes.zyf.resource.user.UserTokenResource;
 import com.dogeyes.zyf.service.UserService;
 import com.dogeyes.zyf.util.AjaxResponse;
 import com.dogeyes.zyf.util.CustomException;
@@ -26,9 +27,9 @@ public class UserController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public @ResponseBody
     Object login(String email, String pwd) {
-        List<User> users = userService.login(email, pwd);
-        if (users == null || users.isEmpty()) throw new CustomException(CustomExceptionType.NOT_FOUND, "用户名或密码错误！");
-        return AjaxResponse.success(users.get(0));
+        UserTokenResource login = userService.login(email, pwd);
+        if (login == null) throw new CustomException(CustomExceptionType.USER_INPUT_ERROR, "邮箱或密码不正确！");
+        return AjaxResponse.success(login);
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
@@ -43,4 +44,12 @@ public class UserController {
         throw new CustomException(CustomExceptionType.SYSTEM_ERROR);
     }
 
+
+    @RequestMapping(value = "/info", method = RequestMethod.GET)
+    public @ResponseBody
+    Object getInfo(String email) {
+        User user = userService.getInfo(email);
+        if (user == null) throw new CustomException(CustomExceptionType.SYSTEM_ERROR);
+        return AjaxResponse.success(user);
+    }
 }

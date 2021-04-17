@@ -4,6 +4,7 @@ import com.dogeyes.zyf.mapper.UserMapper;
 import com.dogeyes.zyf.pojo.User;
 import com.dogeyes.zyf.pojo.UserExample;
 import com.dogeyes.zyf.resource.user.UserSignupResource;
+import com.dogeyes.zyf.resource.user.UserTokenResource;
 import com.dogeyes.zyf.service.UserService;
 import com.dogeyes.zyf.util.PropertyMapperUtil;
 import org.springframework.beans.factory.annotation.Value;
@@ -35,11 +36,15 @@ public class UserServiceImpl implements UserService {
     private String defaultAdvatar;
 
     @Override
-    public List<User> login(String email, String pwd) {
+    public UserTokenResource login(String email, String pwd) {
         UserExample example = new UserExample();
         UserExample.Criteria criteria = example.createCriteria();
         criteria.andEmailEqualTo(email).andPwdEqualTo(pwd);
-        return userMapper.selectByExample(example);
+        List<User> users = userMapper.selectByExample(example);
+        if (users.isEmpty()) return null;
+        UserTokenResource resource = new UserTokenResource();
+        resource.setToken(users.get(0).getEmail());
+        return resource;
     }
 
     @Override
@@ -63,5 +68,13 @@ public class UserServiceImpl implements UserService {
             return userMapper.selectByExample(example1).get(0);
         }
         return 0;
+    }
+
+    @Override
+    public User getInfo(String email) {
+        UserExample example = new UserExample();
+        UserExample.Criteria criteria = example.createCriteria();
+        criteria.andEmailEqualTo(email);
+        return userMapper.selectByExample(example).get(0);
     }
 }
