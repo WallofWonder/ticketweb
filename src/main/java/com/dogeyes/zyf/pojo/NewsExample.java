@@ -285,73 +285,73 @@ public class NewsExample {
             return (Criteria) this;
         }
 
-        public Criteria andAbstractIsNull() {
-            addCriterion("abstract is null");
+        public Criteria andAbstrIsNull() {
+            addCriterion("abstr is null");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractIsNotNull() {
-            addCriterion("abstract is not null");
+        public Criteria andAbstrIsNotNull() {
+            addCriterion("abstr is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractEqualTo(String value) {
-            addCriterion("abstract =", value, "abstract");
+        public Criteria andAbstrEqualTo(String value) {
+            addCriterion("abstr =", value, "abstr");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractNotEqualTo(String value) {
-            addCriterion("abstract <>", value, "abstract");
+        public Criteria andAbstrNotEqualTo(String value) {
+            addCriterion("abstr <>", value, "abstr");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractGreaterThan(String value) {
-            addCriterion("abstract >", value, "abstract");
+        public Criteria andAbstrGreaterThan(String value) {
+            addCriterion("abstr >", value, "abstr");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractGreaterThanOrEqualTo(String value) {
-            addCriterion("abstract >=", value, "abstract");
+        public Criteria andAbstrGreaterThanOrEqualTo(String value) {
+            addCriterion("abstr >=", value, "abstr");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractLessThan(String value) {
-            addCriterion("abstract <", value, "abstract");
+        public Criteria andAbstrLessThan(String value) {
+            addCriterion("abstr <", value, "abstr");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractLessThanOrEqualTo(String value) {
-            addCriterion("abstract <=", value, "abstract");
+        public Criteria andAbstrLessThanOrEqualTo(String value) {
+            addCriterion("abstr <=", value, "abstr");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractLike(String value) {
-            addCriterion("abstract like", value, "abstract");
+        public Criteria andAbstrLike(String value) {
+            addCriterion("abstr like", value, "abstr");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractNotLike(String value) {
-            addCriterion("abstract not like", value, "abstract");
+        public Criteria andAbstrNotLike(String value) {
+            addCriterion("abstr not like", value, "abstr");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractIn(List<String> values) {
-            addCriterion("abstract in", values, "abstract");
+        public Criteria andAbstrIn(List<String> values) {
+            addCriterion("abstr in", values, "abstr");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractNotIn(List<String> values) {
-            addCriterion("abstract not in", values, "abstract");
+        public Criteria andAbstrNotIn(List<String> values) {
+            addCriterion("abstr not in", values, "abstr");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractBetween(String value1, String value2) {
-            addCriterion("abstract between", value1, value2, "abstract");
+        public Criteria andAbstrBetween(String value1, String value2) {
+            addCriterion("abstr between", value1, value2, "abstr");
             return (Criteria) this;
         }
 
-        public Criteria andAbstractNotBetween(String value1, String value2) {
-            addCriterion("abstract not between", value1, value2, "abstract");
+        public Criteria andAbstrNotBetween(String value1, String value2) {
+            addCriterion("abstr not between", value1, value2, "abstr");
             return (Criteria) this;
         }
 
