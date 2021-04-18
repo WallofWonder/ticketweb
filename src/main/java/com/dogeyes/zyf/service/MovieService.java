@@ -32,11 +32,11 @@ public interface MovieService {
     /**
      * 后台获取电影列表
      *
-     * @param isShow
+     * @param dbname
      * @param page   分页参数
      * @return 电影列表
      */
-    PageInfo<List<Movie>> listMovies(int isShow, PageParamResource page);
+    PageInfo<List<Movie>> listMovies(String dbname, PageParamResource page);
 
     /**
      * 获取电影信息

@@ -36,8 +36,8 @@ public class MovieController {
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public @ResponseBody
-    Object listMovies(int isShow, @Valid PageParamResource page) {
-        return movieService.listMovies(isShow, page);
+    Object listMovies(@Valid PageParamResource page, String dbname) {
+        return movieService.listMovies(dbname, page);
     }
 
 

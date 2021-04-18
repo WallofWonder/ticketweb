@@ -1,7 +1,6 @@
 package com.dogeyes.zyf.service.impl;
 
 import com.dogeyes.zyf.component.FileHandler;
-import com.dogeyes.zyf.mapper.CustomMovieMapper;
 import com.dogeyes.zyf.mapper.MovieMapper;
 import com.dogeyes.zyf.pojo.Movie;
 import com.dogeyes.zyf.pojo.MovieExample;
@@ -63,11 +62,11 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public PageInfo<List<Movie>> listMovies(int isShow, PageParamResource page) {
+    public PageInfo<List<Movie>> listMovies(String dbname, PageParamResource page) {
         MovieExample example = new MovieExample();
         MovieExample.Criteria criteria = example.createCriteria();
-        if (isShow == 1 || isShow == 0) {
-            criteria.andIsShowEqualTo(isShow == 1);
+        if (dbname != null) {
+            criteria.andDbNameLike("%" + dbname + "%");
         }
         PageSortHelper.pageAndSort(page, Movie.class);
         List<Movie> movies = movieMapper.selectByExample(example);
