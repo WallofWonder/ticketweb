@@ -23,4 +23,11 @@ public interface CinemaService {
      * @return 影院详情
      */
     Cinema selectCinemaById(int id);
+
+    /**
+     * 根据电影列出放映的影院
+     * @param movieid 电影id
+     * @return 影院列表
+     */
+    List<Cinema> listByMovie(long movieid);
 }

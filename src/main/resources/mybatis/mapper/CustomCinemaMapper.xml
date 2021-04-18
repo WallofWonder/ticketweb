@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dogeyes.zyf.mapper.CustomCinemaMapper">
+    <resultMap id="BaseResultMap" type="com.dogeyes.zyf.pojo.Cinema">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+        <result column="address" jdbcType="VARCHAR" property="address" />
+        <result column="cinema_service" jdbcType="VARCHAR" property="cinemaService" />
+        <result column="info" jdbcType="VARCHAR" property="info" />
+        <result column="db_name" jdbcType="VARCHAR" property="dbName" />
+        <result column="picture" jdbcType="VARCHAR" property="picture" />
+        <result column="rate" jdbcType="DECIMAL" property="rate" />
+        <result column="tel" jdbcType="VARCHAR" property="tel" />
+        <result column="transport" jdbcType="VARCHAR" property="transport" />
+        <result column="area_id" jdbcType="BIGINT" property="areaId" />
+        <result column="rate_count" jdbcType="INTEGER" property="rateCount" />
+        <result column="province_id" jdbcType="BIGINT" property="provinceId" />
+        <result column="city_id" jdbcType="BIGINT" property="cityId" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        cinema.id,
+        cinema.create_time,
+        cinema.update_time,
+        cinema.address,
+        cinema.cinema_service,
+        cinema.info,
+        cinema.db_name,
+        cinema.picture,
+        cinema.rate,
+        cinema.tel,
+        cinema.transport,
+        cinema.area_id,
+        cinema.rate_count,
+        cinema.province_id,
+        cinema.city_id
+    </sql>
+    <select id="listByMovie" resultType="com.dogeyes.zyf.pojo.Cinema">
+        SELECT DISTINCT
+        <include refid="Base_Column_List" />
+        FROM
+        cinema,
+        cinema_hall_session
+        WHERE
+        cinema_hall_session.movie_id = #{movieid,jdbcType=BIGINT}
+        AND cinema.id = cinema_hall_session.cinema_id
+    </select>
+
+</mapper>

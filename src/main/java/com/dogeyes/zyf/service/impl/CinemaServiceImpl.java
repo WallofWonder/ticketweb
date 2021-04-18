@@ -2,6 +2,7 @@ package com.dogeyes.zyf.service.impl;
 
 import com.dogeyes.zyf.mapper.AreaMapper;
 import com.dogeyes.zyf.mapper.CinemaMapper;
+import com.dogeyes.zyf.mapper.CustomCinemaMapper;
 import com.dogeyes.zyf.pojo.Area;
 import com.dogeyes.zyf.pojo.Cinema;
 import com.dogeyes.zyf.service.AreaService;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -22,6 +24,9 @@ import java.util.List;
 public class CinemaServiceImpl implements CinemaService {
     @Resource
     CinemaMapper cinemaMapper;
+
+    @Resource
+    CustomCinemaMapper customCinemaMapper;
 
     @Resource(name = "areaServiceImpl")
     AreaService service;
@@ -43,5 +48,10 @@ public class CinemaServiceImpl implements CinemaService {
     @Override
     public Cinema selectCinemaById(int id) {
         return cinemaMapper.selectByPrimaryKey((long) id);
+    }
+
+    @Override
+    public List<Cinema> listByMovie(long movieid) {
+        return customCinemaMapper.listByMovie(movieid);
     }
 }

@@ -39,4 +39,11 @@ public class CinemaController {
         if (cinema == null) throw new CustomException(CustomExceptionType.NOT_FOUND);
         return AjaxResponse.success(cinema);
     }
+
+    @RequestMapping(value = "/listbymovie", method = RequestMethod.GET)
+    public @ResponseBody
+    Object listByMovie(long movieid) {
+        List<Cinema> cinemas = cinemaService.listByMovie(movieid);
+        return AjaxResponse.success(cinemas);
+    }
 }
