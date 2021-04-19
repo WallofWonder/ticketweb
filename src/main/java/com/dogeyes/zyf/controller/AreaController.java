@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * 地域管理控制器
@@ -38,6 +39,12 @@ public class AreaController {
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public @ResponseBody Object listAll(@Valid PageParamResource page) {
         return areaService.listAll(page);
+    }
+
+    @RequestMapping(value = "/listbycity", method = RequestMethod.GET)
+    public @ResponseBody Object listByCity(long cityid) {
+        List<Area> areas = areaService.listAreaByCity(cityid);
+        return AjaxResponse.success(areas);
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)

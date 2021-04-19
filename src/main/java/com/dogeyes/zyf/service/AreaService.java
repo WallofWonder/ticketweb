@@ -40,10 +40,9 @@ public interface AreaService {
     /**
      * 按照城市获取区划列表
      *
-     * @param page 分页参数
      * @return 区划列表
      */
-    PageInfo<List<Area>> listAreaByCity(PageParamResource page, Long cityId);
+    List<Area> listAreaByCity(Long cityId);
 
     /**
      * 获取所有列表

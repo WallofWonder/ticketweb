@@ -48,8 +48,11 @@ public class AreaServiceImpl implements AreaService {
     }
 
     @Override
-    public PageInfo<List<Area>> listAreaByCity(PageParamResource page, Long cityId) {
-        return null;
+    public List<Area> listAreaByCity(Long cityId) {
+        AreaExample example = new AreaExample();
+        AreaExample.Criteria criteria = example.createCriteria();
+        criteria.andCityIdEqualTo(cityId);
+        return areaMapper.selectByExample(example);
     }
 
     @Override
