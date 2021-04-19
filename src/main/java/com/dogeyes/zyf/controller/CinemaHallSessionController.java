@@ -1,7 +1,7 @@
 package com.dogeyes.zyf.controller;
 
-import com.dogeyes.zyf.pojo.CinemaHallSession;
 import com.dogeyes.zyf.resource.hallsession.HallSessionReqResource;
+import com.dogeyes.zyf.resource.hallsession.HallSessionResResource;
 import com.dogeyes.zyf.service.CinemaHallSessionService;
 import com.dogeyes.zyf.util.AjaxResponse;
 import org.springframework.web.bind.annotation.*;
@@ -24,9 +24,7 @@ public class CinemaHallSessionController {
     @RequestMapping(value = "/show",method = RequestMethod.GET)
     public @ResponseBody
     Object getSession(@RequestBody @Valid HallSessionReqResource resource) {
-        List<CinemaHallSession> cinemaHallSessions = cinemaHallSessionService.listShowBy(resource);
+        List<HallSessionResResource> cinemaHallSessions = cinemaHallSessionService.listShowBy(resource);
         return AjaxResponse.success(cinemaHallSessions);
     }
-
-    // todo 根据影院列出放映的电影
 }

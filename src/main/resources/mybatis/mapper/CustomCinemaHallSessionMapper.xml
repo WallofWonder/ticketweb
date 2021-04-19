@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dogeyes.zyf.mapper.CustomCinemaHallSessionMapper">
+  <resultMap id="BaseResultMap" type="com.dogeyes.zyf.pojo.CinemaHallSession">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="show_date" jdbcType="VARCHAR" property="showDate" />
+    <result column="show_time" jdbcType="VARCHAR" property="showTime" />
+    <result column="cinema_id" jdbcType="BIGINT" property="cinemaId" />
+    <result column="cinema_hall_id" jdbcType="BIGINT" property="cinemaHallId" />
+    <result column="movie_id" jdbcType="BIGINT" property="movieId" />
+    <result column="cinema_session_type" jdbcType="INTEGER" property="cinemaSessionType" />
+    <result column="end_time" jdbcType="VARCHAR" property="endTime" />
+    <result column="new_price" jdbcType="DECIMAL" property="newPrice" />
+    <result column="old_price" jdbcType="DECIMAL" property="oldPrice" />
+    <result column="start_time" jdbcType="VARCHAR" property="startTime" />
+  </resultMap>
+  <resultMap id="CustomResultMap" type="com.dogeyes.zyf.resource.hallsession.HallSessionResResource">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="show_date" jdbcType="VARCHAR" property="showDate" />
+    <result column="show_time" jdbcType="VARCHAR" property="showTime" />
+    <result column="cinema_id" jdbcType="BIGINT" property="cinemaId" />
+    <result column="cinema_hall_id" jdbcType="BIGINT" property="cinemaHallId" />
+    <result column="movie_id" jdbcType="BIGINT" property="movieId" />
+    <result column="cinema_session_type" jdbcType="INTEGER" property="cinemaSessionType" />
+    <result column="end_time" jdbcType="VARCHAR" property="endTime" />
+    <result column="new_price" jdbcType="DECIMAL" property="newPrice" />
+    <result column="old_price" jdbcType="DECIMAL" property="oldPrice" />
+    <result column="start_time" jdbcType="VARCHAR" property="startTime" />
+    <result column="cinema_hall_name" jdbcType="VARCHAR" property="cinemaHallName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    cinema_hall_session.id,
+	cinema_hall_session.create_time,
+	cinema_hall_session.update_time,
+	cinema_hall_session.show_date,
+	cinema_hall_session.show_time,
+	cinema_hall_session.cinema_id,
+	cinema_hall_session.cinema_hall_id,
+	cinema_hall_session.movie_id,
+	cinema_hall_session.cinema_session_type,
+	cinema_hall_session.end_time,
+	cinema_hall_session.new_price,
+	cinema_hall_session.old_price,
+	cinema_hall_session.start_time
+  </sql>
+  <select id="listShowBy" resultType="com.dogeyes.zyf.resource.hallsession.HallSessionResResource" resultMap="CustomResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    , cinema_hall.db_name AS cinema_hall_name
+    FROM
+    cinema_hall_session,
+    cinema_hall
+    WHERE
+    cinema_hall_session.cinema_id = #{cinemaid} AND
+    cinema_hall_session.movie_id = #{movieid} AND
+    cinema_hall_session.show_date = #{showdate} AND
+    cinema_hall_session.cinema_hall_id = cinema_hall.id;
+
+  </select>
+
+</mapper>

@@ -1,4 +1,4 @@
-package com.dogeyes.zyf.service;
+package com.dogeyes.zyf.mapper;
 
 import com.dogeyes.zyf.resource.hallsession.HallSessionReqResource;
 import com.dogeyes.zyf.resource.hallsession.HallSessionResResource;
@@ -7,15 +7,9 @@ import java.util.List;
 
 /**
  * @author ZYF
- * @create 2021-4-19 10:08
+ * @create 2021-4-19 13:47
  */
-public interface CinemaHallSessionService {
+public interface CustomCinemaHallSessionMapper {
 
-    /**
-     * 根据影院+电影列出放映的场次
-     *
-     * @param resource 请求体
-     * @return 场次列表
-     */
     List<HallSessionResResource> listShowBy(HallSessionReqResource resource);
 }
