@@ -40,10 +40,18 @@ public class CinemaController {
         return AjaxResponse.success(cinema);
     }
 
+    @Deprecated
     @RequestMapping(value = "/listbymovie", method = RequestMethod.GET)
     public @ResponseBody
     Object listByMovie(long movieid) {
         List<Cinema> cinemas = cinemaService.listByMovie(movieid);
+        return AjaxResponse.success(cinemas);
+    }
+
+    @RequestMapping(value = "/listbyarea",method = RequestMethod.GET)
+    public @ResponseBody
+    Object listByArea(long areaid) {
+        List<Cinema> cinemas = cinemaService.listByArea(areaid);
         return AjaxResponse.success(cinemas);
     }
 }

@@ -30,4 +30,12 @@ public interface CinemaService {
      * @return 影院列表
      */
     List<Cinema> listByMovie(long movieid);
+
+    /**
+     * 根据地区列出影院
+     *
+     * @param areaid 地区号
+     * @return 影院列表
+     */
+    List<Cinema> listByArea(Long areaid);
 }

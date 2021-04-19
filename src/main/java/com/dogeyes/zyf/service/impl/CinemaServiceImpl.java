@@ -4,7 +4,9 @@ import com.dogeyes.zyf.mapper.AreaMapper;
 import com.dogeyes.zyf.mapper.CinemaMapper;
 import com.dogeyes.zyf.mapper.CustomCinemaMapper;
 import com.dogeyes.zyf.pojo.Area;
+import com.dogeyes.zyf.pojo.AreaExample;
 import com.dogeyes.zyf.pojo.Cinema;
+import com.dogeyes.zyf.pojo.CinemaExample;
 import com.dogeyes.zyf.service.AreaService;
 import com.dogeyes.zyf.service.CinemaService;
 import org.springframework.stereotype.Service;
@@ -28,15 +30,18 @@ public class CinemaServiceImpl implements CinemaService {
     @Resource
     CustomCinemaMapper customCinemaMapper;
 
+    @Resource
+    AreaMapper areaMapper;
+
     @Resource(name = "areaServiceImpl")
-    AreaService service;
+    AreaService areaService;
 
     @Override
     public void fetchInfo(List<Cinema> cinemas) {
         for (Cinema cinema : cinemas) {
             String address = cinema.getAddress();
             String areaName = address.substring(0, 2);
-            List<Area> areas = service.selectByName(areaName);
+            List<Area> areas = areaService.selectByName(areaName);
             if (areas != null && areas.size() > 0)
                 cinema.setAreaId(areas.get(0).getId());
             cinema.setCreateTime(new Date());
@@ -53,5 +58,34 @@ public class CinemaServiceImpl implements CinemaService {
     @Override
     public List<Cinema> listByMovie(long movieid) {
         return customCinemaMapper.listByMovie(movieid);
+    }
+
+    @Override
+    public List<Cinema> listByArea(Long areaid) {
+        CinemaExample cinemaExample = new CinemaExample();
+        CinemaExample.Criteria cinemaExampleCriteria = cinemaExample.createCriteria();
+        if (areaid != null) {
+            // 用于判断是城市还是区域代码
+            Area area = areaService.getById(areaid);
+            if (area == null) return new ArrayList<>();
+
+            if (area.getCityId() != 0L) {
+                // 区域代码
+                // System.out.println("area");
+                cinemaExampleCriteria.andAreaIdEqualTo(areaid);
+            }
+            else if (area.getProvinceId() != 0L){
+                // 城市代码
+                // System.out.println("city");
+                cinemaExampleCriteria.andCityIdEqualTo(areaid);
+            }
+            else {
+                // 省份代码
+                // System.out.println("province");
+                cinemaExampleCriteria.andProvinceIdEqualTo(areaid);
+            }
+
+        }
+        return cinemaMapper.selectByExample(cinemaExample);
     }
 }

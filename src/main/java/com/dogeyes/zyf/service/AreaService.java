@@ -16,6 +16,13 @@ import java.util.List;
 public interface AreaService {
 
     /**
+     * 根据代码 获取地域
+     * @param id 代码
+     * @return 地域
+     */
+    Area getById(long id);
+
+    /**
      * 获取级联选择器-所有省份选项
      *
      * @return 所有省份选项

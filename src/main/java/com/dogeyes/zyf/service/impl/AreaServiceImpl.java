@@ -33,6 +33,11 @@ public class AreaServiceImpl implements AreaService {
     CustomAreaMapper customAreaMapper;
 
     @Override
+    public Area getById(long id) {
+        return areaMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
     public List<ProvinceSelectResource> selectProvinces() {
         return customAreaMapper.selectProvinces();
     }
