@@ -1,0 +1,32 @@
+package com.dogeyes.zyf.controller;
+
+import com.dogeyes.zyf.pojo.CinemaHallSession;
+import com.dogeyes.zyf.resource.hallsession.HallSessionReqResource;
+import com.dogeyes.zyf.service.CinemaHallSessionService;
+import com.dogeyes.zyf.util.AjaxResponse;
+import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
+import javax.validation.Valid;
+import java.util.List;
+
+/**
+ * @author ZYF
+ * @create 2021-4-19 10:06
+ */
+@RestController
+@RequestMapping("admin/hallsession")
+public class CinemaHallSessionController {
+    @Resource(name = "cinemaHallSessionServiceImpl")
+    CinemaHallSessionService cinemaHallSessionService;
+
+    // 根据影院+电影列出放映的场次
+    @RequestMapping(value = "/show",method = RequestMethod.GET)
+    public @ResponseBody
+    Object getSession(@RequestBody @Valid HallSessionReqResource resource) {
+        List<CinemaHallSession> cinemaHallSessions = cinemaHallSessionService.listShowBy(resource);
+        return AjaxResponse.success(cinemaHallSessions);
+    }
+
+    // todo 根据影院列出放映的电影
+}
