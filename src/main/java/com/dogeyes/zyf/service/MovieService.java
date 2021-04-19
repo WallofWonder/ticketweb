@@ -53,4 +53,11 @@ public interface MovieService {
      * @return <tt>1</tt> 更新成功；<tt>-1</tt> 更新失败
      */
     int updateMovie(MovieUpdateResource resource);
+
+    /**
+     * 根据影院列出放映的电影
+     * @param cinemaId 电影id
+     * @return 电影列表
+     */
+    List<Movie> listByCinema(long cinemaId);
 }

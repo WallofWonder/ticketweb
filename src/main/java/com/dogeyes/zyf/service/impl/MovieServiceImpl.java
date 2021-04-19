@@ -1,6 +1,7 @@
 package com.dogeyes.zyf.service.impl;
 
 import com.dogeyes.zyf.component.FileHandler;
+import com.dogeyes.zyf.mapper.CustomMovieMapper;
 import com.dogeyes.zyf.mapper.MovieMapper;
 import com.dogeyes.zyf.pojo.Movie;
 import com.dogeyes.zyf.pojo.MovieExample;
@@ -30,6 +31,9 @@ public class MovieServiceImpl implements MovieService {
 
     @Resource
     MovieMapper movieMapper;
+
+    @Resource
+    CustomMovieMapper customMovieMapper;
 
     @Resource
     FileHandler fileHandler;
@@ -85,5 +89,8 @@ public class MovieServiceImpl implements MovieService {
         return movieMapper.updateByPrimaryKeySelective(newMovie);
     }
 
-
+    @Override
+    public List<Movie> listByCinema(long cinemaId) {
+        return customMovieMapper.listByCinema(cinemaId);
+    }
 }

@@ -14,15 +14,30 @@
         <result column="picture" jdbcType="VARCHAR" property="picture" />
         <result column="rate" jdbcType="REAL" property="rate" />
         <result column="show_time" jdbcType="TIMESTAMP" property="showTime" />
-        <result column="endureTime" jdbcType="INTEGER" property="endureTime" />
+        <result column="endure_time" jdbcType="INTEGER" property="endureTime" />
         <result column="total_money" jdbcType="DECIMAL" property="totalMoney" />
         <result column="tpe" jdbcType="VARCHAR" property="tpe" />
         <result column="video" jdbcType="VARCHAR" property="video" />
         <result column="is_show" jdbcType="BIT" property="isShow" />
     </resultMap>
     <sql id="Base_Column_List">
-        id, create_time, update_time, actor, area, directed_by, info, lange, db_name,
-    picture, rate, show_time, `time`, total_money, tpe, video, is_show
+        movie.id,
+        movie.create_time,
+        movie.update_time,
+        movie.actor,
+        movie.area,
+        movie.directed_by,
+        movie.info,
+        movie.lange,
+        movie.db_name,
+        movie.picture,
+        movie.rate,
+        movie.show_time,
+        movie.endure_time,
+        movie.total_money,
+        movie.tpe,
+        movie.video,
+        movie.is_show
     </sql>
     <insert id="batchData">
         <!-- todo 批量添加电影的方法 -->
@@ -41,5 +56,15 @@
                 #{totalMoney,jdbcType=DECIMAL}, #{type,jdbcType=VARCHAR}, #{video,jdbcType=VARCHAR},
                 #{isShow,jdbcType=BIT})
     </insert>
+    <select id="listByCinema" resultType="com.dogeyes.zyf.pojo.Movie">
+        SELECT DISTINCT
+        <include refid="Base_Column_List"/>
+        FROM
+        movie,
+        cinema_hall_session
+        WHERE
+        movie.id = cinema_hall_session.movie_id
+        AND cinema_hall_session.cinema_id = #{cinemaId}
+    </select>
 
 </mapper>

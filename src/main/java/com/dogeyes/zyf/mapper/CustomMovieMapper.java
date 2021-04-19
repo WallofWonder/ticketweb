@@ -19,4 +19,11 @@ public interface CustomMovieMapper {
      * @return
      */
     int insert(Movie movie);
+
+    /**
+     * 根据影院列出放映的电影
+     * @param cinemaId 影院id
+     * @return 电影列表
+     */
+    List<Movie> listByCinema(long cinemaId);
 }

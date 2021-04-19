@@ -55,4 +55,10 @@ public class MovieController {
         if (result != 1) throw new CustomException(CustomExceptionType.SYSTEM_ERROR, "更新失败！");
         else return AjaxResponse.success();
     }
+
+    @RequestMapping(value = "/listbycinema",method = RequestMethod.GET)
+    public @ResponseBody
+    Object listByCinema(long cinemaid) {
+        return movieService.listByCinema(cinemaid);
+    }
 }
