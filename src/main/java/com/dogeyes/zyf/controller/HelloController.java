@@ -1,12 +1,10 @@
 package com.dogeyes.zyf.controller;
 
+import com.dogeyes.zyf.jwt.AccountLoginToken;
 import com.dogeyes.zyf.util.AjaxResponse;
 import com.dogeyes.zyf.util.CustomException;
 import com.dogeyes.zyf.util.CustomExceptionType;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class HelloController {
@@ -15,5 +13,12 @@ public class HelloController {
     Object hello(int ok) {
         if (ok == 0) throw new CustomException(CustomExceptionType.SYSTEM_ERROR);
         return AjaxResponse.success();
+    }
+
+    @AccountLoginToken
+    @RequestMapping(value = "/testToken", method = RequestMethod.GET)
+    public @ResponseBody
+    Object getToken(@RequestHeader("token") String token) {
+        return AjaxResponse.success(token);
     }
 }

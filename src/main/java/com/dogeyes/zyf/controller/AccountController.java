@@ -1,15 +1,19 @@
 package com.dogeyes.zyf.controller;
 
+import com.dogeyes.zyf.jwt.AccountLoginToken;
+import com.dogeyes.zyf.jwt.CurrentAccount;
+import com.dogeyes.zyf.jwt.PassToken;
 import com.dogeyes.zyf.pojo.Account;
+import com.dogeyes.zyf.resource.account.AccountInfoResp;
+import com.dogeyes.zyf.resource.account.AccountLoginReq;
 import com.dogeyes.zyf.resource.account.AccountSignupResource;
 import com.dogeyes.zyf.service.AccountService;
 import com.dogeyes.zyf.util.AjaxResponse;
 import com.dogeyes.zyf.util.CustomException;
 import com.dogeyes.zyf.util.CustomExceptionType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import com.dogeyes.zyf.util.JwtUtil;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -26,15 +30,21 @@ public class AccountController {
     @Resource(name = "accountServiceImpl")
     AccountService accountService;
 
-    @RequestMapping(value = "/login")
+    @PassToken
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public @ResponseBody
-    Object login(String mobile, String pwd) {
-        List<Account> accounts = accountService.login(mobile, pwd);
-        if (accounts == null || accounts.isEmpty()) throw new CustomException(CustomExceptionType.NOT_FOUND,"用户名或密码错误！");
-        return AjaxResponse.success(accounts.get(0));
+    Object login(@RequestBody AccountLoginReq loginReq) {
+        List<Account> accounts = accountService.login(loginReq.getMobile(), loginReq.getPwd());
+        if (accounts == null || accounts.isEmpty())
+            throw new CustomException(CustomExceptionType.UNAUTHORIZED, "用户名或密码错误！");
+        AccountInfoResp infoResp = new AccountInfoResp();
+        infoResp.setAccount(accounts.get(0));
+        infoResp.setToken(JwtUtil.getToken(infoResp.getAccount()));
+        return AjaxResponse.success(infoResp);
     }
 
-    @RequestMapping(value = "/signup")
+    @PassToken
+    @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public @ResponseBody
     Object signup(@RequestBody @Valid AccountSignupResource resource) {
         Object result = accountService.signup(resource);
@@ -44,5 +54,12 @@ public class AccountController {
         int errType = (Integer) result;
         if (errType == 1) throw new CustomException(CustomExceptionType.USER_INPUT_ERROR, "该手机号已被注册");
         throw new CustomException(CustomExceptionType.SYSTEM_ERROR);
+    }
+
+    @AccountLoginToken
+    @RequestMapping(value = "/accountinfo", method = RequestMethod.GET)
+    public @ResponseBody
+    Object getAccountInfo(Long id, @CurrentAccount Account account) {
+        return AjaxResponse.success(account);
     }
 }

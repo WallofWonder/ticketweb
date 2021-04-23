@@ -10,10 +10,11 @@ import lombok.Getter;
  */
 @Getter
 public enum CustomExceptionType {
-    USER_INPUT_ERROR(400, "您输入的数据错误或您没有权限访问资源！"),
+    USER_INPUT_ERROR(400, "数据错误！"),
+    UNAUTHORIZED(401, "没有权限访问！"),
     NOT_FOUND(404, "资源不存在！"),
-    SYSTEM_ERROR(500, "系统出现异常，请您稍后再试或联系管理员！"),
-    OTHER_ERROR(999, "系统出现未知异常，请联系管理员！");
+    SYSTEM_ERROR(500, "系统出现异常！"),
+    OTHER_ERROR(999, "系统出现未知异常！");
 
     CustomExceptionType(int code, String desc) {
         this.code = code;
