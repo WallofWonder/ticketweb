@@ -25,6 +25,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("account")
+@CrossOrigin(origins = "*",maxAge = 3600)
 public class AccountController {
 
     @Resource(name = "accountServiceImpl")
@@ -61,5 +62,11 @@ public class AccountController {
     public @ResponseBody
     Object getAccountInfo(Long id, @CurrentAccount Account account) {
         return AjaxResponse.success(account);
+    }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    public @ResponseBody
+    Object logout() {
+        return AjaxResponse.success();
     }
 }
