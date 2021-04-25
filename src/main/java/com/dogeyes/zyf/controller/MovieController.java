@@ -21,6 +21,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("admin/movies")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class MovieController {
 
     @Resource(name = "movieServiceImpl")
@@ -56,7 +57,7 @@ public class MovieController {
         else return AjaxResponse.success();
     }
 
-    @RequestMapping(value = "/listbycinema",method = RequestMethod.GET)
+    @RequestMapping(value = "/listbycinema", method = RequestMethod.GET)
     public @ResponseBody
     Object listByCinema(long cinemaid) {
         return movieService.listByCinema(cinemaid);

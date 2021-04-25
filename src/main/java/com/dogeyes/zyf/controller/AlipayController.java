@@ -13,6 +13,7 @@ import com.dogeyes.zyf.util.MyWebSocket;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,6 +28,7 @@ import java.io.IOException;
  */
 @Controller
 @Log4j2
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class AlipayController {
 
     @Autowired

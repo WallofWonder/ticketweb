@@ -19,6 +19,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("admin/cinemas")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class CinemaController {
 
     @Resource(name = "cinemaServiceImpl")

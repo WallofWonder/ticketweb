@@ -16,7 +16,7 @@ import java.io.Serializable;
 @Data
 public class PageParamResource implements Serializable {
 
-    @Min(value = 10, message = "每页最少显示10条信息！")
+    @Min(value = 1, message = "每页最少显示1条信息！")
     private int pageSize = 10;
 
     @Min(value = 1, message = "页码从1开始！")

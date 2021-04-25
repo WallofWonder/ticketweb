@@ -20,6 +20,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("admin/areas")
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class AreaController {
 
     @Resource(name = "areaServiceImpl")
