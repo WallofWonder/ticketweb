@@ -81,10 +81,10 @@ public class DataSpider {
             Elements movieCardList = item.getElementsByClass("movie-card-list").first().children();
             movieInfo.setDirectedBy(colon(movieCardList.get(0).text()));
             movieInfo.setActor(colon(movieCardList.get(1).text()));
-            movieInfo.setType(colon(movieCardList.get(2).text()));
+            movieInfo.setTpe(colon(movieCardList.get(2).text()));
             movieInfo.setArea(colon(movieCardList.get(3).text()));
-            movieInfo.setLanguage(colon(movieCardList.get(4).text()));
-            if (movieCardList.size() > 5) movieInfo.setTime(getInt(movieCardList.get(5).text()));
+            movieInfo.setLange(colon(movieCardList.get(4).text()));
+            if (movieCardList.size() > 5) movieInfo.setEndureTime(getInt(movieCardList.get(5).text()));
 
 
             movieInfos.add(movieInfo);
