@@ -51,10 +51,13 @@
     SELECT
     <include refid="Base_Column_List"/>
     , cinema_hall.db_name AS cinema_hall_name
+    , movie.lange AS lange
     FROM
     cinema_hall_session,
-    cinema_hall
+    cinema_hall,
+    movie
     WHERE
+    movie.id = #{movieid} AND
     cinema_hall_session.cinema_id = #{cinemaid} AND
     cinema_hall_session.movie_id = #{movieid} AND
     cinema_hall_session.show_date = #{showdate} AND

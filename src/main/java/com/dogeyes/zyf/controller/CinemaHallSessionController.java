@@ -22,9 +22,9 @@ public class CinemaHallSessionController {
     CinemaHallSessionService cinemaHallSessionService;
 
     // 根据影院+电影+时间列出放映的场次
-    @RequestMapping(value = "/show", method = RequestMethod.GET)
+    @RequestMapping(value = "/show", method = RequestMethod.POST)
     public @ResponseBody
-    Object getSession(@RequestBody @Valid HallSessionReqResource resource) {
+    Object getSession(@RequestBody HallSessionReqResource resource) {
         List<HallSessionResResource> cinemaHallSessions = cinemaHallSessionService.listShowBy(resource);
         return AjaxResponse.success(cinemaHallSessions);
     }

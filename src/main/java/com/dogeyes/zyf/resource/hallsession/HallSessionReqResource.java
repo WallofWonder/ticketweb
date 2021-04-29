@@ -15,12 +15,9 @@ import java.util.Date;
 @Data
 public class HallSessionReqResource {
 
-    @NotNull
     private long movieid;
 
-    @NotNull
     private long cinemaid;
 
-    @NotEmpty
     private String showdate;
 }

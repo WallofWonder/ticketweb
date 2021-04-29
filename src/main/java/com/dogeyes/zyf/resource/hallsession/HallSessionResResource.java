@@ -40,4 +40,6 @@ public class HallSessionResResource {
     private String startTime;
 
     private String cinemaHallName;
+
+    private String lange;
 }
