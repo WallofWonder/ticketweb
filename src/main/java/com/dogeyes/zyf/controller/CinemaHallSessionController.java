@@ -21,11 +21,19 @@ public class CinemaHallSessionController {
     @Resource(name = "cinemaHallSessionServiceImpl")
     CinemaHallSessionService cinemaHallSessionService;
 
-    // 根据影院+电影列出放映的场次
-    @RequestMapping(value = "/show",method = RequestMethod.GET)
+    // 根据影院+电影+时间列出放映的场次
+    @RequestMapping(value = "/show", method = RequestMethod.GET)
     public @ResponseBody
     Object getSession(@RequestBody @Valid HallSessionReqResource resource) {
         List<HallSessionResResource> cinemaHallSessions = cinemaHallSessionService.listShowBy(resource);
         return AjaxResponse.success(cinemaHallSessions);
+    }
+
+    //列出放映的时间
+    @RequestMapping(value = "/showdates", method = RequestMethod.GET)
+    public @ResponseBody
+    Object getShowDates(long movieid) {
+        List<String> showDates = cinemaHallSessionService.getShowDates(movieid);
+        return AjaxResponse.success(showDates);
     }
 }

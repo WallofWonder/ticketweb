@@ -12,10 +12,17 @@ import java.util.List;
 public interface CinemaHallSessionService {
 
     /**
-     * 根据影院+电影列出放映的场次
+     * 根据影院+电影+时间 列出放映的场次
      *
      * @param resource 请求体
      * @return 场次列表
      */
     List<HallSessionResResource> listShowBy(HallSessionReqResource resource);
+
+    /**
+     * 根据电影 列出放映的时间
+     * @param movieid 电影id
+     * @return 放映的时间
+     */
+    List<String> getShowDates(long movieid);
 }

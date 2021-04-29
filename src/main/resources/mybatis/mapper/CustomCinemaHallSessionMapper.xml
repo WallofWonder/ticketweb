@@ -61,5 +61,10 @@
     cinema_hall_session.cinema_hall_id = cinema_hall.id;
 
   </select>
+  <select id="getShowDates" resultType="java.lang.String">
+   SELECT DISTINCT cinema_hall_session.show_date
+     FROM cinema_hall_session
+     WHERE cinema_hall_session.movie_id = #{movieid};
+  </select>
 
 </mapper>

@@ -3,6 +3,7 @@ package com.dogeyes.zyf.mapper;
 import com.dogeyes.zyf.resource.hallsession.HallSessionReqResource;
 import com.dogeyes.zyf.resource.hallsession.HallSessionResResource;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -12,4 +13,6 @@ import java.util.List;
 public interface CustomCinemaHallSessionMapper {
 
     List<HallSessionResResource> listShowBy(HallSessionReqResource resource);
+
+    List<String> getShowDates(long movieid);
 }
