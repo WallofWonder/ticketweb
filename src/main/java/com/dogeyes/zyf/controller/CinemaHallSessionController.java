@@ -1,5 +1,6 @@
 package com.dogeyes.zyf.controller;
 
+import com.dogeyes.zyf.pojo.CinemaHallSession;
 import com.dogeyes.zyf.resource.hallsession.HallSessionReqResource;
 import com.dogeyes.zyf.resource.hallsession.HallSessionResResource;
 import com.dogeyes.zyf.service.CinemaHallSessionService;
@@ -35,5 +36,13 @@ public class CinemaHallSessionController {
     Object getShowDates(long movieid) {
         List<String> showDates = cinemaHallSessionService.getShowDates(movieid);
         return AjaxResponse.success(showDates);
+    }
+
+    // 场次详情
+    @RequestMapping(value = "/getbyid", method = RequestMethod.GET)
+    public @ResponseBody
+    Object getById(long id) {
+        CinemaHallSession hallSession = cinemaHallSessionService.getById(id);
+        return AjaxResponse.success(hallSession);
     }
 }

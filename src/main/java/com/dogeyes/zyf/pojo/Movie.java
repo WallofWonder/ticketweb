@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class Movie implements Serializable {
-    private Long id; 
+    private Long id;
 
     private Date createTime;
 

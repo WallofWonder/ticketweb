@@ -5,11 +5,11 @@
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
-    <result column="status" jdbcType="INTEGER" property="status" />
-    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="stats" jdbcType="INTEGER" property="stats" />
+    <result column="tpe" jdbcType="INTEGER" property="tpe" />
     <result column="x" jdbcType="INTEGER" property="x" />
     <result column="y" jdbcType="INTEGER" property="y" />
-    <result column="cinema_hall_id" jdbcType="BIGINT" property="cinemaHallId" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -70,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, create_time, update_time, "status", "type", x, y, cinema_hall_id
+    id, create_time, update_time, stats, tpe, x, y, order_id
   </sql>
   <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.CinemaHallSeatExample" resultMap="BaseResultMap">
     select
@@ -104,11 +104,11 @@
     </if>
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.CinemaHallSeat" useGeneratedKeys="true">
-    insert into cinema_hall_seat (create_time, update_time, "status", 
-      "type", x, y, cinema_hall_id
+    insert into cinema_hall_seat (create_time, update_time, stats, 
+      tpe, x, y, order_id
       )
-    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
-      #{type,jdbcType=INTEGER}, #{x,jdbcType=INTEGER}, #{y,jdbcType=INTEGER}, #{cinemaHallId,jdbcType=BIGINT}
+    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{stats,jdbcType=INTEGER}, 
+      #{tpe,jdbcType=INTEGER}, #{x,jdbcType=INTEGER}, #{y,jdbcType=INTEGER}, #{orderId,jdbcType=BIGINT}
       )
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.CinemaHallSeat" useGeneratedKeys="true">
@@ -120,11 +120,11 @@
       <if test="updateTime != null">
         update_time,
       </if>
-      <if test="status != null">
-        "status",
+      <if test="stats != null">
+        stats,
       </if>
-      <if test="type != null">
-        "type",
+      <if test="tpe != null">
+        tpe,
       </if>
       <if test="x != null">
         x,
@@ -132,8 +132,8 @@
       <if test="y != null">
         y,
       </if>
-      <if test="cinemaHallId != null">
-        cinema_hall_id,
+      <if test="orderId != null">
+        order_id,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -143,11 +143,11 @@
       <if test="updateTime != null">
         #{updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="status != null">
-        #{status,jdbcType=INTEGER},
+      <if test="stats != null">
+        #{stats,jdbcType=INTEGER},
       </if>
-      <if test="type != null">
-        #{type,jdbcType=INTEGER},
+      <if test="tpe != null">
+        #{tpe,jdbcType=INTEGER},
       </if>
       <if test="x != null">
         #{x,jdbcType=INTEGER},
@@ -155,8 +155,8 @@
       <if test="y != null">
         #{y,jdbcType=INTEGER},
       </if>
-      <if test="cinemaHallId != null">
-        #{cinemaHallId,jdbcType=BIGINT},
+      <if test="orderId != null">
+        #{orderId,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -178,11 +178,11 @@
       <if test="record.updateTime != null">
         update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.status != null">
-        "status" = #{record.status,jdbcType=INTEGER},
+      <if test="record.stats != null">
+        stats = #{record.stats,jdbcType=INTEGER},
       </if>
-      <if test="record.type != null">
-        "type" = #{record.type,jdbcType=INTEGER},
+      <if test="record.tpe != null">
+        tpe = #{record.tpe,jdbcType=INTEGER},
       </if>
       <if test="record.x != null">
         x = #{record.x,jdbcType=INTEGER},
@@ -190,8 +190,8 @@
       <if test="record.y != null">
         y = #{record.y,jdbcType=INTEGER},
       </if>
-      <if test="record.cinemaHallId != null">
-        cinema_hall_id = #{record.cinemaHallId,jdbcType=BIGINT},
+      <if test="record.orderId != null">
+        order_id = #{record.orderId,jdbcType=BIGINT},
       </if>
     </set>
     <if test="_parameter != null">
@@ -203,11 +203,11 @@
     set id = #{record.id,jdbcType=BIGINT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      "status" = #{record.status,jdbcType=INTEGER},
-      "type" = #{record.type,jdbcType=INTEGER},
+      stats = #{record.stats,jdbcType=INTEGER},
+      tpe = #{record.tpe,jdbcType=INTEGER},
       x = #{record.x,jdbcType=INTEGER},
       y = #{record.y,jdbcType=INTEGER},
-      cinema_hall_id = #{record.cinemaHallId,jdbcType=BIGINT}
+      order_id = #{record.orderId,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -221,11 +221,11 @@
       <if test="updateTime != null">
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="status != null">
-        "status" = #{status,jdbcType=INTEGER},
+      <if test="stats != null">
+        stats = #{stats,jdbcType=INTEGER},
       </if>
-      <if test="type != null">
-        "type" = #{type,jdbcType=INTEGER},
+      <if test="tpe != null">
+        tpe = #{tpe,jdbcType=INTEGER},
       </if>
       <if test="x != null">
         x = #{x,jdbcType=INTEGER},
@@ -233,8 +233,8 @@
       <if test="y != null">
         y = #{y,jdbcType=INTEGER},
       </if>
-      <if test="cinemaHallId != null">
-        cinema_hall_id = #{cinemaHallId,jdbcType=BIGINT},
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=BIGINT},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -243,11 +243,11 @@
     update cinema_hall_seat
     set create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
-      "status" = #{status,jdbcType=INTEGER},
-      "type" = #{type,jdbcType=INTEGER},
+      stats = #{stats,jdbcType=INTEGER},
+      tpe = #{tpe,jdbcType=INTEGER},
       x = #{x,jdbcType=INTEGER},
       y = #{y,jdbcType=INTEGER},
-      cinema_hall_id = #{cinemaHallId,jdbcType=BIGINT}
+      order_id = #{orderId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

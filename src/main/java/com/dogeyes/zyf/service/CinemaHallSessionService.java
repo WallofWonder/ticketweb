@@ -1,5 +1,6 @@
 package com.dogeyes.zyf.service;
 
+import com.dogeyes.zyf.pojo.CinemaHallSession;
 import com.dogeyes.zyf.resource.hallsession.HallSessionReqResource;
 import com.dogeyes.zyf.resource.hallsession.HallSessionResResource;
 
@@ -25,4 +26,12 @@ public interface CinemaHallSessionService {
      * @return 放映的时间
      */
     List<String> getShowDates(long movieid);
+
+    /**
+     * 根据id获取场次
+     *
+     * @param id 场次id
+     * @return 场次
+     */
+    CinemaHallSession getById(long id);
 }

@@ -1,9 +1,0 @@
-###
-GET http://localhost:8888/admin/hallsession/show
-Content-Type: application/json
-
-{
-  "movieid" : 2,
-  "cinemaid": 1,
-  "showdate": "4月18日"
-}

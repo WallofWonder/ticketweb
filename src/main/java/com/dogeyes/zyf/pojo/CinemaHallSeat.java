@@ -10,15 +10,15 @@ public class CinemaHallSeat implements Serializable {
 
     private Date updateTime;
 
-    private Integer status;
+    private Integer stats;
 
-    private Integer type;
+    private Integer tpe;
 
     private Integer x;
 
     private Integer y;
 
-    private Long cinemaHallId;
+    private Long orderId;
 
     private static final long serialVersionUID = 1L;
 
@@ -46,20 +46,20 @@ public class CinemaHallSeat implements Serializable {
         this.updateTime = updateTime;
     }
 
-    public Integer getStatus() {
-        return status;
+    public Integer getStats() {
+        return stats;
     }
 
-    public void setStatus(Integer status) {
-        this.status = status;
+    public void setStats(Integer stats) {
+        this.stats = stats;
     }
 
-    public Integer getType() {
-        return type;
+    public Integer getTpe() {
+        return tpe;
     }
 
-    public void setType(Integer type) {
-        this.type = type;
+    public void setTpe(Integer tpe) {
+        this.tpe = tpe;
     }
 
     public Integer getX() {
@@ -78,11 +78,11 @@ public class CinemaHallSeat implements Serializable {
         this.y = y;
     }
 
-    public Long getCinemaHallId() {
-        return cinemaHallId;
+    public Long getOrderId() {
+        return orderId;
     }
 
-    public void setCinemaHallId(Long cinemaHallId) {
-        this.cinemaHallId = cinemaHallId;
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
     }
 }

@@ -285,123 +285,123 @@ public class CinemaHallSeatExample {
             return (Criteria) this;
         }
 
-        public Criteria andStatusIsNull() {
-            addCriterion("\"status\" is null");
+        public Criteria andStatsIsNull() {
+            addCriterion("stats is null");
             return (Criteria) this;
         }
 
-        public Criteria andStatusIsNotNull() {
-            addCriterion("\"status\" is not null");
+        public Criteria andStatsIsNotNull() {
+            addCriterion("stats is not null");
             return (Criteria) this;
         }
 
-        public Criteria andStatusEqualTo(Integer value) {
-            addCriterion("\"status\" =", value, "status");
+        public Criteria andStatsEqualTo(Integer value) {
+            addCriterion("stats =", value, "stats");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotEqualTo(Integer value) {
-            addCriterion("\"status\" <>", value, "status");
+        public Criteria andStatsNotEqualTo(Integer value) {
+            addCriterion("stats <>", value, "stats");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThan(Integer value) {
-            addCriterion("\"status\" >", value, "status");
+        public Criteria andStatsGreaterThan(Integer value) {
+            addCriterion("stats >", value, "stats");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThanOrEqualTo(Integer value) {
-            addCriterion("\"status\" >=", value, "status");
+        public Criteria andStatsGreaterThanOrEqualTo(Integer value) {
+            addCriterion("stats >=", value, "stats");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThan(Integer value) {
-            addCriterion("\"status\" <", value, "status");
+        public Criteria andStatsLessThan(Integer value) {
+            addCriterion("stats <", value, "stats");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThanOrEqualTo(Integer value) {
-            addCriterion("\"status\" <=", value, "status");
+        public Criteria andStatsLessThanOrEqualTo(Integer value) {
+            addCriterion("stats <=", value, "stats");
             return (Criteria) this;
         }
 
-        public Criteria andStatusIn(List<Integer> values) {
-            addCriterion("\"status\" in", values, "status");
+        public Criteria andStatsIn(List<Integer> values) {
+            addCriterion("stats in", values, "stats");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotIn(List<Integer> values) {
-            addCriterion("\"status\" not in", values, "status");
+        public Criteria andStatsNotIn(List<Integer> values) {
+            addCriterion("stats not in", values, "stats");
             return (Criteria) this;
         }
 
-        public Criteria andStatusBetween(Integer value1, Integer value2) {
-            addCriterion("\"status\" between", value1, value2, "status");
+        public Criteria andStatsBetween(Integer value1, Integer value2) {
+            addCriterion("stats between", value1, value2, "stats");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotBetween(Integer value1, Integer value2) {
-            addCriterion("\"status\" not between", value1, value2, "status");
+        public Criteria andStatsNotBetween(Integer value1, Integer value2) {
+            addCriterion("stats not between", value1, value2, "stats");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIsNull() {
-            addCriterion("\"type\" is null");
+        public Criteria andTpeIsNull() {
+            addCriterion("tpe is null");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIsNotNull() {
-            addCriterion("\"type\" is not null");
+        public Criteria andTpeIsNotNull() {
+            addCriterion("tpe is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTypeEqualTo(Integer value) {
-            addCriterion("\"type\" =", value, "type");
+        public Criteria andTpeEqualTo(Integer value) {
+            addCriterion("tpe =", value, "tpe");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotEqualTo(Integer value) {
-            addCriterion("\"type\" <>", value, "type");
+        public Criteria andTpeNotEqualTo(Integer value) {
+            addCriterion("tpe <>", value, "tpe");
             return (Criteria) this;
         }
 
-        public Criteria andTypeGreaterThan(Integer value) {
-            addCriterion("\"type\" >", value, "type");
+        public Criteria andTpeGreaterThan(Integer value) {
+            addCriterion("tpe >", value, "tpe");
             return (Criteria) this;
         }
 
-        public Criteria andTypeGreaterThanOrEqualTo(Integer value) {
-            addCriterion("\"type\" >=", value, "type");
+        public Criteria andTpeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("tpe >=", value, "tpe");
             return (Criteria) this;
         }
 
-        public Criteria andTypeLessThan(Integer value) {
-            addCriterion("\"type\" <", value, "type");
+        public Criteria andTpeLessThan(Integer value) {
+            addCriterion("tpe <", value, "tpe");
             return (Criteria) this;
         }
 
-        public Criteria andTypeLessThanOrEqualTo(Integer value) {
-            addCriterion("\"type\" <=", value, "type");
+        public Criteria andTpeLessThanOrEqualTo(Integer value) {
+            addCriterion("tpe <=", value, "tpe");
             return (Criteria) this;
         }
 
-        public Criteria andTypeIn(List<Integer> values) {
-            addCriterion("\"type\" in", values, "type");
+        public Criteria andTpeIn(List<Integer> values) {
+            addCriterion("tpe in", values, "tpe");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotIn(List<Integer> values) {
-            addCriterion("\"type\" not in", values, "type");
+        public Criteria andTpeNotIn(List<Integer> values) {
+            addCriterion("tpe not in", values, "tpe");
             return (Criteria) this;
         }
 
-        public Criteria andTypeBetween(Integer value1, Integer value2) {
-            addCriterion("\"type\" between", value1, value2, "type");
+        public Criteria andTpeBetween(Integer value1, Integer value2) {
+            addCriterion("tpe between", value1, value2, "tpe");
             return (Criteria) this;
         }
 
-        public Criteria andTypeNotBetween(Integer value1, Integer value2) {
-            addCriterion("\"type\" not between", value1, value2, "type");
+        public Criteria andTpeNotBetween(Integer value1, Integer value2) {
+            addCriterion("tpe not between", value1, value2, "tpe");
             return (Criteria) this;
         }
 
@@ -525,63 +525,63 @@ public class CinemaHallSeatExample {
             return (Criteria) this;
         }
 
-        public Criteria andCinemaHallIdIsNull() {
-            addCriterion("cinema_hall_id is null");
+        public Criteria andOrderIdIsNull() {
+            addCriterion("order_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaHallIdIsNotNull() {
-            addCriterion("cinema_hall_id is not null");
+        public Criteria andOrderIdIsNotNull() {
+            addCriterion("order_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaHallIdEqualTo(Long value) {
-            addCriterion("cinema_hall_id =", value, "cinemaHallId");
+        public Criteria andOrderIdEqualTo(Long value) {
+            addCriterion("order_id =", value, "orderId");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaHallIdNotEqualTo(Long value) {
-            addCriterion("cinema_hall_id <>", value, "cinemaHallId");
+        public Criteria andOrderIdNotEqualTo(Long value) {
+            addCriterion("order_id <>", value, "orderId");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaHallIdGreaterThan(Long value) {
-            addCriterion("cinema_hall_id >", value, "cinemaHallId");
+        public Criteria andOrderIdGreaterThan(Long value) {
+            addCriterion("order_id >", value, "orderId");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaHallIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("cinema_hall_id >=", value, "cinemaHallId");
+        public Criteria andOrderIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("order_id >=", value, "orderId");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaHallIdLessThan(Long value) {
-            addCriterion("cinema_hall_id <", value, "cinemaHallId");
+        public Criteria andOrderIdLessThan(Long value) {
+            addCriterion("order_id <", value, "orderId");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaHallIdLessThanOrEqualTo(Long value) {
-            addCriterion("cinema_hall_id <=", value, "cinemaHallId");
+        public Criteria andOrderIdLessThanOrEqualTo(Long value) {
+            addCriterion("order_id <=", value, "orderId");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaHallIdIn(List<Long> values) {
-            addCriterion("cinema_hall_id in", values, "cinemaHallId");
+        public Criteria andOrderIdIn(List<Long> values) {
+            addCriterion("order_id in", values, "orderId");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaHallIdNotIn(List<Long> values) {
-            addCriterion("cinema_hall_id not in", values, "cinemaHallId");
+        public Criteria andOrderIdNotIn(List<Long> values) {
+            addCriterion("order_id not in", values, "orderId");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaHallIdBetween(Long value1, Long value2) {
-            addCriterion("cinema_hall_id between", value1, value2, "cinemaHallId");
+        public Criteria andOrderIdBetween(Long value1, Long value2) {
+            addCriterion("order_id between", value1, value2, "orderId");
             return (Criteria) this;
         }
 
-        public Criteria andCinemaHallIdNotBetween(Long value1, Long value2) {
-            addCriterion("cinema_hall_id not between", value1, value2, "cinemaHallId");
+        public Criteria andOrderIdNotBetween(Long value1, Long value2) {
+            addCriterion("order_id not between", value1, value2, "orderId");
             return (Criteria) this;
         }
     }

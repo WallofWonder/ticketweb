@@ -2,6 +2,7 @@ package com.dogeyes.zyf.service.impl;
 
 import com.dogeyes.zyf.mapper.CinemaHallSessionMapper;
 import com.dogeyes.zyf.mapper.CustomCinemaHallSessionMapper;
+import com.dogeyes.zyf.pojo.CinemaHallSession;
 import com.dogeyes.zyf.pojo.CinemaHallSessionExample;
 import com.dogeyes.zyf.resource.hallsession.HallSessionReqResource;
 import com.dogeyes.zyf.resource.hallsession.HallSessionResResource;
@@ -34,5 +35,10 @@ public class CinemaHallSessionServiceImpl implements CinemaHallSessionService {
     @Override
     public List<String> getShowDates(long movieid) {
         return customHallSessionMapper.getShowDates(movieid);
+    }
+
+    @Override
+    public CinemaHallSession getById(long id) {
+        return hallSessionMapper.selectByPrimaryKey(id);
     }
 }
