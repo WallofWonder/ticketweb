@@ -42,4 +42,8 @@ public class HallSessionResResource {
     private String cinemaHallName;
 
     private String lange;
+
+    private Integer maxX;
+
+    private Integer maxY;
 }

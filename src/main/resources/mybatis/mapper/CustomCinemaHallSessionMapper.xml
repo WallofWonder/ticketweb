@@ -31,6 +31,8 @@
     <result column="old_price" jdbcType="DECIMAL" property="oldPrice" />
     <result column="start_time" jdbcType="VARCHAR" property="startTime" />
     <result column="cinema_hall_name" jdbcType="VARCHAR" property="cinemaHallName" />
+    <result column="max_x" jdbcType="INTEGER" property="maxX" />
+    <result column="max_y" jdbcType="INTEGER" property="maxY" />
   </resultMap>
   <sql id="Base_Column_List">
     cinema_hall_session.id,
@@ -51,6 +53,8 @@
     SELECT
     <include refid="Base_Column_List"/>
     , cinema_hall.db_name AS cinema_hall_name
+    , cinema_hall.max_x AS max_x
+    , cinema_hall.max_y AS max_y
     , movie.lange AS lange
     FROM
     cinema_hall_session,
