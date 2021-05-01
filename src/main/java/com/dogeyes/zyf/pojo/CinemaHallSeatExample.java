@@ -525,63 +525,63 @@ public class CinemaHallSeatExample {
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdIsNull() {
-            addCriterion("order_id is null");
+        public Criteria andHallSessionIdIsNull() {
+            addCriterion("hall_session_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdIsNotNull() {
-            addCriterion("order_id is not null");
+        public Criteria andHallSessionIdIsNotNull() {
+            addCriterion("hall_session_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdEqualTo(Long value) {
-            addCriterion("order_id =", value, "orderId");
+        public Criteria andHallSessionIdEqualTo(Long value) {
+            addCriterion("hall_session_id =", value, "hallSessionId");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdNotEqualTo(Long value) {
-            addCriterion("order_id <>", value, "orderId");
+        public Criteria andHallSessionIdNotEqualTo(Long value) {
+            addCriterion("hall_session_id <>", value, "hallSessionId");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdGreaterThan(Long value) {
-            addCriterion("order_id >", value, "orderId");
+        public Criteria andHallSessionIdGreaterThan(Long value) {
+            addCriterion("hall_session_id >", value, "hallSessionId");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdGreaterThanOrEqualTo(Long value) {
-            addCriterion("order_id >=", value, "orderId");
+        public Criteria andHallSessionIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("hall_session_id >=", value, "hallSessionId");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdLessThan(Long value) {
-            addCriterion("order_id <", value, "orderId");
+        public Criteria andHallSessionIdLessThan(Long value) {
+            addCriterion("hall_session_id <", value, "hallSessionId");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdLessThanOrEqualTo(Long value) {
-            addCriterion("order_id <=", value, "orderId");
+        public Criteria andHallSessionIdLessThanOrEqualTo(Long value) {
+            addCriterion("hall_session_id <=", value, "hallSessionId");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdIn(List<Long> values) {
-            addCriterion("order_id in", values, "orderId");
+        public Criteria andHallSessionIdIn(List<Long> values) {
+            addCriterion("hall_session_id in", values, "hallSessionId");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdNotIn(List<Long> values) {
-            addCriterion("order_id not in", values, "orderId");
+        public Criteria andHallSessionIdNotIn(List<Long> values) {
+            addCriterion("hall_session_id not in", values, "hallSessionId");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdBetween(Long value1, Long value2) {
-            addCriterion("order_id between", value1, value2, "orderId");
+        public Criteria andHallSessionIdBetween(Long value1, Long value2) {
+            addCriterion("hall_session_id between", value1, value2, "hallSessionId");
             return (Criteria) this;
         }
 
-        public Criteria andOrderIdNotBetween(Long value1, Long value2) {
-            addCriterion("order_id not between", value1, value2, "orderId");
+        public Criteria andHallSessionIdNotBetween(Long value1, Long value2) {
+            addCriterion("hall_session_id not between", value1, value2, "hallSessionId");
             return (Criteria) this;
         }
     }

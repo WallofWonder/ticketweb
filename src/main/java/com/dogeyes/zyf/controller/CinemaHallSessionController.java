@@ -39,10 +39,10 @@ public class CinemaHallSessionController {
     }
 
     // 场次详情
-    @RequestMapping(value = "/getbyid", method = RequestMethod.GET)
+    @RequestMapping(value = "/getby", method = RequestMethod.GET)
     public @ResponseBody
     Object getById(long id) {
-        CinemaHallSession hallSession = cinemaHallSessionService.getById(id);
+        HallSessionResResource hallSession = cinemaHallSessionService.getById(id);
         return AjaxResponse.success(hallSession);
     }
 }

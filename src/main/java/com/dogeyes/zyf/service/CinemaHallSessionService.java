@@ -33,5 +33,5 @@ public interface CinemaHallSessionService {
      * @param id 场次id
      * @return 场次
      */
-    CinemaHallSession getById(long id);
+    HallSessionResResource getById(long id);
 }

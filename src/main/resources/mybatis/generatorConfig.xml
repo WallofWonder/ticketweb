@@ -156,7 +156,7 @@
             <generatedKey column="id" sqlStatement="JDBC" identity="true"/>
         </table>
 
-        <table tableName="order" domainObjectName="Order"
+        <table tableName="oder" domainObjectName="Oder"
                enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true"
                enableSelectByExample="true" selectByExampleQueryId="false">
             <property name="useActualColumnNames" value="false"/>

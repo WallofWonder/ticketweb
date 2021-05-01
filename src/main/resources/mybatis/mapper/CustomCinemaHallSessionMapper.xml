@@ -73,5 +73,21 @@
      FROM cinema_hall_session
      WHERE cinema_hall_session.movie_id = #{movieid};
   </select>
+  <select id="selectByPrimaryKey" resultType="com.dogeyes.zyf.resource.hallsession.HallSessionResResource" resultMap="CustomResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    , cinema_hall.db_name AS cinema_hall_name
+    , cinema_hall.max_x AS max_x
+    , cinema_hall.max_y AS max_y
+    , movie.lange AS lange
+    FROM
+    cinema_hall_session,
+    cinema_hall,
+    movie
+    WHERE
+    cinema_hall_session.id = #{id} AND
+    movie.id = cinema_hall_session.movie_id AND
+    cinema_hall_session.cinema_hall_id = cinema_hall.id;
+  </select>
 
 </mapper>

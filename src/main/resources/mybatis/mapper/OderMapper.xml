@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dogeyes.zyf.mapper.OrderMapper">
-  <resultMap id="BaseResultMap" type="com.dogeyes.zyf.pojo.Order">
+<mapper namespace="com.dogeyes.zyf.mapper.OderMapper">
+  <resultMap id="BaseResultMap" type="com.dogeyes.zyf.pojo.Oder">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
@@ -75,14 +75,14 @@
     id, create_time, update_time, new_money, num, old_money, sn, db_status, account_id, 
     cinema_hall_session_id
   </sql>
-  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.OrderExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.OderExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     'false' as QUERYID,
     <include refid="Base_Column_List" />
-    from order
+    from oder
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -93,21 +93,21 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from order
+    from oder
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from order
+    delete from oder
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.OrderExample">
-    delete from order
+  <delete id="deleteByExample" parameterType="com.dogeyes.zyf.pojo.OderExample">
+    delete from oder
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Order" useGeneratedKeys="true">
-    insert into order (create_time, update_time, new_money, 
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Oder" useGeneratedKeys="true">
+    insert into oder (create_time, update_time, new_money, 
       num, old_money, sn, 
       db_status, account_id, cinema_hall_session_id
       )
@@ -116,8 +116,8 @@
       #{dbStatus,jdbcType=INTEGER}, #{accountId,jdbcType=BIGINT}, #{cinemaHallSessionId,jdbcType=BIGINT}
       )
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Order" useGeneratedKeys="true">
-    insert into order
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Oder" useGeneratedKeys="true">
+    insert into oder
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="createTime != null">
         create_time,
@@ -177,14 +177,14 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.OrderExample" resultType="java.lang.Long">
-    select count(*) from order
+  <select id="countByExample" parameterType="com.dogeyes.zyf.pojo.OderExample" resultType="java.lang.Long">
+    select count(*) from oder
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update order
+    update oder
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
@@ -222,7 +222,7 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update order
+    update oder
     set id = #{record.id,jdbcType=BIGINT},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
@@ -237,8 +237,8 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.dogeyes.zyf.pojo.Order">
-    update order
+  <update id="updateByPrimaryKeySelective" parameterType="com.dogeyes.zyf.pojo.Oder">
+    update oder
     <set>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -270,8 +270,8 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.dogeyes.zyf.pojo.Order">
-    update order
+  <update id="updateByPrimaryKey" parameterType="com.dogeyes.zyf.pojo.Oder">
+    update oder
     set create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       new_money = #{newMoney,jdbcType=DECIMAL},

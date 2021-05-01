@@ -21,8 +21,6 @@ public class OrderResource {
 
     private BigDecimal oldMoney;
 
-    private String sn;
-
     private Integer dbStatus;
 
     private Long accountId;

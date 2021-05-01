@@ -38,7 +38,7 @@ public class CinemaHallSessionServiceImpl implements CinemaHallSessionService {
     }
 
     @Override
-    public CinemaHallSession getById(long id) {
-        return hallSessionMapper.selectByPrimaryKey(id);
+    public HallSessionResResource getById(long id) {
+        return customHallSessionMapper.selectByPrimaryKey(id);
     }
 }

@@ -18,7 +18,7 @@ public class CinemaHallSeat implements Serializable {
 
     private Integer y;
 
-    private Long orderId;
+    private Long hallSessionId;
 
     private static final long serialVersionUID = 1L;
 
@@ -78,11 +78,11 @@ public class CinemaHallSeat implements Serializable {
         this.y = y;
     }
 
-    public Long getOrderId() {
-        return orderId;
+    public Long getHallSessionId() {
+        return hallSessionId;
     }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
+    public void setHallSessionId(Long hallSessionId) {
+        this.hallSessionId = hallSessionId;
     }
 }
