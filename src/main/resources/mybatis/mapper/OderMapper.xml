@@ -72,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, create_time, update_time, new_money, num, old_money, sn, db_status, account_id, 
+    id, create_time, update_time, new_money, num, old_money, sn, db_status, account_id,
     cinema_hall_session_id
   </sql>
   <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.OderExample" resultMap="BaseResultMap">
@@ -91,7 +91,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from oder
     where id = #{id,jdbcType=BIGINT}
@@ -106,13 +106,14 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Oder" useGeneratedKeys="true">
-    insert into oder (create_time, update_time, new_money, 
-      num, old_money, sn, 
+  <!-- modified!!!!!!!!! -->
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Oder">
+    insert into oder (id, create_time, update_time, new_money,
+      num, old_money, sn,
       db_status, account_id, cinema_hall_session_id
       )
-    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{newMoney,jdbcType=DECIMAL}, 
-      #{num,jdbcType=INTEGER}, #{oldMoney,jdbcType=DECIMAL}, #{sn,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT},#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{newMoney,jdbcType=DECIMAL},
+      #{num,jdbcType=INTEGER}, #{oldMoney,jdbcType=DECIMAL}, #{sn,jdbcType=VARCHAR},
       #{dbStatus,jdbcType=INTEGER}, #{accountId,jdbcType=BIGINT}, #{cinemaHallSessionId,jdbcType=BIGINT}
       )
   </insert>
