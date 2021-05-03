@@ -6,6 +6,7 @@ import com.dogeyes.zyf.mapper.OderMapper;
 import com.dogeyes.zyf.mapper.OrderItemMapper;
 import com.dogeyes.zyf.pojo.CinemaHallSeat;
 import com.dogeyes.zyf.pojo.Oder;
+import com.dogeyes.zyf.pojo.OderExample;
 import com.dogeyes.zyf.pojo.OrderItem;
 import com.dogeyes.zyf.resource.order.OrderReq;
 import com.dogeyes.zyf.resource.order.SessionSeatReq;
@@ -17,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author ZYF
@@ -37,6 +39,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Long initOrder(OrderReq orderReq) {
+        if (isExist(orderReq)) return -1L;
+
         Date curDate = new Date();
         Long orderId = OrderUtil.generateOrderId(orderReq.getAccountId(), orderReq.getCinemaHallSessionId());
 
@@ -68,5 +72,20 @@ public class OrderServiceImpl implements OrderService {
             orderItemMapper.insertSelective(item);
         }
         return orderId;
+    }
+
+    /**
+     * 判断该账户是否在该场次买过票
+     *
+     * @param req 订单请求
+     * @return 是否买过票
+     */
+    private boolean isExist(OrderReq req) {
+        OderExample example = new OderExample();
+        OderExample.Criteria criteria = example.createCriteria();
+        criteria.andAccountIdEqualTo(req.getAccountId())
+                .andCinemaHallSessionIdEqualTo(req.getCinemaHallSessionId());
+        List<Oder> orders = oderMapper.selectByExample(example);
+        return !orders.isEmpty();
     }
 }

@@ -3,6 +3,7 @@ package com.dogeyes.zyf.controller;
 import com.dogeyes.zyf.resource.order.OrderReq;
 import com.dogeyes.zyf.service.OrderService;
 import com.dogeyes.zyf.util.AjaxResponse;
+import com.dogeyes.zyf.util.CustomExceptionType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -23,6 +24,10 @@ public class OrderController {
     @RequestMapping(value = "/initOrder",method = RequestMethod.POST)
     @ResponseBody
     Object initOrder(@RequestBody OrderReq orderReq) {
-        return AjaxResponse.success(orderService.initOrder(orderReq));
+        Long orderId = orderService.initOrder(orderReq);
+        if (orderId == -1L) {
+            return AjaxResponse.error(CustomExceptionType.USER_INPUT_ERROR, "您已在该场次购票！");
+        }
+        return AjaxResponse.success(orderId);
     }
 }
