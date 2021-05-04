@@ -8,15 +8,13 @@ import com.alipay.api.request.AlipayTradePrecreateRequest;
 import com.alipay.api.response.AlipayTradePrecreateResponse;
 import com.dogeyes.zyf.config.AlipayConfig;
 import com.dogeyes.zyf.resource.alipay.AliReturnPay;
+import com.dogeyes.zyf.resource.order.AliPayReq;
 import com.dogeyes.zyf.util.AjaxResponse;
 import com.dogeyes.zyf.util.MyWebSocket;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -37,17 +35,16 @@ public class AlipayController {
     @Autowired
     private AlipayClient alipayClient;
 
-    @RequestMapping("/createQR")
+    @RequestMapping(value = "/createQR", method = RequestMethod.POST)
     public @ResponseBody
-    Object send() throws AlipayApiException {
+    Object send(@RequestBody AliPayReq req) throws AlipayApiException {
         AlipayTradePrecreateRequest request = new AlipayTradePrecreateRequest();
         AlipayTradePrecreateModel model = new AlipayTradePrecreateModel();
         request.setBizModel(model);
         request.setNotifyUrl(AlipayConfig.notify_url);
-        model.setOutTradeNo(String.valueOf(System.currentTimeMillis()));
-        model.setTotalAmount("88.88");
-        model.setSubject("电影票1");
-        //return alipayClient.pageExecute(request).getBody();
+        model.setOutTradeNo(req.getTradeNo().toString());
+        model.setTotalAmount(req.getTotalAmount().toString());
+        model.setSubject(req.getSubject());
         AlipayTradePrecreateResponse response = alipayClient.execute(request);
         if (response.isSuccess()) {
             log.info("createQR 调用成功");
