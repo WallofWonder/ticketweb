@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dogeyes.zyf.mapper.CustomCinemaHallSeatMapper">
+    <resultMap id="BaseResultMap" type="com.dogeyes.zyf.pojo.CinemaHallSeat">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <result column="stats" jdbcType="INTEGER" property="stats"/>
+        <result column="tpe" jdbcType="INTEGER" property="tpe"/>
+        <result column="x" jdbcType="INTEGER" property="x"/>
+        <result column="y" jdbcType="INTEGER" property="y"/>
+        <result column="hall_session_id" jdbcType="BIGINT" property="hallSessionId"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        cinema_hall_seat.id,
+        cinema_hall_seat.create_time,
+        cinema_hall_seat.update_time,
+        cinema_hall_seat.stats,
+        cinema_hall_seat.tpe,
+        cinema_hall_seat.x,
+        cinema_hall_seat.y,
+        cinema_hall_seat.hall_session_id
+    </sql>
+
+    <select id="listSeatsByOrder" resultType="com.dogeyes.zyf.pojo.CinemaHallSeat" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        cinema_hall_seat,
+        order_item
+        WHERE
+        cinema_hall_seat.id = order_item.cinema_hall_seat_id
+        AND order_item.order_id = #{orderId}
+    </select>
+</mapper>

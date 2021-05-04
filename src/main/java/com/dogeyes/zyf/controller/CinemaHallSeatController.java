@@ -3,10 +3,7 @@ package com.dogeyes.zyf.controller;
 import com.dogeyes.zyf.pojo.CinemaHallSeat;
 import com.dogeyes.zyf.service.CinemaHallSeatService;
 import com.dogeyes.zyf.util.AjaxResponse;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -24,8 +21,16 @@ public class CinemaHallSeatController {
     CinemaHallSeatService service;
 
     @RequestMapping(value = "listSeats", method = RequestMethod.GET)
+    @ResponseBody
     public Object listSeatsBySession(long sessionId) {
         List<CinemaHallSeat> seats = service.listSeatsBySession(sessionId);
+        return AjaxResponse.success(seats);
+    }
+
+    @RequestMapping(value = "listSeatsByOrder", method = RequestMethod.GET)
+    @ResponseBody
+    public Object listSeatsByOrder(long orderId) {
+        List<CinemaHallSeat> seats = service.listSeatsByOrder(orderId);
         return AjaxResponse.success(seats);
     }
 }

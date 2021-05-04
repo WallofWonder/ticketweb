@@ -17,4 +17,12 @@ public interface CinemaHallSeatService {
      * @return 座位列表
      */
     List<CinemaHallSeat> listSeatsBySession(long sessionId);
+
+    /**
+     * 列出订单的座位
+     *
+     * @param orderId 订单id
+     * @return 座位列表
+     */
+    List<CinemaHallSeat> listSeatsByOrder(long orderId);
 }
