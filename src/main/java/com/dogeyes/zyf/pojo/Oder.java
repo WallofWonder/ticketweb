@@ -25,6 +25,8 @@ public class Oder implements Serializable {
 
     private Long cinemaHallSessionId;
 
+    private String tel;
+
     private static final long serialVersionUID = 1L;
 
     public Long getId() {
@@ -105,5 +107,13 @@ public class Oder implements Serializable {
 
     public void setCinemaHallSessionId(Long cinemaHallSessionId) {
         this.cinemaHallSessionId = cinemaHallSessionId;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
     }
 }

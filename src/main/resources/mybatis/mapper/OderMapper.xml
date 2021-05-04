@@ -12,6 +12,7 @@
     <result column="db_status" jdbcType="INTEGER" property="dbStatus" />
     <result column="account_id" jdbcType="BIGINT" property="accountId" />
     <result column="cinema_hall_session_id" jdbcType="BIGINT" property="cinemaHallSessionId" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -73,7 +74,7 @@
   </sql>
   <sql id="Base_Column_List">
     id, create_time, update_time, new_money, num, old_money, sn, db_status, account_id,
-    cinema_hall_session_id
+    cinema_hall_session_id, tel
   </sql>
   <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.OderExample" resultMap="BaseResultMap">
     select
@@ -106,16 +107,15 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <!-- modified!!!!!!!!! -->
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Oder">
     insert into oder (id, create_time, update_time, new_money,
       num, old_money, sn,
-      db_status, account_id, cinema_hall_session_id
-      )
+      db_status, account_id, cinema_hall_session_id,
+      tel)
     values (#{id,jdbcType=BIGINT},#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{newMoney,jdbcType=DECIMAL},
       #{num,jdbcType=INTEGER}, #{oldMoney,jdbcType=DECIMAL}, #{sn,jdbcType=VARCHAR},
-      #{dbStatus,jdbcType=INTEGER}, #{accountId,jdbcType=BIGINT}, #{cinemaHallSessionId,jdbcType=BIGINT}
-      )
+      #{dbStatus,jdbcType=INTEGER}, #{accountId,jdbcType=BIGINT}, #{cinemaHallSessionId,jdbcType=BIGINT},
+      #{tel,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Oder" useGeneratedKeys="true">
     insert into oder
@@ -147,6 +147,9 @@
       <if test="cinemaHallSessionId != null">
         cinema_hall_session_id,
       </if>
+      <if test="tel != null">
+        tel,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="createTime != null">
@@ -175,6 +178,9 @@
       </if>
       <if test="cinemaHallSessionId != null">
         #{cinemaHallSessionId,jdbcType=BIGINT},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -217,6 +223,9 @@
       <if test="record.cinemaHallSessionId != null">
         cinema_hall_session_id = #{record.cinemaHallSessionId,jdbcType=BIGINT},
       </if>
+      <if test="record.tel != null">
+        tel = #{record.tel,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -233,7 +242,8 @@
       sn = #{record.sn,jdbcType=VARCHAR},
       db_status = #{record.dbStatus,jdbcType=INTEGER},
       account_id = #{record.accountId,jdbcType=BIGINT},
-      cinema_hall_session_id = #{record.cinemaHallSessionId,jdbcType=BIGINT}
+      cinema_hall_session_id = #{record.cinemaHallSessionId,jdbcType=BIGINT},
+      tel = #{record.tel,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -268,6 +278,9 @@
       <if test="cinemaHallSessionId != null">
         cinema_hall_session_id = #{cinemaHallSessionId,jdbcType=BIGINT},
       </if>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -281,7 +294,8 @@
       sn = #{sn,jdbcType=VARCHAR},
       db_status = #{dbStatus,jdbcType=INTEGER},
       account_id = #{accountId,jdbcType=BIGINT},
-      cinema_hall_session_id = #{cinemaHallSessionId,jdbcType=BIGINT}
+      cinema_hall_session_id = #{cinemaHallSessionId,jdbcType=BIGINT},
+      tel = #{tel,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>
