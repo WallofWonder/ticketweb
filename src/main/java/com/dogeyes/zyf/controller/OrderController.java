@@ -1,6 +1,9 @@
 package com.dogeyes.zyf.controller;
 
 import com.dogeyes.zyf.jwt.AccountLoginToken;
+import com.dogeyes.zyf.jwt.CurrentAccount;
+import com.dogeyes.zyf.pojo.Account;
+import com.dogeyes.zyf.pojo.Oder;
 import com.dogeyes.zyf.resource.order.OrderReq;
 import com.dogeyes.zyf.service.OrderService;
 import com.dogeyes.zyf.util.AjaxResponse;
@@ -30,5 +33,16 @@ public class OrderController {
             return AjaxResponse.error(CustomExceptionType.USER_INPUT_ERROR, "您已在该场次购票！");
         }
         return AjaxResponse.success(orderId);
+    }
+
+    @AccountLoginToken
+    @RequestMapping(value = "/orderInfo", method = RequestMethod.GET)
+    @ResponseBody
+    Object getOrderInfo(long orderId, @CurrentAccount Account account) {
+        Oder order = orderService.getById(orderId, account.getId());
+        if (order == null) {
+            return AjaxResponse.error(CustomExceptionType.NOT_FOUND, "您的账户下没有找到此订单！");
+        }
+        return AjaxResponse.success(order);
     }
 }

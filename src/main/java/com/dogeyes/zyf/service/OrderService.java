@@ -1,5 +1,6 @@
 package com.dogeyes.zyf.service;
 
+import com.dogeyes.zyf.pojo.Oder;
 import com.dogeyes.zyf.resource.order.OrderReq;
 
 /**
@@ -15,4 +16,13 @@ public interface OrderService {
      * @return orderId
      */
     Long initOrder(OrderReq orderReq);
+
+    /**
+     * 获取订单信息
+     *
+     * @param orderId 订单id
+     * @param accountId 账号id
+     * @return 订单信息
+     */
+    Oder getById(long orderId, long accountId);
 }

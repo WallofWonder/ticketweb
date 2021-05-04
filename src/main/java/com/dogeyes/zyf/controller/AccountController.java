@@ -60,7 +60,7 @@ public class AccountController {
     @AccountLoginToken
     @RequestMapping(value = "/accountinfo", method = RequestMethod.GET)
     public @ResponseBody
-    Object getAccountInfo(Long id, @CurrentAccount Account account) {
+    Object getAccountInfo(@CurrentAccount Account account) {
         return AjaxResponse.success(account);
     }
 

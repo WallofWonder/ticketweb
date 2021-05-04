@@ -74,6 +74,13 @@ public class OrderServiceImpl implements OrderService {
         return orderId;
     }
 
+    @Override
+    public Oder getById(long orderId, long accountId) {
+        Oder oder = oderMapper.selectByPrimaryKey(orderId);
+        if (oder == null || oder.getAccountId() != accountId) return null;
+        return oder;
+    }
+
     /**
      * 判断该账户是否在该场次买过票
      *
