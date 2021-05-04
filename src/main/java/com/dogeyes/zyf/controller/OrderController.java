@@ -1,5 +1,6 @@
 package com.dogeyes.zyf.controller;
 
+import com.dogeyes.zyf.jwt.AccountLoginToken;
 import com.dogeyes.zyf.resource.order.OrderReq;
 import com.dogeyes.zyf.service.OrderService;
 import com.dogeyes.zyf.util.AjaxResponse;
@@ -20,7 +21,7 @@ public class OrderController {
     @Resource(name = "orderServiceImpl")
     OrderService orderService;
 
-    // todo 生成订单
+    @AccountLoginToken
     @RequestMapping(value = "/initOrder",method = RequestMethod.POST)
     @ResponseBody
     Object initOrder(@RequestBody OrderReq orderReq) {
