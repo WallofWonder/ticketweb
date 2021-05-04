@@ -19,7 +19,7 @@ public class MovieInfoResource {
 
     private String directedBy;
 
-    private String language;
+    private String lange;
 
     private String dbName;
 
@@ -27,7 +27,7 @@ public class MovieInfoResource {
 
     private Float rate;
 
-    private Integer time;
+    private Integer endureTime;
 
-    private String type;
+    private String tpe;
 }
