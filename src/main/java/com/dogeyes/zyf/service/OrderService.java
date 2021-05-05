@@ -2,6 +2,7 @@ package com.dogeyes.zyf.service;
 
 import com.dogeyes.zyf.pojo.Oder;
 import com.dogeyes.zyf.resource.order.OrderReq;
+import com.dogeyes.zyf.util.OrderStatus;
 
 /**
  * @author ZYF
@@ -25,4 +26,13 @@ public interface OrderService {
      * @return 订单信息
      */
     Oder getById(long orderId, long accountId);
+
+    /**
+     * 切换订单状态
+     *
+     * @param orderId 订单号
+     * @param status 状态
+     * @return 成功或者失败
+     */
+    int check(long orderId, OrderStatus status);
 }

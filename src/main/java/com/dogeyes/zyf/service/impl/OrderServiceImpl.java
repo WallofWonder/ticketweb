@@ -1,18 +1,16 @@
 package com.dogeyes.zyf.service.impl;
 
 import com.dogeyes.zyf.mapper.CinemaHallSeatMapper;
-import com.dogeyes.zyf.mapper.CustomOderMapper;
 import com.dogeyes.zyf.mapper.OderMapper;
 import com.dogeyes.zyf.mapper.OrderItemMapper;
-import com.dogeyes.zyf.pojo.CinemaHallSeat;
-import com.dogeyes.zyf.pojo.Oder;
-import com.dogeyes.zyf.pojo.OderExample;
-import com.dogeyes.zyf.pojo.OrderItem;
+import com.dogeyes.zyf.pojo.*;
 import com.dogeyes.zyf.resource.order.OrderReq;
 import com.dogeyes.zyf.resource.order.SessionSeatReq;
 import com.dogeyes.zyf.service.OrderService;
+import com.dogeyes.zyf.util.OrderStatus;
 import com.dogeyes.zyf.util.OrderUtil;
 import com.dogeyes.zyf.util.PropertyMapperUtil;
+import com.dogeyes.zyf.util.SeatStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -50,7 +48,7 @@ public class OrderServiceImpl implements OrderService {
         oder.setCreateTime(curDate);
         oder.setUpdateTime(curDate);
         oder.setNum(1);
-        oder.setDbStatus(0); // 未付款
+        oder.setDbStatus(OrderStatus.UNPAID.getValue()); // 未付款
 
         oderMapper.insert(oder);
 
@@ -79,6 +77,40 @@ public class OrderServiceImpl implements OrderService {
         Oder oder = oderMapper.selectByPrimaryKey(orderId);
         if (oder == null || oder.getAccountId() != accountId) return null;
         return oder;
+    }
+
+    @Override
+    public int check(long orderId, OrderStatus status) {
+        int result = 0;
+
+        // 更新订单状态
+        OderExample oderExample= new OderExample();
+        OderExample.Criteria orderCriteria = oderExample.createCriteria();
+        orderCriteria.andIdEqualTo(orderId);
+        Oder order = new Oder();
+        order.setDbStatus(status.getValue());
+        result += oderMapper.updateByExampleSelective(order, oderExample);
+
+        // 根据订单号获取order_item记录
+        OrderItemExample itemExample = new OrderItemExample();
+        OrderItemExample.Criteria itemCriteria = itemExample.createCriteria();
+        itemCriteria.andOrderIdEqualTo(orderId);
+        List<OrderItem> orderItems = orderItemMapper.selectByExample(itemExample);
+
+        // 根据order_item获取座位
+        CinemaHallSeat seat = new CinemaHallSeat();
+        switch (status){
+            case UNPAID: seat.setStats(SeatStatus.LOCKED.getValue()); break;
+            case PAID: seat.setStats(SeatStatus.PAID.getValue()); break;
+            case CANCELED: seat.setStats(SeatStatus.CANCELED.getValue()); break;
+        }
+        for (OrderItem item :
+                orderItems) {
+            seat.setId(item.getCinemaHallSeatId());
+            result += cinemaHallSeatMapper.updateByPrimaryKeySelective(seat);
+        }
+
+        return result;
     }
 
     /**

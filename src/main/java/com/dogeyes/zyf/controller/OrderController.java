@@ -8,6 +8,7 @@ import com.dogeyes.zyf.resource.order.OrderReq;
 import com.dogeyes.zyf.service.OrderService;
 import com.dogeyes.zyf.util.AjaxResponse;
 import com.dogeyes.zyf.util.CustomExceptionType;
+import com.dogeyes.zyf.util.OrderStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -44,5 +45,16 @@ public class OrderController {
             return AjaxResponse.error(CustomExceptionType.NOT_FOUND, "您的账户下没有找到此订单！");
         }
         return AjaxResponse.success(order);
+    }
+
+    @AccountLoginToken
+    @RequestMapping(value = "/pay", method = RequestMethod.POST)
+    @ResponseBody
+    Object checkOrder(long orderId) {
+        int result = orderService.check(orderId, OrderStatus.PAID);
+        if (result == 0) {
+            return AjaxResponse.error(CustomExceptionType.NOT_FOUND, "订单不存在");
+        }
+        return AjaxResponse.success(result);
     }
 }
