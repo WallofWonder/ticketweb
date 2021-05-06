@@ -72,4 +72,12 @@ public class AccountServiceImpl implements AccountService {
     public Account findAccountById(Long id) {
         return accountMapper.selectByPrimaryKey(id);
     }
+
+    @Override
+    public boolean existsEmail(String email) {
+        AccountExample example = new AccountExample();
+        AccountExample.Criteria criteria = example.createCriteria();
+        criteria.andEmailEqualTo(email);
+        return !accountMapper.selectByExample(example).isEmpty();
+    }
 }

@@ -8,6 +8,7 @@ import com.dogeyes.zyf.resource.account.AccountInfoResp;
 import com.dogeyes.zyf.resource.account.AccountLoginReq;
 import com.dogeyes.zyf.resource.account.AccountSignupResource;
 import com.dogeyes.zyf.service.AccountService;
+import com.dogeyes.zyf.service.MailService;
 import com.dogeyes.zyf.util.AjaxResponse;
 import com.dogeyes.zyf.util.CustomException;
 import com.dogeyes.zyf.util.CustomExceptionType;
@@ -30,6 +31,9 @@ public class AccountController {
     @Resource(name = "accountServiceImpl")
     AccountService accountService;
 
+    @Resource
+    MailService mailService;
+
     @PassToken
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public @ResponseBody
@@ -49,10 +53,14 @@ public class AccountController {
     Object signup(@RequestBody @Valid AccountSignupResource resource) {
         Object result = accountService.signup(resource);
         if (result instanceof Account) {
-            return AjaxResponse.success(result);
+            Account account = (Account) result;
+            AccountInfoResp infoResp = new AccountInfoResp();
+            infoResp.setAccount(account);
+            infoResp.setToken(JwtUtil.getToken(infoResp.getAccount()));
+            return AjaxResponse.success(infoResp);
         }
         int errType = (Integer) result;
-        if (errType == 1) throw new CustomException(CustomExceptionType.USER_INPUT_ERROR, "该手机号已被注册");
+        if (errType == 1) throw new CustomException(CustomExceptionType.USER_INPUT_ERROR, "该邮箱已被注册");
         throw new CustomException(CustomExceptionType.SYSTEM_ERROR);
     }
 
@@ -67,5 +75,14 @@ public class AccountController {
     public @ResponseBody
     Object logout() {
         return AjaxResponse.success();
+    }
+
+    @PassToken
+    @RequestMapping(value = "/sendSignCode", method = RequestMethod.POST)
+    public @ResponseBody
+    Object sendEmailCode(String email) {
+        if (accountService.existsEmail(email))
+            throw new CustomException(CustomExceptionType.USER_INPUT_ERROR, "该邮箱已被注册");
+        return AjaxResponse.success(mailService.sendValidCode(email));
     }
 }

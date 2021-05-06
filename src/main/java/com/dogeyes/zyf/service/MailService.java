@@ -29,10 +29,21 @@ public class MailService {
      */
     public void sendSimpleMail(String to, String subject, String content) {
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("TicketWeb"); // 发件人
+        message.setFrom("TicketWeb<"+fromEmail+">"); // 发件人
         message.setTo(to);
         message.setSubject(subject);
         message.setText(content);
         mailSender.send(message);
+    }
+
+    public String sendValidCode(String to) {
+        String code = validCode();
+        sendSimpleMail(to, "注册验证码","您好！本次的注册验证码为：" + code + "。");
+        return code;
+
+    }
+
+    private String validCode() {
+        return String.valueOf((int) ((Math.random() * 9 + 1) * 1000));
     }
 }

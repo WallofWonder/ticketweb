@@ -35,4 +35,12 @@ public interface AccountService {
      * @return 账户信息
      */
     Account findAccountById(Long id);
+
+    /**
+     * 生成验证码
+     *
+     * @param email 邮箱
+     * @return 验证码
+     */
+    boolean existsEmail(String email);
 }
