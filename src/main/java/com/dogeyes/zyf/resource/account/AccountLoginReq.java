@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AccountLoginReq {
-    private String mobile;
+    private String email;
 
     private String pwd;
 }

@@ -25,7 +25,7 @@ public class Oder implements Serializable {
 
     private Long cinemaHallSessionId;
 
-    private String tel;
+    private String email;
 
     private static final long serialVersionUID = 1L;
 
@@ -109,11 +109,11 @@ public class Oder implements Serializable {
         this.cinemaHallSessionId = cinemaHallSessionId;
     }
 
-    public String getTel() {
-        return tel;
+    public String getEmail() {
+        return email;
     }
 
-    public void setTel(String tel) {
-        this.tel = tel;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

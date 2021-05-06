@@ -24,7 +24,7 @@ public class OrderReq {
 
     private Long cinemaHallSessionId;
 
-    private String tel;
+    private String email;
 
     private List<SessionSeatReq> seats;
 }

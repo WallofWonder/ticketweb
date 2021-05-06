@@ -1,7 +1,6 @@
 package com.dogeyes.zyf.service;
 
 import com.dogeyes.zyf.pojo.Account;
-import com.dogeyes.zyf.pojo.User;
 import com.dogeyes.zyf.resource.account.AccountSignupResource;
 
 import java.util.List;
@@ -15,11 +14,11 @@ public interface AccountService {
     /**
      * 登录
      *
-     * @param mobile 手机号
+     * @param email 手机号
      * @param pwd 密码
      * @return 账户信息
      */
-    List<Account> login(String mobile, String pwd);
+    List<Account> login(String email, String pwd);
 
     /**
      * 注册

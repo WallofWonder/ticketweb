@@ -12,15 +12,9 @@ import javax.validation.constraints.Size;
 @Data
 public class AccountSignupResource {
 
-    @NotEmpty
-    private String mobile;
+    private String email;
 
-    @NotEmpty
-    @Size(min = 8, max = 20)
     private String pwd;
 
-    @NotEmpty
     private String nickname;
-
-    private Integer sex;
 }

@@ -35,7 +35,7 @@ public class AccountController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public @ResponseBody
     Object login(@RequestBody AccountLoginReq loginReq) {
-        List<Account> accounts = accountService.login(loginReq.getMobile(), loginReq.getPwd());
+        List<Account> accounts = accountService.login(loginReq.getEmail(), loginReq.getPwd());
         if (accounts == null || accounts.isEmpty())
             throw new CustomException(CustomExceptionType.UNAUTHORIZED, "用户名或密码错误！");
         AccountInfoResp infoResp = new AccountInfoResp();

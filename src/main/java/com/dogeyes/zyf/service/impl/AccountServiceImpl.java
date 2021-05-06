@@ -36,10 +36,10 @@ public class AccountServiceImpl implements AccountService {
     private String defaultAdvatar;
 
     @Override
-    public List<Account> login(String mobile, String pwd) {
+    public List<Account> login(String email, String pwd) {
         AccountExample example = new AccountExample();
         AccountExample.Criteria criteria = example.createCriteria();
-        criteria.andMobileEqualTo(mobile).andPwdEqualTo(pwd);
+        criteria.andEmailEqualTo(email).andPwdEqualTo(pwd);
 
         return accountMapper.selectByExample(example);
     }
@@ -48,7 +48,7 @@ public class AccountServiceImpl implements AccountService {
     public Object signup(AccountSignupResource resource) {
         AccountExample example = new AccountExample();
         AccountExample.Criteria criteria = example.createCriteria();
-        criteria.andMobileEqualTo(resource.getMobile());
+        criteria.andEmailEqualTo(resource.getEmail());
         if (!accountMapper.selectByExample(example).isEmpty()) {
             return 1;
         }
@@ -62,7 +62,7 @@ public class AccountServiceImpl implements AccountService {
             accountMapper.insertSelective(account);
             AccountExample example1 = new AccountExample();
             AccountExample.Criteria criteria1 = example1.createCriteria();
-            criteria1.andMobileEqualTo(account.getMobile());
+            criteria1.andEmailEqualTo(account.getEmail());
             return accountMapper.selectByExample(example1).get(0);
         }
         return 0;

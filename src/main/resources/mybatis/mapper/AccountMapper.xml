@@ -7,7 +7,7 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="balance" jdbcType="DECIMAL" property="balance" />
     <result column="head_pic" jdbcType="VARCHAR" property="headPic" />
-    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="nickname" jdbcType="VARCHAR" property="nickname" />
     <result column="pwd" jdbcType="VARCHAR" property="pwd" />
     <result column="sex" jdbcType="INTEGER" property="sex" />
@@ -72,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, create_time, update_time, balance, head_pic, mobile, nickname, pwd, sex, stats
+    id, create_time, update_time, balance, head_pic, email, nickname, pwd, sex, stats
   </sql>
   <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.AccountExample" resultMap="BaseResultMap">
     select
@@ -107,10 +107,10 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Account" useGeneratedKeys="true">
     insert into account (create_time, update_time, balance, 
-      head_pic, mobile, nickname, 
+      head_pic, email, nickname, 
       pwd, sex, stats)
     values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{balance,jdbcType=DECIMAL}, 
-      #{headPic,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, 
+      #{headPic,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, 
       #{pwd,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, #{stats,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.Account" useGeneratedKeys="true">
@@ -128,8 +128,8 @@
       <if test="headPic != null">
         head_pic,
       </if>
-      <if test="mobile != null">
-        mobile,
+      <if test="email != null">
+        email,
       </if>
       <if test="nickname != null">
         nickname,
@@ -157,8 +157,8 @@
       <if test="headPic != null">
         #{headPic,jdbcType=VARCHAR},
       </if>
-      <if test="mobile != null">
-        #{mobile,jdbcType=VARCHAR},
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
       </if>
       <if test="nickname != null">
         #{nickname,jdbcType=VARCHAR},
@@ -198,8 +198,8 @@
       <if test="record.headPic != null">
         head_pic = #{record.headPic,jdbcType=VARCHAR},
       </if>
-      <if test="record.mobile != null">
-        mobile = #{record.mobile,jdbcType=VARCHAR},
+      <if test="record.email != null">
+        email = #{record.email,jdbcType=VARCHAR},
       </if>
       <if test="record.nickname != null">
         nickname = #{record.nickname,jdbcType=VARCHAR},
@@ -225,7 +225,7 @@
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       balance = #{record.balance,jdbcType=DECIMAL},
       head_pic = #{record.headPic,jdbcType=VARCHAR},
-      mobile = #{record.mobile,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
       nickname = #{record.nickname,jdbcType=VARCHAR},
       pwd = #{record.pwd,jdbcType=VARCHAR},
       sex = #{record.sex,jdbcType=INTEGER},
@@ -249,8 +249,8 @@
       <if test="headPic != null">
         head_pic = #{headPic,jdbcType=VARCHAR},
       </if>
-      <if test="mobile != null">
-        mobile = #{mobile,jdbcType=VARCHAR},
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
       </if>
       <if test="nickname != null">
         nickname = #{nickname,jdbcType=VARCHAR},
@@ -273,7 +273,7 @@
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       balance = #{balance,jdbcType=DECIMAL},
       head_pic = #{headPic,jdbcType=VARCHAR},
-      mobile = #{mobile,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
       nickname = #{nickname,jdbcType=VARCHAR},
       pwd = #{pwd,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=INTEGER},

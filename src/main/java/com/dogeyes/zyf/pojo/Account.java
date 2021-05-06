@@ -15,7 +15,7 @@ public class Account implements Serializable {
 
     private String headPic;
 
-    private String mobile;
+    private String email;
 
     private String nickname;
 
@@ -67,12 +67,12 @@ public class Account implements Serializable {
         this.headPic = headPic;
     }
 
-    public String getMobile() {
-        return mobile;
+    public String getEmail() {
+        return email;
     }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getNickname() {
