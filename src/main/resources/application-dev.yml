@@ -17,8 +17,8 @@ spring:
       initial-size: 5
   mail:
     host: smtp.qq.com #发送邮件服务器
-    username: @qq.com #QQ邮箱
-    password:     #客户端授权码
+    username: 1532760526@qq.com #QQ邮箱
+    password: rlqdsvfmyzipfhcg    #客户端授权码
     protocol: smtp #发送邮件协议
     properties.mail.smtp.auth: true
     properties.mail.smtp.port: 465 #端口号465或587

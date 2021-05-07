@@ -1,7 +1,7 @@
 package com.dogeyes.zyf.controller;
 
 import com.dogeyes.zyf.pojo.Cinema;
-import com.dogeyes.zyf.resource.movie.MovieInfoResource;
+import com.dogeyes.zyf.resource.common.PageParamResource;
 import com.dogeyes.zyf.service.CinemaService;
 import com.dogeyes.zyf.util.AjaxResponse;
 import com.dogeyes.zyf.util.CustomException;
@@ -10,6 +10,7 @@ import com.dogeyes.zyf.util.DataSpider;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
 
@@ -55,4 +56,11 @@ public class CinemaController {
         List<Cinema> cinemas = cinemaService.listByArea(areaid);
         return AjaxResponse.success(cinemas);
     }
+
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public @ResponseBody
+    Object list(@Valid PageParamResource page, String dbName, long areaId) {
+        return cinemaService.list(page, dbName, areaId);
+    }
+
 }

@@ -1,6 +1,8 @@
 package com.dogeyes.zyf.service;
 
 import com.dogeyes.zyf.pojo.Cinema;
+import com.dogeyes.zyf.resource.common.PageParamResource;
+import com.github.pagehelper.PageInfo;
 
 import java.util.List;
 
@@ -38,4 +40,14 @@ public interface CinemaService {
      * @return 影院列表
      */
     List<Cinema> listByArea(Long areaid);
+
+    /**
+     * (根据电影名称地区代码)列出影院
+     *
+     * @param page 分页
+     * @param dbName 电影名称
+     * @param areaId 地区代码
+     * @return 电影列表
+     */
+    PageInfo<List<Cinema>> list(PageParamResource page, String dbName, Long areaId);
 }

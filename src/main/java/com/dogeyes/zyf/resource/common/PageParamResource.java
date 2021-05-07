@@ -23,6 +23,6 @@ public class PageParamResource implements Serializable {
     private int pageNum = 1;
 
     @Pattern(regexp = "\\s*\\w+\\s*(\\s[Aa][Ss][Cc]|\\s[Dd][Ee][Ss][Cc])?\\s*", message = "排序规则解析错误！")
-    private String orderBy;
+    private String orderBy = "id ASC";
 
 }
