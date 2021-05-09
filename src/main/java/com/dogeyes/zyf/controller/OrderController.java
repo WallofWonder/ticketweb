@@ -2,8 +2,10 @@ package com.dogeyes.zyf.controller;
 
 import com.dogeyes.zyf.jwt.AccountLoginToken;
 import com.dogeyes.zyf.jwt.CurrentAccount;
+import com.dogeyes.zyf.jwt.PassToken;
 import com.dogeyes.zyf.pojo.Account;
 import com.dogeyes.zyf.pojo.Oder;
+import com.dogeyes.zyf.resource.order.OrderListRes;
 import com.dogeyes.zyf.resource.order.OrderReq;
 import com.dogeyes.zyf.service.OrderService;
 import com.dogeyes.zyf.util.AjaxResponse;
@@ -12,6 +14,7 @@ import com.dogeyes.zyf.util.OrderStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author ZYF
@@ -56,5 +59,13 @@ public class OrderController {
             return AjaxResponse.error(CustomExceptionType.NOT_FOUND, "订单不存在");
         }
         return AjaxResponse.success(result);
+    }
+
+    @PassToken
+    @RequestMapping(value = "/listByAccount", method = RequestMethod.GET)
+    @ResponseBody
+    Object listOrders(long accountId) {
+        List<OrderListRes> orderList = orderService.listOrder(accountId);
+        return AjaxResponse.success(orderList);
     }
 }

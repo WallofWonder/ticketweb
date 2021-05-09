@@ -64,8 +64,17 @@ public class AccountController {
         throw new CustomException(CustomExceptionType.SYSTEM_ERROR);
     }
 
+    @PassToken
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public @ResponseBody
+    Object update(@RequestBody Account account) {
+        Account newInfo = accountService.update(account);
+        if (newInfo == null) throw new CustomException(CustomExceptionType.SYSTEM_ERROR, "更新失败，服务器内部错误！");
+        return AjaxResponse.success(newInfo);
+    }
+
     @AccountLoginToken
-    @RequestMapping(value = "/accountinfo", method = RequestMethod.GET)
+    @RequestMapping(value = "/curInfo", method = RequestMethod.GET)
     public @ResponseBody
     Object getAccountInfo(@CurrentAccount Account account) {
         return AjaxResponse.success(account);
@@ -80,9 +89,16 @@ public class AccountController {
     @PassToken
     @RequestMapping(value = "/sendSignCode", method = RequestMethod.POST)
     public @ResponseBody
-    Object sendEmailCode(String email) {
+    Object sendSignCode(String email) {
         if (accountService.existsEmail(email))
             throw new CustomException(CustomExceptionType.USER_INPUT_ERROR, "该邮箱已被注册");
+        return AjaxResponse.success(mailService.sendValidCode(email));
+    }
+
+    @PassToken
+    @RequestMapping(value = "/sendValidCode",method = RequestMethod.POST)
+    public @ResponseBody
+    Object sendValidCode(String email) {
         return AjaxResponse.success(mailService.sendValidCode(email));
     }
 }

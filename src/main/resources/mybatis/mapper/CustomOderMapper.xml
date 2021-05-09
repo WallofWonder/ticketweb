@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dogeyes.zyf.mapper.CustomOderMapper">
+    <resultMap id="CustomResultMap" type="com.dogeyes.zyf.resource.order.OrderListRes">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="new_money" jdbcType="DECIMAL" property="newMoney" />
+        <result column="show_date" jdbcType="VARCHAR" property="showDate"/>
+        <result column="start_time" jdbcType="VARCHAR" property="startTime"/>
+        <result column="cinema_name" jdbcType="VARCHAR" property="cinemaName" />
+        <result column="cinema_hall_name" jdbcType="VARCHAR" property="cinemaHallName" />
+        <result column="movie_name" jdbcType="VARCHAR" property="movieName"/>
+        <result column="db_status" jdbcType="INTEGER" property="dbStats" />
+    </resultMap>
+    <select id="listOrderById" resultType="com.dogeyes.zyf.resource.order.OrderListRes" resultMap="CustomResultMap">
+        SELECT DISTINCT oder.id,
+                        oder.create_time,
+                        oder.new_money,
+                        oder.db_status,
+                        cinema_hall_session.show_date,
+                        cinema_hall_session.start_time,
+                        movie.db_name as movie_name,
+                        cinema_hall.db_name as cinema_hall_name,
+                        cinema.db_name      as cinema_name
+        FROM oder,
+             cinema_hall,
+             cinema,
+             cinema_hall_session,
+             movie
+        WHERE oder.account_id = #{accountId}
+          AND oder.cinema_hall_session_id = cinema_hall_session.id
+          AND cinema_hall_session.movie_id = movie.id
+          AND cinema_hall_session.cinema_id = cinema.id
+          AND cinema_hall.id = cinema_hall_session.cinema_hall_id;
+    </select>
+</mapper>

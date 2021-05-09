@@ -43,4 +43,12 @@ public interface AccountService {
      * @return 验证码
      */
     boolean existsEmail(String email);
+
+    /**
+     * 更新账户信息
+     *
+     * @param account
+     * @return 更新后的账户信息
+     */
+    Account update(Account account);
 }

@@ -1,9 +1,11 @@
 package com.dogeyes.zyf.service.impl;
 
 import com.dogeyes.zyf.mapper.CinemaHallSeatMapper;
+import com.dogeyes.zyf.mapper.CustomOderMapper;
 import com.dogeyes.zyf.mapper.OderMapper;
 import com.dogeyes.zyf.mapper.OrderItemMapper;
 import com.dogeyes.zyf.pojo.*;
+import com.dogeyes.zyf.resource.order.OrderListRes;
 import com.dogeyes.zyf.resource.order.OrderReq;
 import com.dogeyes.zyf.resource.order.SessionSeatReq;
 import com.dogeyes.zyf.service.OrderService;
@@ -28,6 +30,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Resource
     OderMapper oderMapper;
+
+    @Resource
+    CustomOderMapper customOderMapper;
 
     @Resource
     OrderItemMapper orderItemMapper;
@@ -111,6 +116,11 @@ public class OrderServiceImpl implements OrderService {
         }
 
         return result;
+    }
+
+    @Override
+    public List<OrderListRes> listOrder(long accountId) {
+        return customOderMapper.listOrderById(accountId);
     }
 
     /**

@@ -38,7 +38,7 @@ public class MailService {
 
     public String sendValidCode(String to) {
         String code = validCode();
-        sendSimpleMail(to, "注册验证码","您好！本次的注册验证码为：" + code + "。");
+        sendSimpleMail(to, "邮箱验证","您好！本次的验证码为：" + code + "。");
         return code;
 
     }

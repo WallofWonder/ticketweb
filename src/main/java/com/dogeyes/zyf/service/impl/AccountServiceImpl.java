@@ -80,4 +80,11 @@ public class AccountServiceImpl implements AccountService {
         criteria.andEmailEqualTo(email);
         return !accountMapper.selectByExample(example).isEmpty();
     }
+
+    @Override
+    public Account update(Account account) {
+        int i = accountMapper.updateByPrimaryKeySelective(account);
+        if (i == 0) return null;
+        return accountMapper.selectByPrimaryKey(account.getId());
+    }
 }

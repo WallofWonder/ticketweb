@@ -1,8 +1,11 @@
 package com.dogeyes.zyf.service;
 
 import com.dogeyes.zyf.pojo.Oder;
+import com.dogeyes.zyf.resource.order.OrderListRes;
 import com.dogeyes.zyf.resource.order.OrderReq;
 import com.dogeyes.zyf.util.OrderStatus;
+
+import java.util.List;
 
 /**
  * @author ZYF
@@ -35,4 +38,12 @@ public interface OrderService {
      * @return 成功或者失败
      */
     int check(long orderId, OrderStatus status);
+
+    /**
+     * 获取账户订单列表
+     *
+     * @param accountId 账户id
+     * @return 订单列表
+     */
+    List<OrderListRes> listOrder(long accountId);
 }
