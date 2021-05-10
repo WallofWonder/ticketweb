@@ -2,13 +2,12 @@ package com.dogeyes.zyf.controller;
 
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
-import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.domain.AlipayTradePrecreateModel;
 import com.alipay.api.request.AlipayTradePrecreateRequest;
 import com.alipay.api.response.AlipayTradePrecreateResponse;
 import com.dogeyes.zyf.config.AlipayConfig;
 import com.dogeyes.zyf.resource.alipay.AliReturnPay;
-import com.dogeyes.zyf.resource.order.AliPayReq;
+import com.dogeyes.zyf.resource.alipay.AliPayReq;
 import com.dogeyes.zyf.util.AjaxResponse;
 import com.dogeyes.zyf.util.MyWebSocket;
 import lombok.extern.log4j.Log4j2;

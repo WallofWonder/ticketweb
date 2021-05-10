@@ -1,4 +1,4 @@
-package com.dogeyes.zyf.resource.order;
+package com.dogeyes.zyf.resource.alipay;
 
 import lombok.Data;
 
