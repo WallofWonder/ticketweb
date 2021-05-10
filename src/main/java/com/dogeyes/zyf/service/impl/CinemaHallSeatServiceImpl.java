@@ -5,6 +5,7 @@ import com.dogeyes.zyf.mapper.CustomCinemaHallSeatMapper;
 import com.dogeyes.zyf.pojo.CinemaHallSeat;
 import com.dogeyes.zyf.pojo.CinemaHallSeatExample;
 import com.dogeyes.zyf.service.CinemaHallSeatService;
+import com.dogeyes.zyf.util.SeatStatus;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -26,7 +27,8 @@ public class CinemaHallSeatServiceImpl implements CinemaHallSeatService {
     public List<CinemaHallSeat> listSeatsBySession(long sessionId) {
         CinemaHallSeatExample example = new CinemaHallSeatExample();
         CinemaHallSeatExample.Criteria criteria = example.createCriteria();
-        criteria.andHallSessionIdEqualTo(sessionId);
+        criteria.andHallSessionIdEqualTo(sessionId)
+                .andStatsNotEqualTo(SeatStatus.CANCELED.getValue());
         return mapper.selectByExample(example);
     }
 
