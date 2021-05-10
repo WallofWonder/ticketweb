@@ -29,11 +29,11 @@ public class UserServiceImpl implements UserService {
     @Value("${web.upload-path}")
     private String uploadPath;
 
-    @Value("${web.advatar-path}")
-    private String advatarPath;
+    @Value("${web.avatar-path}")
+    private String avatarPath;
 
-    @Value("${web.default-advatar}")
-    private String defaultAdvatar;
+    @Value("${web.default-avatar}")
+    private String defaultAvatar;
 
     @Override
     public UserTokenResource login(String email, String pwd) {
@@ -60,7 +60,7 @@ public class UserServiceImpl implements UserService {
             user.setCreateTime(new Date());
             user.setUpdateTime(new Date());
             user.setStats(0);
-            user.setHeadPic(uploadPath + advatarPath + defaultAdvatar);
+            user.setHeadPic(uploadPath + avatarPath + defaultAvatar);
             userMapper.insertSelective(user);
             UserExample example1 = new UserExample();
             UserExample.Criteria criteria1 = example1.createCriteria();

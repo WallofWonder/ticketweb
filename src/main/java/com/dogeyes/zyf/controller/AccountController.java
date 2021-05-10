@@ -1,5 +1,6 @@
 package com.dogeyes.zyf.controller;
 
+import com.dogeyes.zyf.component.FileHandler;
 import com.dogeyes.zyf.jwt.AccountLoginToken;
 import com.dogeyes.zyf.jwt.CurrentAccount;
 import com.dogeyes.zyf.jwt.PassToken;
@@ -13,7 +14,9 @@ import com.dogeyes.zyf.util.AjaxResponse;
 import com.dogeyes.zyf.util.CustomException;
 import com.dogeyes.zyf.util.CustomExceptionType;
 import com.dogeyes.zyf.util.JwtUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -25,11 +28,14 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("account")
-@CrossOrigin(origins = "*",maxAge = 3600)
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class AccountController {
 
     @Resource(name = "accountServiceImpl")
     AccountService accountService;
+
+    @Resource
+    FileHandler fileHandler;
 
     @Resource
     MailService mailService;
@@ -69,8 +75,17 @@ public class AccountController {
     public @ResponseBody
     Object update(@RequestBody Account account) {
         Account newInfo = accountService.update(account);
-        if (newInfo == null) throw new CustomException(CustomExceptionType.SYSTEM_ERROR, "更新失败，服务器内部错误！");
+        if (newInfo == null) throw new CustomException(CustomExceptionType.SYSTEM_ERROR, "更新失败：服务器内部错误！");
         return AjaxResponse.success(newInfo);
+    }
+
+    @PassToken
+    @RequestMapping(value = "/avatar", method = RequestMethod.POST)
+    public @ResponseBody
+    Object avatar(@RequestParam("file") MultipartFile avatar) {
+        String path = fileHandler.upload(avatar);
+        if (path == null) return AjaxResponse.error(CustomExceptionType.SYSTEM_ERROR, "上传失败");
+        return AjaxResponse.success(path, "上传成功");
     }
 
     @AccountLoginToken
@@ -96,7 +111,7 @@ public class AccountController {
     }
 
     @PassToken
-    @RequestMapping(value = "/sendValidCode",method = RequestMethod.POST)
+    @RequestMapping(value = "/sendValidCode", method = RequestMethod.POST)
     public @ResponseBody
     Object sendValidCode(String email) {
         return AjaxResponse.success(mailService.sendValidCode(email));

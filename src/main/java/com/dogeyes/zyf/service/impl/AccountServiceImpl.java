@@ -29,11 +29,11 @@ public class AccountServiceImpl implements AccountService {
     @Value("${web.upload-path}")
     private String uploadPath;
 
-    @Value("${web.advatar-path}")
-    private String advatarPath;
+    @Value("${web.avatar-path}")
+    private String avatarPath;
 
-    @Value("${web.default-advatar}")
-    private String defaultAdvatar;
+    @Value("${web.default-avatar}")
+    private String defaultAvatar;
 
     @Override
     public List<Account> login(String email, String pwd) {
@@ -58,7 +58,7 @@ public class AccountServiceImpl implements AccountService {
             account.setUpdateTime(new Date());
             account.setStats(0);
             account.setBalance(BigDecimal.ZERO);
-            account.setHeadPic(uploadPath + advatarPath + defaultAdvatar);
+            account.setHeadPic(uploadPath + avatarPath + defaultAvatar);
             accountMapper.insertSelective(account);
             AccountExample example1 = new AccountExample();
             AccountExample.Criteria criteria1 = example1.createCriteria();
