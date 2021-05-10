@@ -89,7 +89,7 @@ public class OrderServiceImpl implements OrderService {
         int result = 0;
 
         // 更新订单状态
-        OderExample oderExample= new OderExample();
+        OderExample oderExample = new OderExample();
         OderExample.Criteria orderCriteria = oderExample.createCriteria();
         orderCriteria.andIdEqualTo(orderId);
         Oder order = new Oder();
@@ -104,10 +104,16 @@ public class OrderServiceImpl implements OrderService {
 
         // 根据order_item获取座位
         CinemaHallSeat seat = new CinemaHallSeat();
-        switch (status){
-            case UNPAID: seat.setStats(SeatStatus.LOCKED.getValue()); break;
-            case PAID: seat.setStats(SeatStatus.PAID.getValue()); break;
-            case CANCELED: seat.setStats(SeatStatus.CANCELED.getValue()); break;
+        switch (status) {
+            case UNPAID:
+                seat.setStats(SeatStatus.LOCKED.getValue());
+                break;
+            case PAID:
+                seat.setStats(SeatStatus.PAID.getValue());
+                break;
+            case CANCELED:
+                seat.setStats(SeatStatus.CANCELED.getValue());
+                break;
         }
         for (OrderItem item :
                 orderItems) {
@@ -124,7 +130,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     /**
-     * 判断该账户是否在该场次买过票
+     * 判断该账户是否在该场次买过票（排除已取消订单）
      *
      * @param req 订单请求
      * @return 是否买过票
@@ -133,7 +139,8 @@ public class OrderServiceImpl implements OrderService {
         OderExample example = new OderExample();
         OderExample.Criteria criteria = example.createCriteria();
         criteria.andAccountIdEqualTo(req.getAccountId())
-                .andCinemaHallSessionIdEqualTo(req.getCinemaHallSessionId());
+                .andCinemaHallSessionIdEqualTo(req.getCinemaHallSessionId())
+                .andDbStatusNotEqualTo(2);
         List<Oder> orders = oderMapper.selectByExample(example);
         return !orders.isEmpty();
     }
