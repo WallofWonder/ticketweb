@@ -31,6 +31,7 @@
           AND oder.cinema_hall_session_id = cinema_hall_session.id
           AND cinema_hall_session.movie_id = movie.id
           AND cinema_hall_session.cinema_id = cinema.id
-          AND cinema_hall.id = cinema_hall_session.cinema_hall_id;
+          AND cinema_hall.id = cinema_hall_session.cinema_hall_id
+        ORDER BY UNIX_TIMESTAMP(oder.create_time) DESC ;
     </select>
 </mapper>

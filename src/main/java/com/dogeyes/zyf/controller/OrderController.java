@@ -91,4 +91,13 @@ public class OrderController {
 
         return AjaxResponse.error(CustomExceptionType.SYSTEM_ERROR, response.getSubMsg());
     }
+
+    @PassToken
+    @RequestMapping(value = "/cancel", method = RequestMethod.POST)
+    @ResponseBody
+    Object cancel(long orderId) {
+        int check  = orderService.check(orderId, OrderStatus.CANCELED);
+        if (check != 0) return AjaxResponse.success("取消成功！");
+        return AjaxResponse.error(new CustomException(CustomExceptionType.SYSTEM_ERROR));
+    }
 }
