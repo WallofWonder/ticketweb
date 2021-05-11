@@ -14,7 +14,6 @@ import com.dogeyes.zyf.util.AjaxResponse;
 import com.dogeyes.zyf.util.CustomException;
 import com.dogeyes.zyf.util.CustomExceptionType;
 import com.dogeyes.zyf.util.JwtUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
