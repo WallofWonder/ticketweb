@@ -11,7 +11,7 @@
  Target Server Version : 80015
  File Encoding         : 65001
 
- Date: 02/05/2021 22:47:26
+ Date: 11/05/2021 14:25:53
 */
 
 SET NAMES utf8mb4;
@@ -27,20 +27,21 @@ CREATE TABLE `account`  (
   `update_time` datetime(0) NOT NULL,
   `balance` decimal(19, 2) NOT NULL,
   `head_pic` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `mobile` varchar(11) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `email` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `nickname` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `pwd` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `sex` int(11) NULL DEFAULT NULL,
   `stats` int(11) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE INDEX `UK_6opggmt4oncjopyy57ca38wi0`(`mobile`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+  UNIQUE INDEX `UK_6opggmt4oncjopyy57ca38wi0`(`email`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of account
 -- ----------------------------
-INSERT INTO `account` VALUES (1, '2021-04-16 23:41:25', '2021-04-16 23:41:27', 0.00, 'D:\\ticketweb_data\\advatar\\default.jpg', '18312345678', '暗室逢灯', '12345678', 1, 1);
-INSERT INTO `account` VALUES (2, '2021-04-16 23:47:46', '2021-04-16 23:47:49', 0.00, 'D:\\ticketweb_data\\advatar\\default.jpg', '13912345678', '萨芬放大', '12345678', 0, 0);
+INSERT INTO `account` VALUES (1, '2021-04-16 23:41:25', '2021-04-16 23:41:27', 0.00, 'D:/ticketweb_data/advatar/avatar_ziped1620713594895.jpg', '12345678@163.com', '暗室逢灯', '12345678', 1, 0);
+INSERT INTO `account` VALUES (2, '2021-04-16 23:47:46', '2021-04-16 23:47:49', 0.00, 'D:\\ticketweb_data\\advatar\\default.jpg', '12345678@qq.com', '萨芬放大', '12345678', 0, 1);
+INSERT INTO `account` VALUES (13, '2021-05-06 21:56:08', '2021-05-06 21:56:08', 0.00, 'D:/ticketweb_data/advatar/default.jpg', 'm13111@163.com', 'WDNMD', '12345678', 1, 0);
 
 -- ----------------------------
 -- Table structure for area
@@ -3749,21 +3750,21 @@ CREATE TABLE `cinema`  (
   CONSTRAINT `cinema_ibfk_1` FOREIGN KEY (`area_id`) REFERENCES `area` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `cinema_ibfk_2` FOREIGN KEY (`province_id`) REFERENCES `area` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `cinema_ibfk_3` FOREIGN KEY (`city_id`) REFERENCES `area` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 71 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 70 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of cinema
 -- ----------------------------
-INSERT INTO `cinema` VALUES (1, '2021-04-17 02:04:05', '2021-04-17 02:04:05', '仓山区（免费停车3小时）建新镇建新大道南侧盘屿路东侧阳光天地2019商铺', NULL, NULL, '观者国际影城奥体店', NULL, 8.00, '0591-63111878', NULL, 350104, NULL, 350000, 350100);
-INSERT INTO `cinema` VALUES (2, '2021-04-17 02:04:05', '2021-04-17 02:04:05', '仓山区林浦路世纪金源购物中心三楼春天国际影城', NULL, NULL, '春天国际影城（福州金源店）', NULL, 8.00, '0591-62737333', NULL, 350104, NULL, 350000, 350100);
-INSERT INTO `cinema` VALUES (3, '2021-04-17 02:04:06', '2021-04-17 02:04:06', '仓山区首山路45号新都汇5楼', NULL, NULL, '观者城市影城首山店', NULL, 8.00, '0591-63335158', NULL, 350104, NULL, 350000, 350100);
-INSERT INTO `cinema` VALUES (4, '2021-04-17 02:04:07', '2021-04-17 02:04:07', '仓山区横滨支路融侨外滩壹号寰映影城', NULL, NULL, '寰映影城（融侨外滩PRIME店）', NULL, 8.00, '18959111575', NULL, 350104, NULL, 350000, 350100);
-INSERT INTO `cinema` VALUES (5, '2021-04-17 02:04:08', '2021-04-17 02:04:08', '仓山区（免费停车3小时）凤岗路788号葛屿新苑9号楼蔚蓝广场三层03号商铺', NULL, NULL, '蔚蓝影院', NULL, 8.00, '0591-22856851', NULL, 350104, NULL, 350000, 350100);
-INSERT INTO `cinema` VALUES (6, '2021-04-17 02:04:08', '2021-04-17 02:04:08', '仓山区浦上大道万达广场2号门四层', NULL, NULL, '万达影城（仓山万达广场IMAX店）', NULL, 8.00, '0591-88255688', NULL, 350104, NULL, 350000, 350100);
-INSERT INTO `cinema` VALUES (7, '2021-04-17 02:04:09', '2021-04-17 02:04:09', '仓山区城门镇海峡文化艺术中心影视中心', NULL, NULL, '海峡文化艺术中心金逸IMAX影城', NULL, 8.00, '0591-83532100', NULL, 350104, NULL, 350000, 350100);
-INSERT INTO `cinema` VALUES (8, '2021-04-17 02:04:09', '2021-04-17 02:04:09', '仓山区则徐大道379号福建商业广场1层(盖山路口公交站后)', NULL, NULL, '中瑞国际影城（福州白湖亭店）', NULL, 8.00, '18106052360', NULL, 350104, NULL, 350000, 350100);
-INSERT INTO `cinema` VALUES (9, '2021-04-17 02:04:11', '2021-04-17 02:04:11', '仓山区城门镇福峡路新天宇城市广场4楼', NULL, NULL, '福州金逸影城新天宇广场店', NULL, 8.00, '0591-88003915', NULL, 350104, NULL, 350000, 350100);
-INSERT INTO `cinema` VALUES (10, '2021-04-17 02:04:11', '2021-04-17 02:04:11', '仓山区（免费停车3小时）仓山区浦上大道198号爱琴海购物公园7楼', NULL, NULL, '红星太平洋影城（仓山爱琴海店）', NULL, 8.00, '0591-83818102', NULL, 350104, NULL, 350000, 350100);
+INSERT INTO `cinema` VALUES (1, '2021-04-17 02:04:05', '2021-04-17 02:04:05', '仓山区（免费停车3小时）建新镇建新大道南侧盘屿路东侧阳光天地2019商铺', '折扣卡', NULL, '观者国际影城奥体店', NULL, 8.00, '0591-63111878', NULL, 350104, NULL, 350000, 350100);
+INSERT INTO `cinema` VALUES (2, '2021-04-17 02:04:05', '2021-04-17 02:04:05', '仓山区林浦路世纪金源购物中心三楼春天国际影城', '折扣卡 杜比全景声厅', NULL, '春天国际影城（福州金源店）', NULL, 8.00, '0591-62737333', NULL, 350104, NULL, 350000, 350100);
+INSERT INTO `cinema` VALUES (3, '2021-04-17 02:04:06', '2021-04-17 02:04:06', '仓山区首山路45号新都汇5楼', '折扣卡', NULL, '观者城市影城首山店', NULL, 8.00, '0591-63335158', NULL, 350104, NULL, 350000, 350100);
+INSERT INTO `cinema` VALUES (4, '2021-04-17 02:04:07', '2021-04-17 02:04:07', '仓山区横滨支路融侨外滩壹号寰映影城', '杜比全景声厅 儿童厅', NULL, '寰映影城（融侨外滩PRIME店）', NULL, 8.00, '18959111575', NULL, 350104, NULL, 350000, 350100);
+INSERT INTO `cinema` VALUES (5, '2021-04-17 02:04:08', '2021-04-17 02:04:08', '仓山区（免费停车3小时）凤岗路788号葛屿新苑9号楼蔚蓝广场三层03号商铺', '折扣卡', NULL, '蔚蓝影院', NULL, 8.00, '0591-22856851', NULL, 350104, NULL, 350000, 350100);
+INSERT INTO `cinema` VALUES (6, '2021-04-17 02:04:08', '2021-04-17 02:04:08', '仓山区浦上大道万达广场2号门四层', 'IMAX厅 RealD6FL厅 儿童厅 MX4D厅', NULL, '万达影城（仓山万达广场IMAX店）', NULL, 8.00, '0591-88255688', NULL, 350104, NULL, 350000, 350100);
+INSERT INTO `cinema` VALUES (7, '2021-04-17 02:04:09', '2021-04-17 02:04:09', '仓山区城门镇海峡文化艺术中心影视中心', 'IMAX厅 杜比全景声厅 儿童厅 4D厅', NULL, '海峡文化艺术中心金逸IMAX影城', NULL, 8.00, '0591-83532100', NULL, 350104, NULL, 350000, 350100);
+INSERT INTO `cinema` VALUES (8, '2021-04-17 02:04:09', '2021-04-17 02:04:09', '仓山区则徐大道379号福建商业广场1层(盖山路口公交站后)', '折扣卡', NULL, '中瑞国际影城（福州白湖亭店）', NULL, 8.00, '18106052360', NULL, 350104, NULL, 350000, 350100);
+INSERT INTO `cinema` VALUES (9, '2021-04-17 02:04:11', '2021-04-17 02:04:11', '仓山区城门镇福峡路新天宇城市广场4楼', '折扣卡', NULL, '福州金逸影城新天宇广场店', NULL, 8.00, '0591-88003915', NULL, 350104, NULL, 350000, 350100);
+INSERT INTO `cinema` VALUES (10, '2021-04-17 02:04:11', '2021-04-17 02:04:11', '仓山区（免费停车3小时）仓山区浦上大道198号爱琴海购物公园7楼', 'RealD厅 LUXE巨幕厅', NULL, '红星太平洋影城（仓山爱琴海店）', NULL, 8.00, '0591-83818102', NULL, 350104, NULL, 350000, 350100);
 INSERT INTO `cinema` VALUES (11, '2021-04-17 02:04:16', '2021-04-17 02:04:16', '长乐区十洋商务广场3楼东侧3-7号铺面', NULL, NULL, '长乐市春天国际影城（十洋店）', NULL, 8.00, '0591-62025777', NULL, 350182, NULL, 350000, 350100);
 INSERT INTO `cinema` VALUES (12, '2021-04-17 02:04:23', '2021-04-17 02:04:23', '长乐区长乐市漳港街道安平广场5楼星河国际影城', NULL, NULL, '长乐中兴星河影城', NULL, 8.00, '0591-28800819', NULL, 350182, NULL, 350000, 350100);
 INSERT INTO `cinema` VALUES (13, '2021-04-17 02:04:24', '2021-04-17 02:04:24', '长乐区航城街道广场南路888号永荣广场第四层', NULL, NULL, 'CC影城长乐永荣LUXE店', NULL, 8.00, '0591-28110255', NULL, 350182, NULL, 350000, 350100);
@@ -3842,7 +3843,7 @@ CREATE TABLE `cinema_comment`  (
   INDEX `FKe2arjnvu7p5ckp9vnule741ia`(`cinema_id`) USING BTREE,
   CONSTRAINT `FK62335x5bldhxxrvxyn2g6hh7l` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FKe2arjnvu7p5ckp9vnule741ia` FOREIGN KEY (`cinema_id`) REFERENCES `cinema` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of cinema_comment
@@ -3863,7 +3864,7 @@ CREATE TABLE `cinema_hall`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `FKcpgl2ik7d1ilwpjkm3mk9a5kj`(`cinema_id`) USING BTREE,
   CONSTRAINT `FKcpgl2ik7d1ilwpjkm3mk9a5kj` FOREIGN KEY (`cinema_id`) REFERENCES `cinema` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 30 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of cinema_hall
@@ -3875,7 +3876,7 @@ INSERT INTO `cinema_hall` VALUES (4, '2021-04-18 20:47:03', '2021-04-18 20:47:03
 INSERT INTO `cinema_hall` VALUES (5, '2021-04-18 20:47:07', '2021-04-18 20:47:07', 9, 12, '5号厅', 1);
 INSERT INTO `cinema_hall` VALUES (6, '2021-04-18 20:47:09', '2021-04-18 20:47:09', 9, 12, '6号厅', 1);
 INSERT INTO `cinema_hall` VALUES (7, '2021-04-18 20:47:12', '2021-04-18 20:47:12', 9, 12, '7号厅', 1);
-INSERT INTO `cinema_hall` VALUES (8, '2021-04-18 20:47:15', '2021-04-18 20:47:15', 9, 12, '8号厅', 1);
+INSERT INTO `cinema_hall` VALUES (8, '2021-04-18 20:47:15', '2021-04-18 20:47:15', 9, 12, '1', 1);
 INSERT INTO `cinema_hall` VALUES (9, '2021-04-18 20:47:58', '2021-04-18 20:47:58', 9, 12, 'VIP厅', 1);
 INSERT INTO `cinema_hall` VALUES (10, '2021-04-18 20:50:31', '2021-04-18 20:50:31', 10, 14, '激光1号厅', 2);
 INSERT INTO `cinema_hall` VALUES (11, '2021-04-18 20:50:34', '2021-04-18 20:50:34', 10, 14, '激光2号厅', 2);
@@ -3889,6 +3890,15 @@ INSERT INTO `cinema_hall` VALUES (18, '2021-04-18 20:53:01', '2021-04-18 20:53:0
 INSERT INTO `cinema_hall` VALUES (19, '2021-04-18 20:53:03', '2021-04-18 20:53:03', 10, 14, '激光6号厅', 47);
 INSERT INTO `cinema_hall` VALUES (20, '2021-04-18 20:53:06', '2021-04-18 20:53:06', 10, 14, '激光7号厅', 47);
 INSERT INTO `cinema_hall` VALUES (21, '2021-04-18 20:53:08', '2021-04-18 20:53:08', 10, 14, '激光8号厅', 47);
+INSERT INTO `cinema_hall` VALUES (22, '2021-05-07 15:18:42', '2021-05-07 15:18:44', 10, 10, '1号厅', 6);
+INSERT INTO `cinema_hall` VALUES (23, '2021-05-07 20:46:48', '2021-05-07 20:46:48', 10, 10, '2号厅', 6);
+INSERT INTO `cinema_hall` VALUES (24, '2021-05-07 15:24:41', '2021-05-07 15:24:43', 10, 10, '3号厅', 6);
+INSERT INTO `cinema_hall` VALUES (25, '2021-05-07 15:24:58', '2021-05-07 15:25:00', 23, 12, '4号-IMAX厅', 6);
+INSERT INTO `cinema_hall` VALUES (26, '2021-05-07 15:25:18', '2021-05-07 15:25:20', 10, 10, '5号厅', 6);
+INSERT INTO `cinema_hall` VALUES (27, '2021-05-07 15:26:50', '2021-05-07 15:26:51', 10, 10, '6号厅', 6);
+INSERT INTO `cinema_hall` VALUES (28, '2021-05-07 15:27:05', '2021-05-07 15:27:08', 10, 10, '7号厅', 6);
+INSERT INTO `cinema_hall` VALUES (29, '2021-05-07 15:28:44', '2021-05-07 15:28:40', 10, 10, '8号厅', 6);
+INSERT INTO `cinema_hall` VALUES (30, '2021-05-07 15:29:52', '2021-05-07 15:29:51', 12, 8, '9号-MX4D厅', 6);
 
 -- ----------------------------
 -- Table structure for cinema_hall_seat
@@ -3898,7 +3908,7 @@ CREATE TABLE `cinema_hall_seat`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `create_time` datetime(0) NOT NULL,
   `update_time` datetime(0) NOT NULL,
-  `stats` int(11) NOT NULL COMMENT '0-锁定 1-购买 2-已取消',
+  `stats` int(11) NOT NULL COMMENT '0-已锁定 1-已购买 2-已取消',
   `tpe` int(11) NULL DEFAULT NULL,
   `x` int(11) NOT NULL,
   `y` int(11) NOT NULL,
@@ -3906,13 +3916,16 @@ CREATE TABLE `cinema_hall_seat`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `hall_session_id`(`hall_session_id`) USING BTREE,
   CONSTRAINT `cinema_hall_seat_ibfk_1` FOREIGN KEY (`hall_session_id`) REFERENCES `cinema_hall_session` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of cinema_hall_seat
 -- ----------------------------
-INSERT INTO `cinema_hall_seat` VALUES (1, '2021-05-02 22:36:31', '2021-05-02 22:36:31', 2, NULL, 1, 1, 1);
-INSERT INTO `cinema_hall_seat` VALUES (2, '2021-05-02 22:36:31', '2021-05-02 22:36:31', 2, NULL, 2, 2, 1);
+INSERT INTO `cinema_hall_seat` VALUES (1, '2021-05-10 20:50:44', '2021-05-10 20:50:44', 2, NULL, 7, 5, 8);
+INSERT INTO `cinema_hall_seat` VALUES (2, '2021-05-10 20:50:44', '2021-05-10 20:50:44', 2, NULL, 7, 6, 8);
+INSERT INTO `cinema_hall_seat` VALUES (3, '2021-05-10 20:54:46', '2021-05-10 20:54:46', 0, NULL, 3, 7, 2);
+INSERT INTO `cinema_hall_seat` VALUES (4, '2021-05-10 20:58:17', '2021-05-10 20:58:17', 1, NULL, 2, 6, 5);
+INSERT INTO `cinema_hall_seat` VALUES (5, '2021-05-10 20:58:17', '2021-05-10 20:58:17', 1, NULL, 3, 6, 5);
 
 -- ----------------------------
 -- Table structure for cinema_hall_session
@@ -3939,13 +3952,13 @@ CREATE TABLE `cinema_hall_session`  (
   CONSTRAINT `FK23nq84td4lhlgow750x6w52st` FOREIGN KEY (`cinema_hall_id`) REFERENCES `cinema_hall` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FK8yo0mdhaupvsygja3uncoh60s` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FKcqci2i9g2044uicf07sxwwcoi` FOREIGN KEY (`cinema_id`) REFERENCES `cinema` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of cinema_hall_session
 -- ----------------------------
 INSERT INTO `cinema_hall_session` VALUES (1, '2021-04-18 21:11:38', '2021-04-18 21:11:38', '4月28日', NULL, 1, 1, 1, NULL, '22:55', 46.00, 80.00, '21:05');
-INSERT INTO `cinema_hall_session` VALUES (2, '2021-04-18 21:14:05', '2021-04-18 21:14:05', '4月28日', NULL, 1, 5, 1, NULL, '23:30', 46.00, 80.00, '21:40');
+INSERT INTO `cinema_hall_session` VALUES (2, '2021-04-18 21:14:05', '2021-04-18 21:14:05', '4月28日', NULL, 1, 5, 2, NULL, '23:30', 46.00, 80.00, '21:40');
 INSERT INTO `cinema_hall_session` VALUES (3, '2021-04-18 21:15:14', '2021-04-18 21:15:14', '4月28日', NULL, 1, 2, 1, NULL, '00:10', 37.00, 80.00, '22:20');
 INSERT INTO `cinema_hall_session` VALUES (4, '2021-04-18 21:17:55', '2021-04-18 21:17:55', '4月29日', NULL, 1, 1, 1, NULL, '12:30', 36.00, 80.00, '10:40');
 INSERT INTO `cinema_hall_session` VALUES (5, '2021-04-18 21:18:21', '2021-04-18 21:18:21', '4月29日', NULL, 1, 1, 1, NULL, '14:50', 37.00, 80.00, '13:00');
@@ -3968,7 +3981,7 @@ CREATE TABLE `database_bak`  (
   `filename` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `filepath` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of database_bak
@@ -3992,7 +4005,7 @@ CREATE TABLE `menu`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `FKsbtnjocfrq29e8taxdwo21gic`(`parent_id`) USING BTREE,
   CONSTRAINT `FKsbtnjocfrq29e8taxdwo21gic` FOREIGN KEY (`parent_id`) REFERENCES `menu` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of menu
@@ -4021,7 +4034,7 @@ CREATE TABLE `movie`  (
   `video` varchar(512) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `is_show` bit(1) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 58 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 57 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of movie
@@ -4101,7 +4114,7 @@ CREATE TABLE `movie_comment`  (
   INDEX `FK95583yxmyntkckphhs5ktmknr`(`movie_id`) USING BTREE,
   CONSTRAINT `FK95583yxmyntkckphhs5ktmknr` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `FKtdpkp5fleo773wbsiqec0y5er` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of movie_comment
@@ -4124,7 +4137,7 @@ CREATE TABLE `news`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `FKeo3d5beecg1tuom3di7rtlv2b`(`news_category_id`) USING BTREE,
   CONSTRAINT `FKeo3d5beecg1tuom3di7rtlv2b` FOREIGN KEY (`news_category_id`) REFERENCES `news_category` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of news
@@ -4141,7 +4154,7 @@ CREATE TABLE `news_category`  (
   `db_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of news_category
@@ -4162,6 +4175,7 @@ CREATE TABLE `oder`  (
   `db_status` int(11) NOT NULL COMMENT '0-未支付 1-已支付 2-已取消',
   `account_id` bigint(20) NOT NULL,
   `cinema_hall_session_id` bigint(20) NOT NULL,
+  `email` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '订单通知邮箱',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `UK_cnu3vqqup53vhukxwq1gmeaes`(`sn`) USING BTREE,
   INDEX `FK4nx0uodwjhqllqmakjojxhh5h`(`account_id`) USING BTREE,
@@ -4173,7 +4187,9 @@ CREATE TABLE `oder`  (
 -- ----------------------------
 -- Records of oder
 -- ----------------------------
-INSERT INTO `oder` VALUES (111619966191064, '2021-05-02 22:36:31', '2021-05-02 22:36:31', 999.00, 1, 888.00, NULL, 0, 1, 1);
+INSERT INTO `oder` VALUES (121620651286139, '2021-05-10 20:54:46', '2021-05-10 20:54:46', 46.00, 1, 80.00, NULL, 0, 1, 2, '12345678@163.com');
+INSERT INTO `oder` VALUES (151620651497171, '2021-05-10 20:58:17', '2021-05-10 20:58:17', 74.00, 1, 160.00, NULL, 1, 1, 5, '12345678@163.com');
+INSERT INTO `oder` VALUES (181620651043827, '2021-05-10 20:50:44', '2021-05-10 20:50:44', 74.00, 1, 160.00, NULL, 2, 1, 8, '12345678@163.com');
 
 -- ----------------------------
 -- Table structure for operator_log
@@ -4186,7 +4202,7 @@ CREATE TABLE `operator_log`  (
   `content` varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `operator` varchar(18) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of operator_log
@@ -4204,7 +4220,7 @@ CREATE TABLE `order_auth`  (
   `order_sn` varchar(18) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `phone` varchar(12) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of order_auth
@@ -4226,13 +4242,16 @@ CREATE TABLE `order_item`  (
   INDEX `FKnptvb10fv8g48jsej6qj0d4aw`(`order_id`) USING BTREE,
   CONSTRAINT `FK4v4n8mbmsr8kjhp6opof81sqy` FOREIGN KEY (`cinema_hall_seat_id`) REFERENCES `cinema_hall_seat` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `order_item_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `oder` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of order_item
 -- ----------------------------
-INSERT INTO `order_item` VALUES (1, '2021-05-02 22:36:31', '2021-05-02 22:36:31', 48.00, 1, 111619966191064);
-INSERT INTO `order_item` VALUES (2, '2021-05-02 22:36:31', '2021-05-02 22:36:31', 48.00, 2, 111619966191064);
+INSERT INTO `order_item` VALUES (1, '2021-05-10 20:50:44', '2021-05-10 20:50:44', 37.00, 1, 181620651043827);
+INSERT INTO `order_item` VALUES (2, '2021-05-10 20:50:44', '2021-05-10 20:50:44', 37.00, 2, 181620651043827);
+INSERT INTO `order_item` VALUES (3, '2021-05-10 20:54:46', '2021-05-10 20:54:46', 46.00, 3, 121620651286139);
+INSERT INTO `order_item` VALUES (4, '2021-05-10 20:58:17', '2021-05-10 20:58:17', 37.00, 4, 151620651497171);
+INSERT INTO `order_item` VALUES (5, '2021-05-10 20:58:17', '2021-05-10 20:58:17', 37.00, 5, 151620651497171);
 
 -- ----------------------------
 -- Table structure for pay_log
@@ -4251,7 +4270,7 @@ CREATE TABLE `pay_log`  (
   UNIQUE INDEX `UK_akwat47xp16622s7uwb44lnfv`(`sn`) USING BTREE,
   INDEX `FK2op86eg6t9v1j7imlk7c1vcur`(`account_id`) USING BTREE,
   CONSTRAINT `FK2op86eg6t9v1j7imlk7c1vcur` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of pay_log
@@ -4269,7 +4288,7 @@ CREATE TABLE `role`  (
   `remark` varchar(128) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `stats` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of role
@@ -4312,7 +4331,7 @@ CREATE TABLE `user`  (
   UNIQUE INDEX `UK_btsosjytrl4hu7fnm1intcpo8`(`username`) USING BTREE,
   INDEX `FKg09b8o67eu61st68rv6nk8npj`(`role_id`) USING BTREE,
   CONSTRAINT `FKg09b8o67eu61st68rv6nk8npj` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user
