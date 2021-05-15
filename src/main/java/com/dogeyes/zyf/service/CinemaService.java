@@ -50,4 +50,11 @@ public interface CinemaService {
      * @return 电影列表
      */
     PageInfo<List<Cinema>> list(PageParamResource page, String dbName, Long areaId);
+
+    /**
+     * 更新影院信息
+     * @param cinema 影院
+     * @return 更新是否成功
+     */
+    int update(Cinema cinema);
 }

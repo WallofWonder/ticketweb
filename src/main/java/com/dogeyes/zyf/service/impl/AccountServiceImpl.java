@@ -4,8 +4,11 @@ import com.dogeyes.zyf.mapper.AccountMapper;
 import com.dogeyes.zyf.pojo.Account;
 import com.dogeyes.zyf.pojo.AccountExample;
 import com.dogeyes.zyf.resource.account.AccountSignupResource;
+import com.dogeyes.zyf.resource.common.PageParamResource;
 import com.dogeyes.zyf.service.AccountService;
+import com.dogeyes.zyf.util.PageSortHelper;
 import com.dogeyes.zyf.util.PropertyMapperUtil;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -83,8 +86,18 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Account update(Account account) {
+        account.setUpdateTime(new Date());
         int i = accountMapper.updateByPrimaryKeySelective(account);
         if (i == 0) return null;
         return accountMapper.selectByPrimaryKey(account.getId());
+    }
+
+    @Override
+    public PageInfo<Account> listAll(PageParamResource page) {
+        AccountExample example = new AccountExample();
+        PageSortHelper.pageAndSort(page, Account.class);
+        List<Account> accounts = accountMapper.selectByExample(example);
+
+        return new PageInfo<>(accounts);
     }
 }

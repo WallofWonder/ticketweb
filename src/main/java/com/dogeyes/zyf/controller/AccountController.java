@@ -8,6 +8,7 @@ import com.dogeyes.zyf.pojo.Account;
 import com.dogeyes.zyf.resource.account.AccountInfoResp;
 import com.dogeyes.zyf.resource.account.AccountLoginReq;
 import com.dogeyes.zyf.resource.account.AccountSignupResource;
+import com.dogeyes.zyf.resource.common.PageParamResource;
 import com.dogeyes.zyf.service.AccountService;
 import com.dogeyes.zyf.service.MailService;
 import com.dogeyes.zyf.util.AjaxResponse;
@@ -114,5 +115,11 @@ public class AccountController {
     public @ResponseBody
     Object sendValidCode(String email) {
         return AjaxResponse.success(mailService.sendValidCode(email));
+    }
+
+    @PassToken
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public @ResponseBody Object listAll(@Valid PageParamResource page) {
+        return accountService.listAll(page);
     }
 }

@@ -63,4 +63,11 @@ public class CinemaController {
         return cinemaService.list(page, dbName, areaId);
     }
 
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public @ResponseBody
+    Object update(@RequestBody Cinema cinema) {
+        System.out.println("?");
+        return cinemaService.update(cinema);
+    }
+
 }

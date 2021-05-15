@@ -2,6 +2,8 @@ package com.dogeyes.zyf.service;
 
 import com.dogeyes.zyf.pojo.Account;
 import com.dogeyes.zyf.resource.account.AccountSignupResource;
+import com.dogeyes.zyf.resource.common.PageParamResource;
+import com.github.pagehelper.PageInfo;
 
 import java.util.List;
 
@@ -51,4 +53,11 @@ public interface AccountService {
      * @return 更新后的账户信息
      */
     Account update(Account account);
+
+    /**
+     * 账户列表
+     * @param page 分页参数
+     * @return 账户列表
+     */
+    PageInfo<Account> listAll(PageParamResource page);
 }

@@ -121,4 +121,10 @@ public class CinemaServiceImpl implements CinemaService {
         List<Cinema> cinemas = cinemaMapper.selectByExample(example);
         return new PageInfo(cinemas);
     }
+
+    @Override
+    public int update(Cinema cinema) {
+        cinema.setUpdateTime(new Date());
+        return cinemaMapper.updateByPrimaryKeySelective(cinema);
+    }
 }
