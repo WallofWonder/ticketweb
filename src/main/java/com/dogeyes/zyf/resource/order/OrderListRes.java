@@ -21,6 +21,8 @@ public class OrderListRes {
 
     private String startTime;
 
+    private String endTime;
+
     private String cinemaHallName;
 
     private String cinemaName;

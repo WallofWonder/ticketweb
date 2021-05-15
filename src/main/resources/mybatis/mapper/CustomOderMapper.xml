@@ -7,6 +7,7 @@
         <result column="new_money" jdbcType="DECIMAL" property="newMoney" />
         <result column="show_date" jdbcType="VARCHAR" property="showDate"/>
         <result column="start_time" jdbcType="VARCHAR" property="startTime"/>
+        <result column="end_time" jdbcType="VARCHAR" property="endTime"/>
         <result column="cinema_name" jdbcType="VARCHAR" property="cinemaName" />
         <result column="cinema_hall_name" jdbcType="VARCHAR" property="cinemaHallName" />
         <result column="movie_name" jdbcType="VARCHAR" property="movieName"/>
@@ -19,6 +20,7 @@
                         oder.db_status,
                         cinema_hall_session.show_date,
                         cinema_hall_session.start_time,
+                        cinema_hall_session.end_time,
                         movie.db_name as movie_name,
                         cinema_hall.db_name as cinema_hall_name,
                         cinema.db_name      as cinema_name
