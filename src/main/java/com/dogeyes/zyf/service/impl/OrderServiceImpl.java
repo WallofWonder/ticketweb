@@ -5,14 +5,13 @@ import com.dogeyes.zyf.mapper.CustomOderMapper;
 import com.dogeyes.zyf.mapper.OderMapper;
 import com.dogeyes.zyf.mapper.OrderItemMapper;
 import com.dogeyes.zyf.pojo.*;
+import com.dogeyes.zyf.resource.common.PageParamResource;
 import com.dogeyes.zyf.resource.order.OrderListRes;
 import com.dogeyes.zyf.resource.order.OrderReq;
 import com.dogeyes.zyf.resource.order.SessionSeatReq;
 import com.dogeyes.zyf.service.OrderService;
-import com.dogeyes.zyf.util.OrderStatus;
-import com.dogeyes.zyf.util.OrderUtil;
-import com.dogeyes.zyf.util.PropertyMapperUtil;
-import com.dogeyes.zyf.util.SeatStatus;
+import com.dogeyes.zyf.util.*;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -127,6 +126,20 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<OrderListRes> listOrder(long accountId) {
         return customOderMapper.listOrderById(accountId);
+    }
+
+    @Override
+    public PageInfo<List<OrderListRes>> listOrder(PageParamResource page, long accountId) {
+        if (accountId != -1) {
+            PageSortHelper.pageAndSort(page, OrderListRes.class);
+            List<OrderListRes> orderListRes = customOderMapper.listOrderById(accountId);
+            return new PageInfo(orderListRes);
+        }
+        else {
+            PageSortHelper.pageAndSort(page, OrderListRes.class);
+            List<OrderListRes> orderListRes = customOderMapper.listOrder();
+            return new PageInfo(orderListRes);
+        }
     }
 
     /**

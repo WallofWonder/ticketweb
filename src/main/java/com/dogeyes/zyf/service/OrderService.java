@@ -1,9 +1,11 @@
 package com.dogeyes.zyf.service;
 
 import com.dogeyes.zyf.pojo.Oder;
+import com.dogeyes.zyf.resource.common.PageParamResource;
 import com.dogeyes.zyf.resource.order.OrderListRes;
 import com.dogeyes.zyf.resource.order.OrderReq;
 import com.dogeyes.zyf.util.OrderStatus;
+import com.github.pagehelper.PageInfo;
 
 import java.util.List;
 
@@ -46,4 +48,12 @@ public interface OrderService {
      * @return 订单列表
      */
     List<OrderListRes> listOrder(long accountId);
+
+    /**
+     * 获取所有订单记录
+     * @param page 分页参数
+     * @param accountId
+     * @return 订单列表
+     */
+    PageInfo<List<OrderListRes>> listOrder(PageParamResource page, long accountId);
 }

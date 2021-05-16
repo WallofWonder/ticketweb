@@ -8,6 +8,7 @@ import com.dogeyes.zyf.jwt.PassToken;
 import com.dogeyes.zyf.pojo.Account;
 import com.dogeyes.zyf.pojo.Oder;
 import com.dogeyes.zyf.resource.alipay.AliRefundReq;
+import com.dogeyes.zyf.resource.common.PageParamResource;
 import com.dogeyes.zyf.resource.order.OrderListRes;
 import com.dogeyes.zyf.resource.order.OrderReq;
 import com.dogeyes.zyf.service.AlipayService;
@@ -16,9 +17,11 @@ import com.dogeyes.zyf.util.AjaxResponse;
 import com.dogeyes.zyf.util.CustomException;
 import com.dogeyes.zyf.util.CustomExceptionType;
 import com.dogeyes.zyf.util.OrderStatus;
+import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -75,6 +78,14 @@ public class OrderController {
     Object listOrders(long accountId) {
         List<OrderListRes> orderList = orderService.listOrder(accountId);
         return AjaxResponse.success(orderList);
+    }
+
+    @PassToken
+    @RequestMapping(value = "/admin/list", method = RequestMethod.GET)
+    @ResponseBody
+    Object listOrders(@Valid PageParamResource page, long accountId) {
+        PageInfo<List<OrderListRes>> listOrder = orderService.listOrder(page, accountId);
+        return AjaxResponse.success(listOrder);
     }
 
     @PassToken

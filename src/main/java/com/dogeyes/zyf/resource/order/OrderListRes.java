@@ -30,4 +30,8 @@ public class OrderListRes {
     private String movieName;
 
     private Integer dbStats;
+
+    private String nickName;
+
+    private String email;
 }

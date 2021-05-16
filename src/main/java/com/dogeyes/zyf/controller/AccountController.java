@@ -47,6 +47,9 @@ public class AccountController {
         List<Account> accounts = accountService.login(loginReq.getEmail(), loginReq.getPwd());
         if (accounts == null || accounts.isEmpty())
             throw new CustomException(CustomExceptionType.UNAUTHORIZED, "用户名或密码错误！");
+        if (accounts.get(0).getStats() == 1) {
+            throw new CustomException(CustomExceptionType.UNAUTHORIZED, "账户被冻结！");
+        }
         AccountInfoResp infoResp = new AccountInfoResp();
         infoResp.setAccount(accounts.get(0));
         infoResp.setToken(JwtUtil.getToken(infoResp.getAccount()));

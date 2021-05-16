@@ -10,4 +10,7 @@ import java.util.List;
  */
 public interface CustomOderMapper {
     List<OrderListRes> listOrderById(Long accountId);
+
+    List<OrderListRes> listOrder();
+
 }
