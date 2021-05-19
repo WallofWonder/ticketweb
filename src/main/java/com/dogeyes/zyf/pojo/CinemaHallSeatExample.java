@@ -584,6 +584,66 @@ public class CinemaHallSeatExample {
             addCriterion("hall_session_id not between", value1, value2, "hallSessionId");
             return (Criteria) this;
         }
+
+        public Criteria andOderIdIsNull() {
+            addCriterion("oder_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOderIdIsNotNull() {
+            addCriterion("oder_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOderIdEqualTo(Long value) {
+            addCriterion("oder_id =", value, "oderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOderIdNotEqualTo(Long value) {
+            addCriterion("oder_id <>", value, "oderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOderIdGreaterThan(Long value) {
+            addCriterion("oder_id >", value, "oderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOderIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("oder_id >=", value, "oderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOderIdLessThan(Long value) {
+            addCriterion("oder_id <", value, "oderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOderIdLessThanOrEqualTo(Long value) {
+            addCriterion("oder_id <=", value, "oderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOderIdIn(List<Long> values) {
+            addCriterion("oder_id in", values, "oderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOderIdNotIn(List<Long> values) {
+            addCriterion("oder_id not in", values, "oderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOderIdBetween(Long value1, Long value2) {
+            addCriterion("oder_id between", value1, value2, "oderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOderIdNotBetween(Long value1, Long value2) {
+            addCriterion("oder_id not between", value1, value2, "oderId");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

@@ -62,6 +62,7 @@ public class OrderServiceImpl implements OrderService {
             PropertyMapperUtil.map(s, seat);
             seat.setCreateTime(curDate);
             seat.setUpdateTime(curDate);
+            seat.setOderId(orderId);
             seat.setHallSessionId(orderReq.getCinemaHallSessionId());
             cinemaHallSeatMapper.insertSelective(seat);
 
@@ -140,6 +141,11 @@ public class OrderServiceImpl implements OrderService {
             List<OrderListRes> orderListRes = customOderMapper.listOrder();
             return new PageInfo(orderListRes);
         }
+    }
+
+    @Override
+    public int delete(long orderId) {
+        return oderMapper.deleteByPrimaryKey(orderId);
     }
 
     /**

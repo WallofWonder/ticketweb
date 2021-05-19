@@ -26,7 +26,7 @@ public interface OrderService {
     /**
      * 获取订单信息
      *
-     * @param orderId 订单id
+     * @param orderId   订单id
      * @param accountId 账号id
      * @return 订单信息
      */
@@ -36,7 +36,7 @@ public interface OrderService {
      * 切换订单状态
      *
      * @param orderId 订单号
-     * @param status 状态
+     * @param status  状态
      * @return 成功或者失败
      */
     int check(long orderId, OrderStatus status);
@@ -51,9 +51,18 @@ public interface OrderService {
 
     /**
      * 获取所有订单记录
-     * @param page 分页参数
+     *
+     * @param page      分页参数
      * @param accountId
      * @return 订单列表
      */
     PageInfo<List<OrderListRes>> listOrder(PageParamResource page, long accountId);
+
+    /**
+     * 删除订单
+     *
+     * @param orderId 订单id
+     * @return 删除行数
+     */
+    int delete(long orderId);
 }

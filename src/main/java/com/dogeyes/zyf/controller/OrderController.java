@@ -111,4 +111,13 @@ public class OrderController {
         if (check != 0) return AjaxResponse.success("取消成功！");
         return AjaxResponse.error(new CustomException(CustomExceptionType.SYSTEM_ERROR));
     }
+
+    @PassToken
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+    @ResponseBody
+    Object delete(long orderId) {
+        int ok = orderService.delete(orderId);
+        if (ok == 0) return AjaxResponse.error(CustomExceptionType.NOT_FOUND,"未找到订单信息");
+        return AjaxResponse.success();
+    }
 }

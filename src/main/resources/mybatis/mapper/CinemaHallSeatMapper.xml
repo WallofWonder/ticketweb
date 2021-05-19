@@ -10,6 +10,7 @@
     <result column="x" jdbcType="INTEGER" property="x" />
     <result column="y" jdbcType="INTEGER" property="y" />
     <result column="hall_session_id" jdbcType="BIGINT" property="hallSessionId" />
+    <result column="oder_id" jdbcType="BIGINT" property="oderId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -70,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, create_time, update_time, stats, tpe, x, y, hall_session_id
+    id, create_time, update_time, stats, tpe, x, y, hall_session_id, oder_id
   </sql>
   <select id="selectByExample" parameterType="com.dogeyes.zyf.pojo.CinemaHallSeatExample" resultMap="BaseResultMap">
     select
@@ -105,11 +106,11 @@
   </delete>
   <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.CinemaHallSeat" useGeneratedKeys="true">
     insert into cinema_hall_seat (create_time, update_time, stats, 
-      tpe, x, y, hall_session_id
-      )
+      tpe, x, y, hall_session_id, 
+      oder_id)
     values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{stats,jdbcType=INTEGER}, 
-      #{tpe,jdbcType=INTEGER}, #{x,jdbcType=INTEGER}, #{y,jdbcType=INTEGER}, #{hallSessionId,jdbcType=BIGINT}
-      )
+      #{tpe,jdbcType=INTEGER}, #{x,jdbcType=INTEGER}, #{y,jdbcType=INTEGER}, #{hallSessionId,jdbcType=BIGINT}, 
+      #{oderId,jdbcType=BIGINT})
   </insert>
   <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.dogeyes.zyf.pojo.CinemaHallSeat" useGeneratedKeys="true">
     insert into cinema_hall_seat
@@ -135,6 +136,9 @@
       <if test="hallSessionId != null">
         hall_session_id,
       </if>
+      <if test="oderId != null">
+        oder_id,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="createTime != null">
@@ -157,6 +161,9 @@
       </if>
       <if test="hallSessionId != null">
         #{hallSessionId,jdbcType=BIGINT},
+      </if>
+      <if test="oderId != null">
+        #{oderId,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -193,6 +200,9 @@
       <if test="record.hallSessionId != null">
         hall_session_id = #{record.hallSessionId,jdbcType=BIGINT},
       </if>
+      <if test="record.oderId != null">
+        oder_id = #{record.oderId,jdbcType=BIGINT},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -207,7 +217,8 @@
       tpe = #{record.tpe,jdbcType=INTEGER},
       x = #{record.x,jdbcType=INTEGER},
       y = #{record.y,jdbcType=INTEGER},
-      hall_session_id = #{record.hallSessionId,jdbcType=BIGINT}
+      hall_session_id = #{record.hallSessionId,jdbcType=BIGINT},
+      oder_id = #{record.oderId,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -236,6 +247,9 @@
       <if test="hallSessionId != null">
         hall_session_id = #{hallSessionId,jdbcType=BIGINT},
       </if>
+      <if test="oderId != null">
+        oder_id = #{oderId,jdbcType=BIGINT},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -247,7 +261,8 @@
       tpe = #{tpe,jdbcType=INTEGER},
       x = #{x,jdbcType=INTEGER},
       y = #{y,jdbcType=INTEGER},
-      hall_session_id = #{hallSessionId,jdbcType=BIGINT}
+      hall_session_id = #{hallSessionId,jdbcType=BIGINT},
+      oder_id = #{oderId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>
