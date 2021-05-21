@@ -2,15 +2,15 @@ package com.dogeyes.zyf.service.impl;
 
 import com.dogeyes.zyf.mapper.CinemaHallSessionMapper;
 import com.dogeyes.zyf.mapper.CustomCinemaHallSessionMapper;
-import com.dogeyes.zyf.pojo.CinemaHallSession;
-import com.dogeyes.zyf.pojo.CinemaHallSessionExample;
 import com.dogeyes.zyf.resource.hallsession.HallSessionReqResource;
 import com.dogeyes.zyf.resource.hallsession.HallSessionResResource;
 import com.dogeyes.zyf.service.CinemaHallSessionService;
+import com.dogeyes.zyf.util.DateTimeUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,13 +28,39 @@ public class CinemaHallSessionServiceImpl implements CinemaHallSessionService {
 
     @Override
     public List<HallSessionResResource> listShowBy(HallSessionReqResource resource) {
-
-        return customHallSessionMapper.listShowBy(resource);
+        List<HallSessionResResource> res = new ArrayList<>();
+        String curDate = DateTimeUtil.getCurDateTime("M月d日");
+        String curTime = DateTimeUtil.getCurDateTime("HH:mm");
+        List<HallSessionResResource> resAll = customHallSessionMapper.listShowBy(resource);
+        if (!resAll.isEmpty()) {
+            int startIndex = 0;
+            if (resource.getShowdate().equals(curDate)) {
+                for (int i = 0; i < resAll.size(); i++) {
+                    if (resAll.get(i).getStartTime().compareTo(curTime) >= 0) {
+                        startIndex = i;
+                        break;
+                    }
+                }
+            }
+            res = resAll.subList(startIndex, resAll.size());
+        }
+        return res;
     }
 
     @Override
     public List<String> getShowDates(long movieid) {
-        return customHallSessionMapper.getShowDates(movieid);
+        String curDate = DateTimeUtil.getCurDateTime("M月d日");
+        List<String> res;
+        List<String> resAll = customHallSessionMapper.getShowDates(movieid);
+        int startIndex = 0;
+        for (int i = 0; i < resAll.size(); i++) {
+            if (resAll.get(i).compareTo(curDate) >= 0) {
+                startIndex = i;
+                break;
+            }
+        }
+        res = resAll.subList(startIndex, resAll.size());
+        return res;
     }
 
     @Override

@@ -71,7 +71,8 @@
   <select id="getShowDates" resultType="java.lang.String">
    SELECT DISTINCT cinema_hall_session.show_date
      FROM cinema_hall_session
-     WHERE cinema_hall_session.movie_id = #{movieid};
+     WHERE cinema_hall_session.movie_id = #{movieid}
+    ORDER BY cinema_hall_session.show_date ASC;
   </select>
   <select id="selectByPrimaryKey" resultType="com.dogeyes.zyf.resource.hallsession.HallSessionResResource" resultMap="CustomResultMap">
     SELECT
