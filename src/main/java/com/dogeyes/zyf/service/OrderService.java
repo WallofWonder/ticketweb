@@ -65,4 +65,13 @@ public interface OrderService {
      * @return 删除行数
      */
     int delete(long orderId);
+
+    /**
+     * 获取排片场次下订单记录（不含已取消订单）
+     *
+     * @param page 分页参数
+     * @param sessionId 排片场次
+     * @return 订单列表
+     */
+    PageInfo<List<OrderListRes>> listOrderBySes(PageParamResource page, long sessionId);
 }

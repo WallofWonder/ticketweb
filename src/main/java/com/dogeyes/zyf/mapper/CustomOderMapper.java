@@ -13,4 +13,6 @@ public interface CustomOderMapper {
 
     List<OrderListRes> listOrder();
 
+    List<OrderListRes> listOrderBySession(Long sessionId);
+
 }

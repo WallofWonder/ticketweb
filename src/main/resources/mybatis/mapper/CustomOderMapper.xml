@@ -68,4 +68,32 @@
           AND cinema_hall.id = cinema_hall_session.cinema_hall_id
         ORDER BY UNIX_TIMESTAMP(oder.create_time) DESC;
     </select>
+    <select id="listOrderBySession" resultType="com.dogeyes.zyf.resource.order.OrderListRes" resultMap="CustomResultMap">
+        SELECT DISTINCT oder.id,
+                        oder.create_time,
+                        oder.new_money,
+                        oder.db_status,
+                        cinema_hall_session.show_date,
+                        cinema_hall_session.start_time,
+                        cinema_hall_session.end_time,
+                        movie.db_name       as movie_name,
+                        cinema_hall.db_name as cinema_hall_name,
+                        cinema.db_name      as cinema_name,
+                        account.nickname,
+                        account.email
+        FROM oder,
+             cinema_hall,
+             cinema,
+             cinema_hall_session,
+             movie,
+             account
+        WHERE oder.account_id = account.id
+          AND oder.cinema_hall_session_id = #{sessionId}
+          AND oder.cinema_hall_session_id = cinema_hall_session.id
+          AND oder.db_status != 2
+          AND cinema_hall_session.movie_id = movie.id
+          AND cinema_hall_session.cinema_id = cinema.id
+          AND cinema_hall.id = cinema_hall_session.cinema_hall_id
+        ORDER BY UNIX_TIMESTAMP(oder.create_time) DESC;
+    </select>
 </mapper>

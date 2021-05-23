@@ -81,6 +81,14 @@ public class OrderController {
     }
 
     @PassToken
+    @RequestMapping(value = "/admin/listBySession", method = RequestMethod.GET)
+    @ResponseBody
+    Object listOrdersBySession(@Valid PageParamResource page,long sessionId) {
+        PageInfo<List<OrderListRes>> orderList = orderService.listOrderBySes(page, sessionId);
+        return AjaxResponse.success(orderList);
+    }
+
+    @PassToken
     @RequestMapping(value = "/admin/list", method = RequestMethod.GET)
     @ResponseBody
     Object listOrders(@Valid PageParamResource page, long accountId) {

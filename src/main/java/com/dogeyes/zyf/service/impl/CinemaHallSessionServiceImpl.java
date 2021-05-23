@@ -38,7 +38,7 @@ public class CinemaHallSessionServiceImpl implements CinemaHallSessionService {
         String curTime = DateTimeUtil.getCurDateTime("HH:mm");
         List<HallSessionResResource> resAll = customHallSessionMapper.listShowBy(resource);
         if (!resAll.isEmpty()) {
-            int startIndex = resAll.size();
+            int startIndex = 0;
             if (resource.getShowdate().equals(curDate)) {
                 for (int i = 0; i < resAll.size(); i++) {
                     if (resAll.get(i).getStartTime().compareTo(curTime) >= 0) {

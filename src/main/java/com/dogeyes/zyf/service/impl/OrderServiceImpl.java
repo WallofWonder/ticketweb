@@ -148,6 +148,13 @@ public class OrderServiceImpl implements OrderService {
         return oderMapper.deleteByPrimaryKey(orderId);
     }
 
+    @Override
+    public PageInfo<List<OrderListRes>> listOrderBySes(PageParamResource page, long sessionId) {
+        PageSortHelper.pageAndSort(page, OrderListRes.class);
+        List<OrderListRes> orderListRes = customOderMapper.listOrderBySession(sessionId);
+        return new PageInfo(orderListRes);
+    }
+
     /**
      * 判断该账户是否在该场次买过票（排除已取消订单）
      *
