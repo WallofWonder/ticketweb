@@ -2,10 +2,15 @@ package com.dogeyes.zyf.service.impl;
 
 import com.dogeyes.zyf.mapper.CinemaHallSessionMapper;
 import com.dogeyes.zyf.mapper.CustomCinemaHallSessionMapper;
+import com.dogeyes.zyf.resource.common.PageParamResource;
+import com.dogeyes.zyf.resource.hallsession.HallSessionReqAdmin;
 import com.dogeyes.zyf.resource.hallsession.HallSessionReqResource;
+import com.dogeyes.zyf.resource.hallsession.HallSessionResAdmin;
 import com.dogeyes.zyf.resource.hallsession.HallSessionResResource;
 import com.dogeyes.zyf.service.CinemaHallSessionService;
 import com.dogeyes.zyf.util.DateTimeUtil;
+import com.dogeyes.zyf.util.PageSortHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -48,6 +53,13 @@ public class CinemaHallSessionServiceImpl implements CinemaHallSessionService {
     }
 
     @Override
+    public PageInfo<List<HallSessionResResource>> listShowAdminBy(HallSessionReqAdmin resource, PageParamResource page) {
+        PageSortHelper.pageAndSort(page, HallSessionResResource.class);
+        List<HallSessionResAdmin> list = customHallSessionMapper.listShowAdmin(resource);
+        return new PageInfo(list);
+    }
+
+    @Override
     public List<String> getShowDates(long movieid) {
         String curDate = DateTimeUtil.getCurDateTime("M月d日");
         List<String> res;
@@ -66,5 +78,10 @@ public class CinemaHallSessionServiceImpl implements CinemaHallSessionService {
     @Override
     public HallSessionResResource getById(long id) {
         return customHallSessionMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public List<String> getShowDatesAdmin(long cinemaid) {
+        return customHallSessionMapper.getShowDatesAdmin(cinemaid);
     }
 }

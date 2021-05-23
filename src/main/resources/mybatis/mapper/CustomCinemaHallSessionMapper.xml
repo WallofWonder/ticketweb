@@ -34,6 +34,27 @@
     <result column="max_x" jdbcType="INTEGER" property="maxX" />
     <result column="max_y" jdbcType="INTEGER" property="maxY" />
   </resultMap>
+  <resultMap id="CustomResultMapAdmin" type="com.dogeyes.zyf.resource.hallsession.HallSessionResAdmin">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="show_date" jdbcType="VARCHAR" property="showDate" />
+    <result column="show_time" jdbcType="VARCHAR" property="showTime" />
+    <result column="cinema_id" jdbcType="BIGINT" property="cinemaId" />
+    <result column="cinema_hall_id" jdbcType="BIGINT" property="cinemaHallId" />
+    <result column="movie_id" jdbcType="BIGINT" property="movieId" />
+    <result column="cinema_session_type" jdbcType="INTEGER" property="cinemaSessionType" />
+    <result column="end_time" jdbcType="VARCHAR" property="endTime" />
+    <result column="new_price" jdbcType="DECIMAL" property="newPrice" />
+    <result column="old_price" jdbcType="DECIMAL" property="oldPrice" />
+    <result column="start_time" jdbcType="VARCHAR" property="startTime" />
+    <result column="cinema_hall_name" jdbcType="VARCHAR" property="cinemaHallName" />
+    <result column="lange" jdbcType="VARCHAR" property="lange" />
+    <result column="movie_name" jdbcType="VARCHAR" property="movieName" />
+    <result column="max_x" jdbcType="INTEGER" property="maxX" />
+    <result column="max_y" jdbcType="INTEGER" property="maxY" />
+  </resultMap>
+
   <sql id="Base_Column_List">
     cinema_hall_session.id,
 	cinema_hall_session.create_time,
@@ -68,10 +89,46 @@
     cinema_hall_session.cinema_hall_id = cinema_hall.id
     ORDER BY cinema_hall_session.start_time ASC;
   </select>
+  <select id="listShowAdmin" resultType="com.dogeyes.zyf.resource.hallsession.HallSessionResResource" resultMap="CustomResultMapAdmin">
+    SELECT DISTINCT
+    <include refid="Base_Column_List"/>
+    , cinema_hall.db_name AS cinema_hall_name
+    , cinema_hall.max_x AS max_x
+    , cinema_hall.max_y AS max_y
+    , movie.lange AS lange
+    , movie.db_name AS movie_name
+    FROM
+    cinema_hall_session,
+    cinema_hall,
+    movie
+    WHERE
+    cinema_hall_session.cinema_id = #{cinemaid} AND
+    <if test="movieid != 0">
+      movie.id = #{movieid} AND
+    </if>
+    <if test="movieid != 0">
+      cinema_hall_session.movie_id = #{movieid} AND
+    </if>
+    <if test="showdate != null">
+      cinema_hall_session.show_date = #{showdate} AND
+    </if>
+    <if test="hallid != 0">
+      cinema_hall.id = #{hallid} AND
+    </if>
+    cinema_hall_session.movie_id = movie.id AND
+    cinema_hall_session.cinema_hall_id = cinema_hall.id
+    ORDER BY cinema_hall_session.start_time ASC;
+  </select>
   <select id="getShowDates" resultType="java.lang.String">
    SELECT DISTINCT cinema_hall_session.show_date
      FROM cinema_hall_session
      WHERE cinema_hall_session.movie_id = #{movieid}
+    ORDER BY cinema_hall_session.show_date ASC;
+  </select>
+  <select id="getShowDatesAdmin" resultType="java.lang.String">
+    SELECT DISTINCT cinema_hall_session.show_date
+    FROM cinema_hall_session
+    WHERE cinema_hall_session.cinema_id = #{cinemaid}
     ORDER BY cinema_hall_session.show_date ASC;
   </select>
   <select id="selectByPrimaryKey" resultType="com.dogeyes.zyf.resource.hallsession.HallSessionResResource" resultMap="CustomResultMap">

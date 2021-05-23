@@ -1,10 +1,10 @@
 package com.dogeyes.zyf.mapper;
 
-import com.dogeyes.zyf.pojo.CinemaHallSession;
+import com.dogeyes.zyf.resource.hallsession.HallSessionReqAdmin;
 import com.dogeyes.zyf.resource.hallsession.HallSessionReqResource;
+import com.dogeyes.zyf.resource.hallsession.HallSessionResAdmin;
 import com.dogeyes.zyf.resource.hallsession.HallSessionResResource;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -15,7 +15,11 @@ public interface CustomCinemaHallSessionMapper {
 
     List<HallSessionResResource> listShowBy(HallSessionReqResource resource);
 
+    List<HallSessionResAdmin> listShowAdmin(HallSessionReqAdmin resource);
+
     List<String> getShowDates(long movieid);
+
+    List<String> getShowDatesAdmin(long cinemaid);
 
     HallSessionResResource selectByPrimaryKey(long id);
 }
