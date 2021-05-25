@@ -7,6 +7,7 @@ import com.dogeyes.zyf.jwt.PassToken;
 import com.dogeyes.zyf.pojo.Account;
 import com.dogeyes.zyf.resource.account.AccountInfoResp;
 import com.dogeyes.zyf.resource.account.AccountLoginReq;
+import com.dogeyes.zyf.resource.account.AccountModiPwdReq;
 import com.dogeyes.zyf.resource.account.AccountSignupResource;
 import com.dogeyes.zyf.resource.common.PageParamResource;
 import com.dogeyes.zyf.service.AccountService;
@@ -114,9 +115,11 @@ public class AccountController {
     }
 
     @PassToken
-    @RequestMapping(value = "/sendValidCode", method = RequestMethod.POST)
+    @RequestMapping(value = "/sendForgetCode", method = RequestMethod.POST)
     public @ResponseBody
-    Object sendValidCode(String email) {
+    Object sendForgetCode(String email) {
+        if (!accountService.existsEmail(email))
+            throw new CustomException(CustomExceptionType.USER_INPUT_ERROR, "该邮箱未注册");
         return AjaxResponse.success(mailService.sendValidCode(email));
     }
 
@@ -124,5 +127,39 @@ public class AccountController {
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public @ResponseBody Object listAll(@Valid PageParamResource page) {
         return accountService.listAll(page);
+    }
+
+    @AccountLoginToken
+    @RequestMapping(value = "/modiPwd", method = RequestMethod.POST)
+    public @ResponseBody
+    Object modiPwd(@RequestBody AccountModiPwdReq req, @CurrentAccount Account account) {
+        if (!account.getPwd().equals(req.getOldPwd())) {
+            return AjaxResponse.error(CustomExceptionType.USER_INPUT_ERROR,"原密码错误");
+        }
+        if (req.getOldPwd().equals(req.getNewPwd())) {
+            return AjaxResponse.error(CustomExceptionType.USER_INPUT_ERROR,"新密码不能和旧密码一致");
+        }
+        String oldPwd = account.getPwd();
+        account.setPwd(req.getNewPwd());
+        int result = accountService.updatePwd(account);
+        if (result == 0) {
+            account.setPwd(oldPwd);
+            return AjaxResponse.error(CustomExceptionType.NOT_FOUND,"未找到该用户");
+        }
+        return AjaxResponse.success(JwtUtil.getToken(account),"密码修改成功");
+    }
+
+    @PassToken
+    @RequestMapping(value = "/forgetPwd", method = RequestMethod.POST)
+    public @ResponseBody
+    Object forgetPwd(String email, String newPwd) {
+        int result = accountService.forgetPwd(email, newPwd);
+        if (result == -1) {
+            return AjaxResponse.error(CustomExceptionType.NOT_FOUND, "该邮箱未注册");
+        }
+        if (result == 0) {
+            return AjaxResponse.error(CustomExceptionType.SYSTEM_ERROR, "密码修改失败");
+        }
+        return AjaxResponse.success(null, "密码修改成功");
     }
 }

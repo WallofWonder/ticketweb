@@ -60,4 +60,21 @@ public interface AccountService {
      * @return 账户列表
      */
     PageInfo<Account> listAll(PageParamResource page);
+
+    /**
+     * 修改密码
+     *
+     * @param account 账户
+     * @return 1-成功 0-失败
+     */
+    int updatePwd(Account account);
+
+    /**
+     * 忘记密码的修改
+     *
+     * @param email 邮箱
+     * @param newPwd 新密码
+     * @return -1-邮箱未注册 0-失败 1-成功
+     */
+    int forgetPwd(String email, String newPwd);
 }

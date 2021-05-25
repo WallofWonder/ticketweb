@@ -100,4 +100,23 @@ public class AccountServiceImpl implements AccountService {
 
         return new PageInfo<>(accounts);
     }
+
+    @Override
+    public int updatePwd(Account account) {
+        return accountMapper.updateByPrimaryKeySelective(account);
+    }
+
+    @Override
+    public int forgetPwd(String email, String newPwd) {
+        AccountExample example = new AccountExample();
+        AccountExample.Criteria criteria = example.createCriteria();
+        criteria.andEmailEqualTo(email);
+        List<Account> accounts = accountMapper.selectByExample(example);
+        if (accounts.isEmpty()) {
+            return -1;
+        }
+        Account account = accounts.get(0);
+        account.setPwd(newPwd);
+        return accountMapper.updateByPrimaryKeySelective(account);
+    }
 }
